@@ -69,6 +69,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show($"오류 발생: {ex.Message}");
             }
+            
         }
 
         private async Task<bool> CheckProductExists(int productNum)

@@ -63,9 +63,8 @@
             // 
             this.searchTextBox.Location = new System.Drawing.Point(167, 40);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(304, 25);
+            this.searchTextBox.Size = new System.Drawing.Size(246, 25);
             this.searchTextBox.TabIndex = 2;
-
             // 
             // comboBox1
             // 
@@ -74,15 +73,14 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 3;
-            
             // 
             // SearchRProductList
             // 
-            this.SearchRProductList.Location = new System.Drawing.Point(477, 36);
+            this.SearchRProductList.Location = new System.Drawing.Point(419, 36);
             this.SearchRProductList.Name = "SearchRProductList";
-            this.SearchRProductList.Size = new System.Drawing.Size(95, 27);
+            this.SearchRProductList.Size = new System.Drawing.Size(153, 27);
             this.SearchRProductList.TabIndex = 4;
-            this.SearchRProductList.Text = "검색";
+            this.SearchRProductList.Text = "검색 (새로고침)";
             this.SearchRProductList.UseVisualStyleBackColor = true;
             this.SearchRProductList.Click += new System.EventHandler(this.searchRProductNum_Click);
             // 
@@ -104,13 +102,12 @@
             this.label1.Size = new System.Drawing.Size(328, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "*[품목 추가]관리자 확인 후 품목이 추가됩니다.";
-
             // 
             // R_SelectProductNum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 451);
+            this.ClientSize = new System.Drawing.Size(717, 451);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddRProductList);
             this.Controls.Add(this.SearchRProductList);

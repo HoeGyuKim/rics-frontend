@@ -115,6 +115,12 @@
     <Compile Include="AddProductList.Designer.cs">
       <DependentUpon>AddProductList.cs</DependentUpon>
     </Compile>
+    <Compile Include="SelectMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectMember.Designer.cs">
+      <DependentUpon>SelectMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="R_SelectProductNum.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +151,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Select.cs">
+    <Compile Include="SelectRD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Select.Designer.cs">
-      <DependentUpon>Select.cs</DependentUpon>
+    <Compile Include="SelectRD.Designer.cs">
+      <DependentUpon>SelectRD.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,8 +180,11 @@
     <EmbeddedResource Include="Reconditioned.resx">
       <DependentUpon>Reconditioned.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Select.resx">
-      <DependentUpon>Select.cs</DependentUpon>
+    <EmbeddedResource Include="SelectMember.resx">
+      <DependentUpon>SelectMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectRD.resx">
+      <DependentUpon>SelectRD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

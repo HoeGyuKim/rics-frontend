@@ -10,19 +10,21 @@ namespace WindowsFormsApp1
 {
     public partial class Reconditioned : Form
     {
+        private int selectedReconditionedProductNum;
+        
         // HttpClient를 static으로 정의하여 재사용
         private static readonly HttpClient client = new HttpClient
         {
             BaseAddress = new Uri("http://localhost:8080/") // 스프링 부트 애플리케이션의 기본 주소
         };
-        private int productnum = 123;
-        public Reconditioned()
+
+        public Reconditioned(int selectedProductNum)
         {
             InitializeComponent();
-    
+            this.selectedReconditionedProductNum = selectedProductNum;
             this.Load += new System.EventHandler(this.Reconditioned_Load);
-
         }
+
 
         private async void Reconditioned_Load(object sender, EventArgs e)
         {
@@ -33,13 +35,15 @@ namespace WindowsFormsApp1
         {
             try
             {
-                string url = "api/reconditioned"; // 데이터 요청 URL
+                string url = $"http://localhost:8080/api/reconditioned/details?productNum={selectedReconditionedProductNum}";
                 HttpResponseMessage response = await client.GetAsync(url);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
-                
-                List<ReconditionedItem> items = JsonConvert.DeserializeObject<List<ReconditionedItem>>(responseBody);
 
+                // 디버깅: 서버 응답 내용 확인
+                Console.WriteLine("Server Response: " + responseBody);
+
+                List<ReconditionedItem> items = JsonConvert.DeserializeObject<List<ReconditionedItem>>(responseBody);
                 dataGridView1.DataSource = items;
             }
             catch (HttpRequestException ex)
@@ -52,31 +56,37 @@ namespace WindowsFormsApp1
             }
         }
 
+
         // ReconditionedItem 클래스는 별도의 파일에 정의하는 것이 좋습니다
         public class ReconditionedItem
         {
-            public long r_id { get; set; }
-            public DateTime r_date { get; set; }
-            public int r_productNum { get; set; }
-            public string r_productName { get; set; }
-            public string r_serialNum { get; set; }
-
-
-
-
+            public long id { get; set; }
+            public DateTime date { get; set; }
+            public int productNum { get; set; }
+            public string productName { get; set; }
+            public string serialNum { get; set; }
+            public string worker { get; set; }
+            public string manager { get; set; }
         }
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
-            ProductInfo productInfo = new ProductInfo(productnum);
-            productInfo.Show();
+
+            
+            var selectedRow = dataGridView1.Rows[0];
+            string productNum = selectedRow.Cells["productNum"].Value.ToString();
+            string productName = selectedRow.Cells["productName"].Value.ToString();
+            ProductInfo productInfo = new ProductInfo(productNum, productName);
+            productInfo.ShowDialog();
         }
+
+
         private async void button2_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 var selectedRow = dataGridView1.SelectedRows[0];
-                long id = Convert.ToInt64(selectedRow.Cells["r_id"].Value);
+                long id = Convert.ToInt64(selectedRow.Cells["id"].Value);
 
                 try
                 {
@@ -106,10 +116,7 @@ namespace WindowsFormsApp1
 
         private void InitializeDataGridView()
         {
-            // 기존 자동 생성 컬럼 제거
-            dataGridView1.AutoGenerateColumns = false;
-
-            // 컬럼 추가
+  
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "id",
@@ -118,58 +125,42 @@ namespace WindowsFormsApp1
             });
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "date",
+                DataPropertyName = "date", 
                 HeaderText = "완료일자",
                 Name = "date"
             });
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "product_num",
+                DataPropertyName = "productNum",
                 HeaderText = "자재번호",
                 Name = "productNum"
             });
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "product_name",
+                DataPropertyName = "productName",
                 HeaderText = "자재명",
-                Name = "product_name"
+                Name = "productName"
             });
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "serial_num",
+                DataPropertyName = "serialNum",
                 HeaderText = "시리얼 번호",
-                Name = "serial_num"
+                Name = "serialNum"
             });
-            
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "worker",
+                HeaderText = "점검자",
+                Name = "worker"
+            });
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "manager",
+                HeaderText = "관리자",
+                Name = "manager"
+            });
         }
-
-        private void R_Regener_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void PrevButton_Click(object sender, EventArgs e)
         {
             this.Close();
             R_SelectProductNum r_SelectProductNum = new R_SelectProductNum();

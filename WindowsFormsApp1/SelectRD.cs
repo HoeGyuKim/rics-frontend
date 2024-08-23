@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Select : Form
+    public partial class SelectRD : Form
     {
         public bool selectReconditioned = false;
-        public Select()
+        public SelectRD()
         {
             InitializeComponent();
         }

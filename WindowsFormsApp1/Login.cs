@@ -42,10 +42,10 @@ namespace WindowsFormsApp
             }
         }
         // 비동기 로그인 메서드입니다. 서버에 로그인 요청을 보냅니다.
-        private async Task<string> LoginAsync(string name, string password)
+        private async Task<string> LoginAsync(string name, string employeeNum)
         {
             // 로그인 정보를 JSON 객체로 만듭니다. 필드 이름은 서버의 필드 이름과 일치해야 합니다.
-            var user = new { name = name, password = password };
+            var user = new { name = name, employeeNum = employeeNum }; // 필드를 `password`에서 `EmployeeNum`으로 변경
             var json = JsonConvert.SerializeObject(user); // JSON 문자열로 직렬화합니다.
             var content = new StringContent(json, Encoding.UTF8, "application/json"); // HTTP 요청의 본문을 생성합니다.
 
@@ -78,10 +78,11 @@ namespace WindowsFormsApp
             }
         }
 
+
         // 다음 폼을 열고 현재 폼을 숨깁니다.
         private void open_NextForm()
         {
-            Select select = new Select(); // 새로운 폼을 생성합니다.
+            SelectRD select = new SelectRD(); // 새로운 폼을 생성합니다.
             select.Show(); // 새로운 폼을 표시합니다.
             this.Hide(); // 현재 폼을 숨깁니다.
         }

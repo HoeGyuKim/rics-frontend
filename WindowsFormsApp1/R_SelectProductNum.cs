@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
     public partial class R_SelectProductNum : Form
     {
         private static readonly HttpClient client = new HttpClient(); // HTTP 클라이언트 인스턴스
-
+        private int selectedProductNum;
 
         public R_SelectProductNum()
         {
@@ -54,6 +54,7 @@ namespace WindowsFormsApp1
                             // 디버깅 메시지 추가
                             Console.WriteLine($"ProductNumber: {product.productNum}, ProductName: {product.productName}");
                             dataGridView1.Rows.Add(product.productNum, product.productName);
+                            this.selectedProductNum = product.productNum;
                         }
                     }
                     else
@@ -125,13 +126,21 @@ namespace WindowsFormsApp1
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // 유효한 행 클릭인지 확인
+            if (e.RowIndex >= 0 &&( e.ColumnIndex == 0 | e.ColumnIndex == 1)) // 첫 번째 열을 클릭했을 때 (자재번호 열)
             {
-                Reconditioned reconditioned = new Reconditioned();
+                // 선택된 자재번호를 추출합니다.
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+                int productNum = Convert.ToInt32(selectedRow.Cells[0].Value); // 자재번호 열의 인덱스가 0이라 가정
+
+                // 선택한 자재번호를 저장합니다.
+                selectedProductNum = productNum;
+                // 새 폼을 열고 선택한 자재번호를 전달합니다.
+                Reconditioned reconditioned = new Reconditioned(selectedProductNum);
                 reconditioned.Show();
                 Hide();
             }
         }
+
 
         private void AddRProductList_Click(object sender, EventArgs e)
         {
