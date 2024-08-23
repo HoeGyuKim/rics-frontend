@@ -6,15 +6,21 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
 {
     public partial class ProductInfo : Form
     {
+        private string department;
         private string workerName;
         private string managerName;
+        private int workerId;
+        private int managerId;
         private string selectedFilePath1 = string.Empty;
         private string selectedFilePath2 = string.Empty;
+
+        private static readonly HttpClient httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:8080/") };
 
         public ProductInfo(string productNum, string productName)
         {
@@ -22,11 +28,12 @@ namespace WindowsFormsApp1
             productNumLabel.Text = productNum;
             productNameLabel.Text = productName;
 
-            openFileDialog1.Filter = "PDF Files|*.pdf"; // PDF 파일만 선택 가능하도록 설정
-            openFileDialog1.Title = "Select a PDF File"; // 다이얼로그 제목 설정
+            openFileDialog1.Filter = "PDF Files|*.pdf";
+            openFileDialog1.Title = "Select a PDF File";
+
+            progressBar.Visible = false; // ProgressBar 초기 상태 설정
         }
 
-        // 파일 첨부1 버튼 클릭 이벤트 핸들러
         private void fileUpLoadButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -36,7 +43,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        // 파일 첨부2 버튼 클릭 이벤트 핸들러
         private void fileUpLoadButton2_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -46,80 +52,116 @@ namespace WindowsFormsApp1
             }
         }
 
-        private async Task<string> UploadFileAsync(string url, string filePath)
+        private async Task<string> UploadFileAsync(string endpoint, string filePath, string fileParamName)
         {
-            using (var client = new HttpClient())
             using (var content = new MultipartFormDataContent())
             using (var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
             {
                 var fileName = Path.GetFileName(filePath);
                 var fileContent = new StreamContent(fileStream);
                 fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/pdf");
-                content.Add(fileContent, "file", fileName);
+                content.Add(fileContent, fileParamName, fileName);
 
-                HttpResponseMessage response = await client.PostAsync(url, content);
+                HttpResponseMessage response = await httpClient.PostAsync(endpoint, content);
                 if (response.IsSuccessStatusCode)
                 {
-                    return await response.Content.ReadAsStringAsync(); // 서버에서 반환된 파일 경로를 받아옵니다.
+                    string result = await response.Content.ReadAsStringAsync();
+                    return result; // 서버에서 반환된 파일 URL
                 }
                 else
                 {
-                    MessageBox.Show("파일 업로드에 실패했습니다: " + response.ReasonPhrase);
-                    return null;
+                    throw new Exception($"파일 업로드 실패: {response.ReasonPhrase}");
                 }
             }
         }
 
-        private async Task SaveProductDetailAsync(string apiUrl, string productNum, string serialNum, DateTime date, string fileUrl1, string fileUrl2)
+
+        private async Task SaveProductDetailAsync(string endpoint, string productNum, string serialNum, DateTime date, string fileUrl1, string fileUrl2, int workerId, int managerId)
         {
-            using (var client = new HttpClient())
+            var detailData = new
             {
-                // 필요한 데이터들을 익명 객체로 묶어서 JSON으로 변환합니다.
-                var detailData = new
-                {
-                    ProductNum = productNum,
-                    SerialNum = serialNum,
-                    Date = date.ToString("yyyy-MM-dd"),  // 날짜 형식을 문자열로 변환
-                    FileUrl1 = fileUrl1,
-                    FileUrl2 = fileUrl2,
-                };
+                rd = true, // 또는 false로 설정
+                date = date.ToString("yyyy-MM-dd"),
+                serialNum = serialNum,
+                fileUrl1 = fileUrl1,
+                fileUrl2 = fileUrl2,
+                productNum = int.Parse(productNum),
+                workerId = workerId,
+                managerId = managerId
+            };
 
-                // JSON 컨텐츠 생성
-                var jsonContent = new StringContent(JsonConvert.SerializeObject(detailData), Encoding.UTF8, "application/json");
+            var jsonContent = new StringContent(JsonConvert.SerializeObject(detailData), Encoding.UTF8, "application/json");
 
-                // POST 요청
-                HttpResponseMessage response = await client.PostAsync(apiUrl, jsonContent);
+            HttpResponseMessage response = await httpClient.PostAsync(endpoint, jsonContent);
 
-                // 응답 확인
-                if (!response.IsSuccessStatusCode)
-                {
-                    MessageBox.Show("저장 실패: " + response.ReasonPhrase);
-                }
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("데이터가 성공적으로 저장되었습니다.");
+            }
+            else
+            {
+                throw new Exception($"데이터 저장 실패: {response.ReasonPhrase}");
             }
         }
+
 
         private async void button3_Click(object sender, EventArgs e)
         {
-            // 서버의 파일 업로드 API 경로
-            string uploadUrl = "http://localhost:8080/api/upload";
-
-            // 첫 번째 파일 업로드
-            string uploadedFileUrl1 = null;
-            if (!string.IsNullOrEmpty(selectedFilePath1))
+            if (string.IsNullOrEmpty(serialNumTextBox.Text))
             {
-                uploadedFileUrl1 = await UploadFileAsync(uploadUrl, selectedFilePath1);
+                MessageBox.Show("시리얼 번호를 입력해주세요.");
+                return;
+            }
+            if (workerName == null)
+            {
+                MessageBox.Show("점검자를 선택해주세요.");
+                return;
+            }
+            if (managerName == null)
+            {
+                MessageBox.Show("관리자를 선택해주세요.");
+                return;
+            }
+            if (string.IsNullOrEmpty(selectedFilePath1) || string.IsNullOrEmpty(selectedFilePath2))
+            {
+                MessageBox.Show("두 개의 파일을 모두 첨부해주세요.");
+                return;
             }
 
-            // 두 번째 파일 업로드
-            string uploadedFileUrl2 = null;
-            if (!string.IsNullOrEmpty(selectedFilePath2))
+            try
             {
-                uploadedFileUrl2 = await UploadFileAsync(uploadUrl, selectedFilePath2);
-            }
+                this.Enabled = false;
+                progressBar.Visible = true;
+                progressBar.Style = ProgressBarStyle.Marquee;
 
-            // 서버로 데이터 전송
-            string apiUrl = "http://localhost:8080/api/details";
-            await SaveProductDetailAsync(apiUrl, productNumLabel.Text, serialNumTextBox.Text, dateTimePicker.Value, uploadedFileUrl1, uploadedFileUrl2);
+                string uploadEndpoint = "api/upload";
+                string uploadedFileUrl1 = await UploadFileAsync(uploadEndpoint, selectedFilePath1, "file1");
+                string uploadedFileUrl2 = await UploadFileAsync(uploadEndpoint, selectedFilePath2, "file2");
+
+                string detailEndpoint = "api/reconditioned/upload";
+                await SaveProductDetailAsync(
+                    detailEndpoint,
+                    productNumLabel.Text,
+                    serialNumTextBox.Text,
+                    dateTimePicker.Value,
+                    uploadedFileUrl1,
+                    uploadedFileUrl2,
+                    workerId,
+                    managerId
+                );
+
+                MessageBox.Show("모든 작업이 성공적으로 완료되었습니다.");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"오류 발생: {ex.Message}");
+            }
+            finally
+            {
+                this.Enabled = true;
+                progressBar.Visible = false;
+            }
         }
 
         private void searchWorkerButton_Click(object sender, EventArgs e)
@@ -128,8 +170,12 @@ namespace WindowsFormsApp1
             {
                 if (selectWorker.ShowDialog() == DialogResult.OK)
                 {
+                    workerId = selectWorker.SelectedMemberId;
                     workerName = selectWorker.SelectedMemberName;
-                    workerTextBox.Text = workerName; // 텍스트박스에 사원 이름 설정
+                    department = selectWorker.DepartmentName;
+
+                    workerTextBox.Text = workerName;
+                    departmentLabel.Text = department;
                 }
             }
         }
@@ -140,8 +186,12 @@ namespace WindowsFormsApp1
             {
                 if (selectManager.ShowDialog() == DialogResult.OK)
                 {
+                    managerId = selectManager.SelectedMemberId;
                     managerName = selectManager.SelectedMemberName;
-                    managerTextBox.Text = managerName; // 텍스트박스에 사원 이름 설정
+                    department = selectManager.DepartmentName;
+
+                    managerTextBox.Text = managerName;
+                    departmentLabel.Text = department;
                 }
             }
         }

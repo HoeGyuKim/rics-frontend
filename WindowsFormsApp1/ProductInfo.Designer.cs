@@ -60,6 +60,7 @@
             this.fileUpLoadButton2 = new System.Windows.Forms.Button();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -70,8 +71,7 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             tableLayoutPanel1.AutoScrollMargin = new System.Drawing.Size(10, 10);
             tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -112,10 +112,10 @@
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.46858F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.46858F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.46858F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.82353F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.47059F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.8845F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.17933F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(676, 340);
+            tableLayoutPanel1.Size = new System.Drawing.Size(690, 329);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -123,7 +123,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(34, 14);
+            this.label1.Location = new System.Drawing.Point(35, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 1;
@@ -137,9 +137,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.productNumLabel.AutoSize = true;
             this.productNumLabel.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.productNumLabel.Location = new System.Drawing.Point(138, 0);
+            this.productNumLabel.Location = new System.Drawing.Point(141, 0);
             this.productNumLabel.Name = "productNumLabel";
-            this.productNumLabel.Size = new System.Drawing.Size(196, 43);
+            this.productNumLabel.Size = new System.Drawing.Size(201, 41);
             this.productNumLabel.TabIndex = 21;
             this.productNumLabel.Text = "productNum";
             this.productNumLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -147,19 +147,19 @@
             // fileInfo
             // 
             this.fileInfo.Enabled = false;
-            this.fileInfo.Location = new System.Drawing.Point(138, 172);
+            this.fileInfo.Location = new System.Drawing.Point(141, 164);
             this.fileInfo.Multiline = true;
             this.fileInfo.Name = "fileInfo";
-            this.fileInfo.Size = new System.Drawing.Size(196, 50);
+            this.fileInfo.Size = new System.Drawing.Size(195, 63);
             this.fileInfo.TabIndex = 31;
             // 
             // fileInfo2
             // 
             this.fileInfo2.Enabled = false;
-            this.fileInfo2.Location = new System.Drawing.Point(475, 172);
+            this.fileInfo2.Location = new System.Drawing.Point(486, 164);
             this.fileInfo2.Multiline = true;
             this.fileInfo2.Name = "fileInfo2";
-            this.fileInfo2.Size = new System.Drawing.Size(198, 50);
+            this.fileInfo2.Size = new System.Drawing.Size(196, 59);
             this.fileInfo2.TabIndex = 32;
             // 
             // label8
@@ -167,7 +167,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(378, 140);
+            this.label8.Location = new System.Drawing.Point(388, 133);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 15);
             this.label8.TabIndex = 8;
@@ -178,7 +178,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(350, 98);
+            this.label3.Location = new System.Drawing.Point(359, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 15);
             this.label3.TabIndex = 3;
@@ -186,9 +186,9 @@
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(475, 88);
+            this.dateTimePicker.Location = new System.Drawing.Point(486, 84);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(197, 25);
+            this.dateTimePicker.Size = new System.Drawing.Size(196, 25);
             this.dateTimePicker.TabIndex = 20;
             // 
             // productNameLabel
@@ -198,18 +198,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.productNameLabel.AutoSize = true;
             this.productNameLabel.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.productNameLabel.Location = new System.Drawing.Point(138, 43);
+            this.productNameLabel.Location = new System.Drawing.Point(141, 41);
             this.productNameLabel.Name = "productNameLabel";
-            this.productNameLabel.Size = new System.Drawing.Size(196, 42);
+            this.productNameLabel.Size = new System.Drawing.Size(201, 40);
             this.productNameLabel.TabIndex = 23;
             this.productNameLabel.Text = "productName";
             this.productNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // serialNumTextBox
             // 
-            this.serialNumTextBox.Location = new System.Drawing.Point(475, 46);
+            this.serialNumTextBox.Location = new System.Drawing.Point(486, 44);
             this.serialNumTextBox.Name = "serialNumTextBox";
-            this.serialNumTextBox.Size = new System.Drawing.Size(197, 25);
+            this.serialNumTextBox.Size = new System.Drawing.Size(196, 25);
             this.serialNumTextBox.TabIndex = 22;
             // 
             // label2
@@ -217,7 +217,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(41, 56);
+            this.label2.Location = new System.Drawing.Point(43, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 15);
             this.label2.TabIndex = 2;
@@ -229,7 +229,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(367, 56);
+            this.label5.Location = new System.Drawing.Point(377, 53);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 15);
             this.label5.TabIndex = 5;
@@ -238,7 +238,7 @@
             // button3
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button3.Location = new System.Drawing.Point(478, 6);
+            this.button3.Location = new System.Drawing.Point(492, 5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(195, 30);
             this.button3.TabIndex = 33;
@@ -251,7 +251,7 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.Location = new System.Drawing.Point(21, 279);
+            this.label11.Location = new System.Drawing.Point(23, 265);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(92, 30);
             this.label11.TabIndex = 26;
@@ -265,7 +265,7 @@
             "1회",
             "2회",
             "3회"});
-            this.NffCheckList.Location = new System.Drawing.Point(159, 262);
+            this.NffCheckList.Location = new System.Drawing.Point(165, 248);
             this.NffCheckList.Name = "NffCheckList";
             this.NffCheckList.Size = new System.Drawing.Size(153, 64);
             this.NffCheckList.TabIndex = 27;
@@ -275,7 +275,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(34, 98);
+            this.label4.Location = new System.Drawing.Point(35, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 4;
@@ -286,7 +286,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(41, 140);
+            this.label7.Location = new System.Drawing.Point(43, 133);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 15);
             this.label7.TabIndex = 7;
@@ -299,9 +299,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.departmentLabel.AutoSize = true;
             this.departmentLabel.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.departmentLabel.Location = new System.Drawing.Point(138, 85);
+            this.departmentLabel.Location = new System.Drawing.Point(141, 81);
             this.departmentLabel.Name = "departmentLabel";
-            this.departmentLabel.Size = new System.Drawing.Size(196, 42);
+            this.departmentLabel.Size = new System.Drawing.Size(201, 40);
             this.departmentLabel.TabIndex = 28;
             this.departmentLabel.Text = "Department";
             this.departmentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -313,18 +313,18 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel2.Controls.Add(this.searchWorkerButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.workerTextBox, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(138, 130);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(141, 124);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(196, 36);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(195, 30);
             this.tableLayoutPanel2.TabIndex = 34;
             // 
             // searchWorkerButton
             // 
             this.searchWorkerButton.Location = new System.Drawing.Point(3, 3);
             this.searchWorkerButton.Name = "searchWorkerButton";
-            this.searchWorkerButton.Size = new System.Drawing.Size(72, 29);
+            this.searchWorkerButton.Size = new System.Drawing.Size(72, 24);
             this.searchWorkerButton.TabIndex = 0;
             this.searchWorkerButton.Text = "검색";
             this.searchWorkerButton.UseVisualStyleBackColor = true;
@@ -335,7 +335,7 @@
             this.workerTextBox.Location = new System.Drawing.Point(81, 3);
             this.workerTextBox.Name = "workerTextBox";
             this.workerTextBox.ReadOnly = true;
-            this.workerTextBox.Size = new System.Drawing.Size(112, 25);
+            this.workerTextBox.Size = new System.Drawing.Size(111, 25);
             this.workerTextBox.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -345,18 +345,18 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.Controls.Add(this.searchManagerButton, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.managerTextBox, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(475, 130);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(486, 124);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(198, 36);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(196, 30);
             this.tableLayoutPanel3.TabIndex = 35;
             // 
             // searchManagerButton
             // 
             this.searchManagerButton.Location = new System.Drawing.Point(3, 3);
             this.searchManagerButton.Name = "searchManagerButton";
-            this.searchManagerButton.Size = new System.Drawing.Size(73, 30);
+            this.searchManagerButton.Size = new System.Drawing.Size(72, 24);
             this.searchManagerButton.TabIndex = 1;
             this.searchManagerButton.Text = "검색";
             this.searchManagerButton.UseVisualStyleBackColor = true;
@@ -364,31 +364,31 @@
             // 
             // managerTextBox
             // 
-            this.managerTextBox.Location = new System.Drawing.Point(82, 3);
+            this.managerTextBox.Location = new System.Drawing.Point(81, 3);
             this.managerTextBox.Name = "managerTextBox";
             this.managerTextBox.ReadOnly = true;
-            this.managerTextBox.Size = new System.Drawing.Size(113, 25);
+            this.managerTextBox.Size = new System.Drawing.Size(112, 25);
             this.managerTextBox.TabIndex = 2;
             // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.fileUpLoadButton, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.comboBox1, 0, 1);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 172);
+            this.tableLayoutPanel4.Controls.Add(this.fileUpLoadButton, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.comboBox1, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 164);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(129, 74);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(128, 63);
             this.tableLayoutPanel4.TabIndex = 36;
             // 
             // fileUpLoadButton
             // 
-            this.fileUpLoadButton.Location = new System.Drawing.Point(3, 3);
+            this.fileUpLoadButton.Location = new System.Drawing.Point(3, 34);
             this.fileUpLoadButton.Name = "fileUpLoadButton";
-            this.fileUpLoadButton.Size = new System.Drawing.Size(107, 31);
+            this.fileUpLoadButton.Size = new System.Drawing.Size(107, 25);
             this.fileUpLoadButton.TabIndex = 25;
             this.fileUpLoadButton.Text = "불러오기";
             this.fileUpLoadButton.UseVisualStyleBackColor = true;
@@ -403,15 +403,15 @@
             "수리내역서",
             "시험성적서",
             "기타"});
-            this.comboBox1.Location = new System.Drawing.Point(3, 40);
+            this.comboBox1.Location = new System.Drawing.Point(3, 3);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(123, 23);
+            this.comboBox1.Size = new System.Drawing.Size(122, 23);
             this.comboBox1.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(340, 0);
+            this.label6.Location = new System.Drawing.Point(348, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 15);
             this.label6.TabIndex = 6;
@@ -420,21 +420,21 @@
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.fileUpLoadButton2, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.comboBox5, 0, 1);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(340, 172);
+            this.tableLayoutPanel5.Controls.Add(this.fileUpLoadButton2, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.comboBox5, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(348, 164);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(129, 74);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(128, 63);
             this.tableLayoutPanel5.TabIndex = 37;
             // 
             // fileUpLoadButton2
             // 
-            this.fileUpLoadButton2.Location = new System.Drawing.Point(3, 3);
+            this.fileUpLoadButton2.Location = new System.Drawing.Point(3, 34);
             this.fileUpLoadButton2.Name = "fileUpLoadButton2";
-            this.fileUpLoadButton2.Size = new System.Drawing.Size(116, 31);
+            this.fileUpLoadButton2.Size = new System.Drawing.Size(116, 25);
             this.fileUpLoadButton2.TabIndex = 24;
             this.fileUpLoadButton2.Text = "불러오기";
             this.fileUpLoadButton2.UseVisualStyleBackColor = true;
@@ -449,17 +449,25 @@
             "수리내역서",
             "시험성적서",
             "기타"});
-            this.comboBox5.Location = new System.Drawing.Point(3, 40);
+            this.comboBox5.Location = new System.Drawing.Point(3, 3);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(123, 23);
+            this.comboBox5.Size = new System.Drawing.Size(122, 23);
             this.comboBox5.TabIndex = 19;
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(12, 347);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(687, 23);
+            this.progressBar.TabIndex = 38;
             // 
             // ProductInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 358);
+            this.ClientSize = new System.Drawing.Size(708, 378);
             this.Controls.Add(tableLayoutPanel1);
+            this.Controls.Add(this.progressBar);
             this.Name = "ProductInfo";
             this.Text = "Form1";
             tableLayoutPanel1.ResumeLayout(false);
@@ -506,5 +514,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

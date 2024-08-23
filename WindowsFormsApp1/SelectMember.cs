@@ -9,8 +9,9 @@ namespace WindowsFormsApp1
     public partial class SelectMember : Form
     {
         private static readonly HttpClient client = new HttpClient(); // HTTP 클라이언트 인스턴스
+        public int SelectedMemberId { get; set; }
         public string SelectedMemberName { get; private set; }
-
+        public string DepartmentName { get; private set; }
         public SelectMember()
         {
             InitializeComponent();
@@ -68,6 +69,7 @@ namespace WindowsFormsApp1
                 // 클릭된 행의 Name 값을 가져오기
                 var selectedRow = dataGridView1.Rows[e.RowIndex];
                 SelectedMemberName = selectedRow.Cells["Name"].Value.ToString();
+                DepartmentName = selectedRow.Cells["Department"].Value.ToString();
                 MessageBox.Show($"선택된 사원: {SelectedMemberName}");
             }
         }
