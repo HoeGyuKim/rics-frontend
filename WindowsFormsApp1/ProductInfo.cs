@@ -78,37 +78,54 @@ namespace WindowsFormsApp1
                 }
             }
         }
-
-
-
-        private async Task SaveProductDetailAsync(string endpoint, string productNum, string serialNum, DateTime date, string fileUrl1, string fileUrl2, int workerId, int managerId)
+        private async Task SaveProductDetailAsync(string endpoint, string productNum, string serialNum, DateTime date, string filePath1, string filePath2, long workerId, long managerId)
         {
-            var detailData = new
+            using (var content = new MultipartFormDataContent())
             {
-                rd = true, // 또는 false로 설정
-                date = date.ToString("yyyy-MM-dd"),
-                serialNum = serialNum,
-                fileUrl1 = fileUrl1,
-                fileUrl2 = fileUrl2,
-                productNum = int.Parse(productNum),
-                workerId = workerId,
-                managerId = managerId
-            };
+                var detailData = new
+                {
+                    rd = true, // 또는 false로 설정
+                    date = date.ToString("yyyy-MM-dd"),
+                    serialNum = serialNum,
+                    productList = long.Parse(productNum),
+                    workerNum = workerId,
+                    managerNum = managerId
+                };
 
-            var jsonContent = new StringContent(JsonConvert.SerializeObject(detailData), Encoding.UTF8, "application/json");
+                // JSON 데이터를 추가
+                var json = JsonConvert.SerializeObject(detailData);
+                var jsonContent = new StringContent(json, Encoding.UTF8, "application/json");
+                content.Add(jsonContent, "detailData");
 
-            HttpResponseMessage response = await httpClient.PostAsync(endpoint, jsonContent);
+                // 파일을 추가
+                if (!string.IsNullOrEmpty(filePath1))
+                {
+                    var fileStream1 = new FileStream(filePath1, FileMode.Open, FileAccess.Read);
+                    var fileContent1 = new StreamContent(fileStream1);
+                    fileContent1.Headers.ContentType = MediaTypeHeaderValue.Parse("application/pdf");
+                    content.Add(fileContent1, "file1", Path.GetFileName(filePath1));
+                }
 
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show("데이터가 성공적으로 저장되었습니다.");
-            }
-            else
-            {
-                throw new Exception($"데이터 저장 실패: {response.ReasonPhrase}");
+                if (!string.IsNullOrEmpty(filePath2))
+                {
+                    var fileStream2 = new FileStream(filePath2, FileMode.Open, FileAccess.Read);
+                    var fileContent2 = new StreamContent(fileStream2);
+                    fileContent2.Headers.ContentType = MediaTypeHeaderValue.Parse("application/pdf");
+                    content.Add(fileContent2, "file2", Path.GetFileName(filePath2));
+                }
+
+                HttpResponseMessage response = await httpClient.PostAsync(endpoint, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("데이터가 성공적으로 저장되었습니다.");
+                }
+                else
+                {
+                    throw new Exception($"데이터 저장 실패: {response.ReasonPhrase}");
+                }
             }
         }
-
 
         private async void button3_Click(object sender, EventArgs e)
         {
@@ -139,18 +156,14 @@ namespace WindowsFormsApp1
                 progressBar.Visible = true;
                 progressBar.Style = ProgressBarStyle.Marquee;
 
-                string uploadEndpoint = "api/upload";
-                string uploadedFileUrl1 = await UploadFileAsync(uploadEndpoint, selectedFilePath1, "file");
-                string uploadedFileUrl2 = await UploadFileAsync(uploadEndpoint, selectedFilePath2, "file");
-
                 string detailEndpoint = "api/reconditioned/upload";
                 await SaveProductDetailAsync(
                     detailEndpoint,
                     productNumLabel.Text,
                     serialNumTextBox.Text,
                     dateTimePicker.Value,
-                    uploadedFileUrl1,
-                    uploadedFileUrl2,
+                    selectedFilePath1,
+                    selectedFilePath2,
                     workerId,
                     managerId
                 );

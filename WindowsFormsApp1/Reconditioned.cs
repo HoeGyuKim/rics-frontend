@@ -62,7 +62,7 @@ namespace WindowsFormsApp1
         {
             public long id { get; set; }
             public DateTime date { get; set; }
-            public int productNum { get; set; }
+            public long productNum { get; set; }
             public string productName { get; set; }
             public string serialNum { get; set; }
             public string worker { get; set; }
