@@ -62,18 +62,23 @@ namespace WindowsFormsApp1
                 fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/pdf");
                 content.Add(fileContent, fileParamName, fileName);
 
+                Console.WriteLine($"Uploading file: {fileName} to {endpoint}");
+
                 HttpResponseMessage response = await httpClient.PostAsync(endpoint, content);
                 if (response.IsSuccessStatusCode)
                 {
                     string result = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Upload successful: {result}");
                     return result; // 서버에서 반환된 파일 URL
                 }
                 else
                 {
+                    Console.WriteLine($"Upload failed: {response.ReasonPhrase}");
                     throw new Exception($"파일 업로드 실패: {response.ReasonPhrase}");
                 }
             }
         }
+
 
 
         private async Task SaveProductDetailAsync(string endpoint, string productNum, string serialNum, DateTime date, string fileUrl1, string fileUrl2, int workerId, int managerId)
@@ -135,8 +140,8 @@ namespace WindowsFormsApp1
                 progressBar.Style = ProgressBarStyle.Marquee;
 
                 string uploadEndpoint = "api/upload";
-                string uploadedFileUrl1 = await UploadFileAsync(uploadEndpoint, selectedFilePath1, "file1");
-                string uploadedFileUrl2 = await UploadFileAsync(uploadEndpoint, selectedFilePath2, "file2");
+                string uploadedFileUrl1 = await UploadFileAsync(uploadEndpoint, selectedFilePath1, "file");
+                string uploadedFileUrl2 = await UploadFileAsync(uploadEndpoint, selectedFilePath2, "file");
 
                 string detailEndpoint = "api/reconditioned/upload";
                 await SaveProductDetailAsync(

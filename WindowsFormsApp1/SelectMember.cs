@@ -69,6 +69,7 @@ namespace WindowsFormsApp1
                 // 클릭된 행의 Name 값을 가져오기
                 var selectedRow = dataGridView1.Rows[e.RowIndex];
                 SelectedMemberName = selectedRow.Cells["Name"].Value.ToString();
+                SelectedMemberId = Convert.ToInt32(selectedRow.Cells["EmployeeNum"].Value);
                 DepartmentName = selectedRow.Cells["Department"].Value.ToString();
                 MessageBox.Show($"선택된 사원: {SelectedMemberName}");
             }
