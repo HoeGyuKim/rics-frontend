@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
 {
@@ -55,18 +56,42 @@ namespace WindowsFormsApp1
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
+        private async Task SearchProducts()
+        {
+            string searchTerm = searchTextBox.Text;
+            string filterBy = "";
+            
+            if (selectBox.SelectedItem?.ToString() == "시리얼번호") { filterBy = "serialNum"; }
+            else if (selectBox.SelectedItem?.ToString() == "완료일자") { filterBy = "date"; }
+            else if (selectBox.SelectedItem?.ToString() == "작업자") { filterBy = "worker"; }
 
+            try
+            {
+                string requestUrl = $"http://localhost:8080/api/reconditioned?searchTerm={searchTerm}&filterBy={filterBy}";
+
+                HttpResponseMessage response = await client.GetAsync(requestUrl);
+
+                string json = await response.Content.ReadAsStringAsync();
+                List<ReconditionedItem> items = JsonConvert.DeserializeObject<List<ReconditionedItem>>(json);
+                dataGridView1.DataSource = items;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"오류 발생: {ex.Message}");
+                // 예외를 파일에 기록하거나 로깅 서비스에 기록하는 것도 고려할 수 있습니다.
+            }
+        }
 
         // ReconditionedItem 클래스는 별도의 파일에 정의하는 것이 좋습니다
         public class ReconditionedItem
         {
-            public long id { get; set; }
             public DateTime date { get; set; }
             public long productNum { get; set; }
             public string productName { get; set; }
             public string serialNum { get; set; }
             public string worker { get; set; }
             public string manager { get; set; }
+            public string deaprtmentName { get; set; }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -119,12 +144,6 @@ namespace WindowsFormsApp1
   
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "id",
-                HeaderText = "순번",
-                Name = "id"
-            });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
-            {
                 DataPropertyName = "date", 
                 HeaderText = "완료일자",
                 Name = "date"
@@ -159,12 +178,23 @@ namespace WindowsFormsApp1
                 HeaderText = "관리자",
                 Name = "manager"
             });
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "deaprtmentName",
+                HeaderText = "발생부서",
+                Name = "deaprtmentName"
+            });
         }
         private void PrevButton_Click(object sender, EventArgs e)
         {
             this.Close();
             R_SelectProductNum r_SelectProductNum = new R_SelectProductNum();
             r_SelectProductNum.ShowDialog();
+        }
+
+        private async void searchButton_Click(object sender, EventArgs e)
+        {
+            await SearchProducts();
         }
     }
 }

@@ -31,8 +31,6 @@
             System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
             this.label1 = new System.Windows.Forms.Label();
             this.productNumLabel = new System.Windows.Forms.Label();
-            this.fileInfo = new System.Windows.Forms.TextBox();
-            this.fileInfo2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -41,8 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.NffCheckList = new System.Windows.Forms.CheckedListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.departmentLabel = new System.Windows.Forms.Label();
@@ -58,15 +54,27 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.fileUpLoadButton2 = new System.Windows.Forms.Button();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.fileInfo2 = new System.Windows.Forms.TextBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.fileInfo = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -81,6 +89,8 @@
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            tableLayoutPanel1.Controls.Add(this.textBox2, 0, 5);
+            tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 5);
             tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             tableLayoutPanel1.Controls.Add(this.productNumLabel, 1, 0);
             tableLayoutPanel1.Controls.Add(this.fileInfo, 1, 4);
@@ -93,8 +103,6 @@
             tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             tableLayoutPanel1.Controls.Add(this.label5, 2, 1);
             tableLayoutPanel1.Controls.Add(this.button3, 3, 0);
-            tableLayoutPanel1.Controls.Add(this.label11, 0, 5);
-            tableLayoutPanel1.Controls.Add(this.NffCheckList, 1, 5);
             tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             tableLayoutPanel1.Controls.Add(this.label7, 0, 3);
             tableLayoutPanel1.Controls.Add(this.departmentLabel, 1, 2);
@@ -103,6 +111,8 @@
             tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 4);
             tableLayoutPanel1.Controls.Add(this.label6, 2, 0);
             tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 2, 4);
+            tableLayoutPanel1.Controls.Add(this.textBox1, 3, 5);
+            tableLayoutPanel1.Controls.Add(this.tableLayoutPanel7, 2, 5);
             tableLayoutPanel1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             tableLayoutPanel1.Location = new System.Drawing.Point(9, 9);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -143,24 +153,6 @@
             this.productNumLabel.TabIndex = 21;
             this.productNumLabel.Text = "productNum";
             this.productNumLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // fileInfo
-            // 
-            this.fileInfo.Enabled = false;
-            this.fileInfo.Location = new System.Drawing.Point(141, 164);
-            this.fileInfo.Multiline = true;
-            this.fileInfo.Name = "fileInfo";
-            this.fileInfo.Size = new System.Drawing.Size(195, 63);
-            this.fileInfo.TabIndex = 31;
-            // 
-            // fileInfo2
-            // 
-            this.fileInfo2.Enabled = false;
-            this.fileInfo2.Location = new System.Drawing.Point(486, 164);
-            this.fileInfo2.Multiline = true;
-            this.fileInfo2.Name = "fileInfo2";
-            this.fileInfo2.Size = new System.Drawing.Size(196, 59);
-            this.fileInfo2.TabIndex = 32;
             // 
             // label8
             // 
@@ -245,30 +237,6 @@
             this.button3.Text = "확인 및 저장";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.Location = new System.Drawing.Point(23, 265);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(92, 30);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "NotFoundFail\r\n(NFF)";
-            // 
-            // NffCheckList
-            // 
-            this.NffCheckList.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.NffCheckList.FormattingEnabled = true;
-            this.NffCheckList.Items.AddRange(new object[] {
-            "1회",
-            "2회",
-            "3회"});
-            this.NffCheckList.Location = new System.Drawing.Point(165, 248);
-            this.NffCheckList.Name = "NffCheckList";
-            this.NffCheckList.Size = new System.Drawing.Size(153, 64);
-            this.NffCheckList.TabIndex = 27;
             // 
             // label4
             // 
@@ -440,6 +408,22 @@
             this.fileUpLoadButton2.UseVisualStyleBackColor = true;
             this.fileUpLoadButton2.Click += new System.EventHandler(this.fileUpLoadButton2_Click);
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(12, 347);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(687, 23);
+            this.progressBar.TabIndex = 38;
+            // 
+            // fileInfo2
+            // 
+            this.fileInfo2.Enabled = false;
+            this.fileInfo2.Location = new System.Drawing.Point(486, 164);
+            this.fileInfo2.Multiline = true;
+            this.fileInfo2.Name = "fileInfo2";
+            this.fileInfo2.Size = new System.Drawing.Size(196, 59);
+            this.fileInfo2.TabIndex = 32;
+            // 
             // comboBox5
             // 
             this.comboBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -454,12 +438,106 @@
             this.comboBox5.Size = new System.Drawing.Size(122, 23);
             this.comboBox5.TabIndex = 19;
             // 
-            // progressBar
+            // fileInfo
             // 
-            this.progressBar.Location = new System.Drawing.Point(12, 347);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(687, 23);
-            this.progressBar.TabIndex = 38;
+            this.fileInfo.Enabled = false;
+            this.fileInfo.Location = new System.Drawing.Point(141, 164);
+            this.fileInfo.Multiline = true;
+            this.fileInfo.Name = "fileInfo";
+            this.fileInfo.Size = new System.Drawing.Size(195, 59);
+            this.fileInfo.TabIndex = 31;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(486, 235);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(195, 59);
+            this.textBox1.TabIndex = 38;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.button1, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.comboBox2, 0, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 235);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(128, 63);
+            this.tableLayoutPanel6.TabIndex = 39;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 25);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "불러오기";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "수리내역서",
+            "시험성적서",
+            "기타"});
+            this.comboBox2.Location = new System.Drawing.Point(3, 3);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(122, 23);
+            this.comboBox2.TabIndex = 9;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.comboBox3, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.button2, 0, 1);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(348, 235);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(128, 63);
+            this.tableLayoutPanel7.TabIndex = 40;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(3, 34);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(116, 25);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "불러오기";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "수리내역서",
+            "시험성적서",
+            "기타"});
+            this.comboBox3.Location = new System.Drawing.Point(3, 3);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(122, 23);
+            this.comboBox3.TabIndex = 19;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(141, 235);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(195, 59);
+            this.textBox2.TabIndex = 41;
             // 
             // ProductInfo
             // 
@@ -478,6 +556,8 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -492,15 +572,10 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox fileInfo2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox fileInfo;
-        private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.Button fileUpLoadButton2;
         private System.Windows.Forms.Button fileUpLoadButton;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.CheckedListBox NffCheckList;
         private System.Windows.Forms.Label productNumLabel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
@@ -515,5 +590,16 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox fileInfo;
+        private System.Windows.Forms.TextBox fileInfo2;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

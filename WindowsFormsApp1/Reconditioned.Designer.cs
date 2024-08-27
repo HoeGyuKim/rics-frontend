@@ -31,11 +31,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.selectBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.prevButton = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,36 +68,36 @@
             this.button3.Text = "상세";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // searchTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("굴림", 9F);
-            this.textBox1.Location = new System.Drawing.Point(36, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(309, 25);
-            this.textBox1.TabIndex = 11;
+            this.searchTextBox.Font = new System.Drawing.Font("굴림", 9F);
+            this.searchTextBox.Location = new System.Drawing.Point(36, 64);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(309, 25);
+            this.searchTextBox.TabIndex = 11;
             // 
-            // button4
+            // searchButton
             // 
-            this.button4.Location = new System.Drawing.Point(471, 59);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(83, 30);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "검색";
-            this.button4.UseVisualStyleBackColor = true;
+            this.searchButton.Location = new System.Drawing.Point(471, 59);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(83, 30);
+            this.searchButton.TabIndex = 6;
+            this.searchButton.Text = "검색";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // comboBox1
+            // selectBox
             // 
-            this.comboBox1.Font = new System.Drawing.Font("굴림", 9F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.selectBox.Font = new System.Drawing.Font("굴림", 9F);
+            this.selectBox.FormattingEnabled = true;
+            this.selectBox.Items.AddRange(new object[] {
             "완료일자",
-            "작업자",
             "시리얼번호",
-            "자재명"});
-            this.comboBox1.Location = new System.Drawing.Point(353, 66);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(112, 23);
-            this.comboBox1.TabIndex = 8;
+            "작업자"});
+            this.selectBox.Location = new System.Drawing.Point(353, 66);
+            this.selectBox.Name = "selectBox";
+            this.selectBox.Size = new System.Drawing.Size(112, 23);
+            this.selectBox.TabIndex = 8;
             // 
             // dataGridView1
             // 
@@ -121,17 +122,25 @@
             this.prevButton.UseVisualStyleBackColor = true;
             this.prevButton.Click += new System.EventHandler(this.PrevButton_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(145, 29);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 25);
+            this.dateTimePicker1.TabIndex = 12;
+            // 
             // Reconditioned
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1054, 607);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.prevButton);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.selectBox);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -148,10 +157,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.ComboBox selectBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button prevButton;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
