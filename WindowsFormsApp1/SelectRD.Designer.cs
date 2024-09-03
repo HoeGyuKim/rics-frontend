@@ -40,9 +40,9 @@
             this.selectReconditionedButton.BackColor = System.Drawing.SystemColors.Control;
             this.selectReconditionedButton.Font = new System.Drawing.Font("굴림", 20F);
             this.selectReconditionedButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.selectReconditionedButton.Location = new System.Drawing.Point(291, 73);
+            this.selectReconditionedButton.Location = new System.Drawing.Point(307, 73);
             this.selectReconditionedButton.Name = "selectReconditionedButton";
-            this.selectReconditionedButton.Size = new System.Drawing.Size(274, 140);
+            this.selectReconditionedButton.Size = new System.Drawing.Size(238, 140);
             this.selectReconditionedButton.TabIndex = 2;
             this.selectReconditionedButton.Text = "(R)재생품\r\n자재 조회\r\n";
             this.selectReconditionedButton.UseVisualStyleBackColor = false;
@@ -56,9 +56,9 @@
             this.selectDefectiveButton.BackColor = System.Drawing.SystemColors.Control;
             this.selectDefectiveButton.Font = new System.Drawing.Font("굴림", 20F);
             this.selectDefectiveButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.selectDefectiveButton.Location = new System.Drawing.Point(1, 73);
+            this.selectDefectiveButton.Location = new System.Drawing.Point(29, 73);
             this.selectDefectiveButton.Name = "selectDefectiveButton";
-            this.selectDefectiveButton.Size = new System.Drawing.Size(284, 140);
+            this.selectDefectiveButton.Size = new System.Drawing.Size(245, 140);
             this.selectDefectiveButton.TabIndex = 3;
             this.selectDefectiveButton.Text = "(D)정비필요품\r\n자재 조회";
             this.selectDefectiveButton.UseVisualStyleBackColor = false;
@@ -73,7 +73,7 @@
             this.Controls.Add(this.selectDefectiveButton);
             this.Controls.Add(this.selectReconditionedButton);
             this.Name = "SelectRD";
-            this.Text = "Form2";
+            this.Text = "RICS - 품종 선택";
             this.ResumeLayout(false);
 
         }

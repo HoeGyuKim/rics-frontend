@@ -23,6 +23,7 @@
             this.SearchRProductList = new System.Windows.Forms.Button();
             this.AddRProductList = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.prevButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,11 +104,21 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "*[품목 추가]관리자 확인 후 품목이 추가됩니다.";
             // 
+            // prevButton
+            // 
+            this.prevButton.Location = new System.Drawing.Point(40, 12);
+            this.prevButton.Name = "prevButton";
+            this.prevButton.Size = new System.Drawing.Size(89, 25);
+            this.prevButton.TabIndex = 7;
+            this.prevButton.Text = "이전";
+            this.prevButton.UseVisualStyleBackColor = true;
+            // 
             // R_SelectProductNum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 451);
+            this.Controls.Add(this.prevButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddRProductList);
             this.Controls.Add(this.SearchRProductList);
@@ -115,7 +126,7 @@
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.dataGridView1);
             this.Name = "R_SelectProductNum";
-            this.Text = "Form1";
+            this.Text = "RICS-품목 선택";
             this.Load += new System.EventHandler(this.R_SelectProductNum_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -131,5 +142,6 @@
         private System.Windows.Forms.Button SearchRProductList;
         private System.Windows.Forms.Button AddRProductList;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button prevButton;
     }
 }

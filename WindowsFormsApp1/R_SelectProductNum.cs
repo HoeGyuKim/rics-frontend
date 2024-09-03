@@ -1,11 +1,4 @@
-﻿// 불필요한 클래스 정의 제거
-// using System;
-// using System.Net.Http;
-// using System.Threading.Tasks;
-// using System.Windows.Forms;
-// using Newtonsoft.Json;
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +10,7 @@ namespace WindowsFormsApp1
     {
         private static readonly HttpClient client = new HttpClient(); // HTTP 클라이언트 인스턴스
         private int selectedProductNum;
+        private string selectedProductName;
 
         public R_SelectProductNum()
         {
@@ -55,6 +49,7 @@ namespace WindowsFormsApp1
                             Console.WriteLine($"ProductNumber: {product.productNum}, ProductName: {product.productName}");
                             dataGridView1.Rows.Add(product.productNum, product.productName);
                             this.selectedProductNum = product.productNum;
+                            this.selectedProductName = product.productName;
                         }
                     }
                     else
@@ -135,7 +130,7 @@ namespace WindowsFormsApp1
                 // 선택한 자재번호를 저장합니다.
                 selectedProductNum = productNum;
                 // 새 폼을 열고 선택한 자재번호를 전달합니다.
-                Reconditioned reconditioned = new Reconditioned(selectedProductNum);
+                ReconditionedList reconditioned = new ReconditionedList(selectedProductNum,selectedProductName);
                 reconditioned.Show();
                 Hide();
             }

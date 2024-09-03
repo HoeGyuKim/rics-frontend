@@ -113,7 +113,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddProductList";
-            this.Text = "Form1";
+            this.Text = "RICS - 자재 항목 추가";
             this.ResumeLayout(false);
             this.PerformLayout();
 

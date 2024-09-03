@@ -104,9 +104,5 @@ namespace WindowsFormsApp1
     }
 
     // 자재 정보 클래스
-    public class SimpleReconditioned
-    {
-        public int productNum { get; set; }
-        public string productName { get; set; }
-    }
+
 }

@@ -29,8 +29,14 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.productNumLabel = new System.Windows.Forms.Label();
+            this.fileInfo = new System.Windows.Forms.TextBox();
+            this.fileInfo2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -54,26 +60,20 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.fileUpLoadButton2 = new System.Windows.Forms.Button();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.fileInfo2 = new System.Windows.Forms.TextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.fileInfo = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,6 +128,52 @@
             tableLayoutPanel1.Size = new System.Drawing.Size(690, 329);
             tableLayoutPanel1.TabIndex = 0;
             // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(141, 235);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(195, 59);
+            this.textBox2.TabIndex = 41;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.button1, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.comboBox2, 0, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 235);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(128, 63);
+            this.tableLayoutPanel6.TabIndex = 39;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 25);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "불러오기";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "수리내역서",
+            "시험성적서",
+            "기타"});
+            this.comboBox2.Location = new System.Drawing.Point(3, 3);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(122, 23);
+            this.comboBox2.TabIndex = 9;
+            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -153,6 +199,24 @@
             this.productNumLabel.TabIndex = 21;
             this.productNumLabel.Text = "productNum";
             this.productNumLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // fileInfo
+            // 
+            this.fileInfo.Enabled = false;
+            this.fileInfo.Location = new System.Drawing.Point(141, 164);
+            this.fileInfo.Multiline = true;
+            this.fileInfo.Name = "fileInfo";
+            this.fileInfo.Size = new System.Drawing.Size(195, 59);
+            this.fileInfo.TabIndex = 31;
+            // 
+            // fileInfo2
+            // 
+            this.fileInfo2.Enabled = false;
+            this.fileInfo2.Location = new System.Drawing.Point(486, 164);
+            this.fileInfo2.Multiline = true;
+            this.fileInfo2.Name = "fileInfo2";
+            this.fileInfo2.Size = new System.Drawing.Size(196, 59);
+            this.fileInfo2.TabIndex = 32;
             // 
             // label8
             // 
@@ -408,22 +472,6 @@
             this.fileUpLoadButton2.UseVisualStyleBackColor = true;
             this.fileUpLoadButton2.Click += new System.EventHandler(this.fileUpLoadButton2_Click);
             // 
-            // progressBar
-            // 
-            this.progressBar.Location = new System.Drawing.Point(12, 347);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(687, 23);
-            this.progressBar.TabIndex = 38;
-            // 
-            // fileInfo2
-            // 
-            this.fileInfo2.Enabled = false;
-            this.fileInfo2.Location = new System.Drawing.Point(486, 164);
-            this.fileInfo2.Multiline = true;
-            this.fileInfo2.Name = "fileInfo2";
-            this.fileInfo2.Size = new System.Drawing.Size(196, 59);
-            this.fileInfo2.TabIndex = 32;
-            // 
             // comboBox5
             // 
             this.comboBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -438,15 +486,6 @@
             this.comboBox5.Size = new System.Drawing.Size(122, 23);
             this.comboBox5.TabIndex = 19;
             // 
-            // fileInfo
-            // 
-            this.fileInfo.Enabled = false;
-            this.fileInfo.Location = new System.Drawing.Point(141, 164);
-            this.fileInfo.Multiline = true;
-            this.fileInfo.Name = "fileInfo";
-            this.fileInfo.Size = new System.Drawing.Size(195, 59);
-            this.fileInfo.TabIndex = 31;
-            // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
@@ -455,43 +494,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(195, 59);
             this.textBox1.TabIndex = 38;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.button1, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.comboBox2, 0, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 235);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(128, 63);
-            this.tableLayoutPanel6.TabIndex = 39;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 25);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "불러오기";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "수리내역서",
-            "시험성적서",
-            "기타"});
-            this.comboBox2.Location = new System.Drawing.Point(3, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(122, 23);
-            this.comboBox2.TabIndex = 9;
             // 
             // tableLayoutPanel7
             // 
@@ -507,15 +509,6 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(128, 63);
             this.tableLayoutPanel7.TabIndex = 40;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(3, 34);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 25);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "불러오기";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // comboBox3
             // 
             this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -530,14 +523,21 @@
             this.comboBox3.Size = new System.Drawing.Size(122, 23);
             this.comboBox3.TabIndex = 19;
             // 
-            // textBox2
+            // button2
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(141, 235);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(195, 59);
-            this.textBox2.TabIndex = 41;
+            this.button2.Location = new System.Drawing.Point(3, 34);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(116, 25);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "불러오기";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(12, 347);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(687, 23);
+            this.progressBar.TabIndex = 38;
             // 
             // ProductInfo
             // 
@@ -547,16 +547,16 @@
             this.Controls.Add(tableLayoutPanel1);
             this.Controls.Add(this.progressBar);
             this.Name = "ProductInfo";
-            this.Text = "Form1";
+            this.Text = "RICS - 자재 생성";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
 

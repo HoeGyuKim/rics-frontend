@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectMemberButton = new System.Windows.Forms.Button();
             this.prevButton = new System.Windows.Forms.Button();
             this.searchForNameTextBox = new System.Windows.Forms.TextBox();
@@ -45,9 +45,9 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name,
-            this.employeeNum,
-            this.department});
+            this.Name,
+            this.EmployeeNum,
+            this.Department});
             this.dataGridView1.Location = new System.Drawing.Point(0, 51);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -58,24 +58,24 @@
             // 
             // Name
             // 
-            this.name.HeaderText = "이름";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "Name";
-            this.name.Width = 125;
+            this.Name.HeaderText = "이름";
+            this.Name.MinimumWidth = 6;
+            this.Name.Name = "Name";
+            this.Name.Width = 125;
             // 
             // EmployeeNum
             // 
-            this.employeeNum.HeaderText = "사번";
-            this.employeeNum.MinimumWidth = 6;
-            this.employeeNum.Name = "EmployeeNum";
-            this.employeeNum.Width = 125;
+            this.EmployeeNum.HeaderText = "사번";
+            this.EmployeeNum.MinimumWidth = 6;
+            this.EmployeeNum.Name = "EmployeeNum";
+            this.EmployeeNum.Width = 125;
             // 
             // Department
             // 
-            this.department.HeaderText = "부서";
-            this.department.MinimumWidth = 6;
-            this.department.Name = "Department";
-            this.department.Width = 400;
+            this.Department.HeaderText = "부서";
+            this.Department.MinimumWidth = 6;
+            this.Department.Name = "Department";
+            this.Department.Width = 400;
             // 
             // selectMemberButton
             // 
@@ -124,8 +124,8 @@
             this.Controls.Add(this.prevButton);
             this.Controls.Add(this.selectMemberButton);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "SelectMember";
-            this.Text = "Form1";
+
+            this.Text = "RICS - 직원 검색";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -142,5 +142,8 @@
         private System.Windows.Forms.Button prevButton;
         private System.Windows.Forms.TextBox searchForNameTextBox;
         private System.Windows.Forms.Button searchForNameButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Department;
     }
 }

@@ -108,7 +108,7 @@
             this.Controls.Add(this.nametxt);
             this.Controls.Add(this.label1);
             this.Name = "Login";
-            this.Text = "Form1";
+            this.Text = "RICS - 로그인";
             this.ResumeLayout(false);
             this.PerformLayout();
 

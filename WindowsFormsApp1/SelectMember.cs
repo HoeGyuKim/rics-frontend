@@ -100,15 +100,5 @@ namespace WindowsFormsApp1
     }
 
     // 사원 정보 클래스
-    public class SimpleMembers
-    {
-        public string Name { get; set; }
-        public int EmployeeNum { get; set; }
-        public Department Department { get; set; }
-    }
 
-    public class Department
-    {
-        public string DepartmentName { get; set; }
-    }
 }
