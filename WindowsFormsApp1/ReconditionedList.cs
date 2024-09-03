@@ -25,6 +25,8 @@ namespace WindowsFormsApp1
             InitializeComponent();
             this.selectedReconditionedProductNum = selectedProductNum;
             this.selectedReconditionedProductName = selectedProductName;
+            SelectedProductNumTextBox.Text = selectedProductNum.ToString();
+            SelectedProductNameTextBox.Text = selectedProductName;
             this.Load += new EventHandler(this.Reconditioned_Load);
         }
 
@@ -117,7 +119,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ProductInfo productInfo = new ProductInfo(selectedReconditionedProductNum.ToString(), selectedReconditionedProductName);
+            AddProductDetail productInfo = new AddProductDetail(selectedReconditionedProductNum.ToString(), selectedReconditionedProductName);
             productInfo.ShowDialog();
         }
 

@@ -99,6 +99,5 @@ namespace WindowsFormsApp1
         }
     }
 
-    // 사원 정보 클래스
 
 }

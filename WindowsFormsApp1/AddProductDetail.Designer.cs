@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class ProductInfo
+    partial class AddProductDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -539,14 +539,14 @@
             this.progressBar.Size = new System.Drawing.Size(687, 23);
             this.progressBar.TabIndex = 38;
             // 
-            // ProductInfo
+            // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 378);
             this.Controls.Add(tableLayoutPanel1);
             this.Controls.Add(this.progressBar);
-            this.Name = "ProductInfo";
+            this.Name = "AddProduct";
             this.Text = "RICS - 자재 생성";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

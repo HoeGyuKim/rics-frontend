@@ -10,7 +10,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
 {
-    public partial class ProductInfo : Form
+    public partial class AddProductDetail : Form
     {
         private string department;
         private string workerName;
@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
 
         private static readonly HttpClient httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:8080/") };
 
-        public ProductInfo(string productNum, string productName)
+        public AddProductDetail(string productNum, string productName)
         {
             InitializeComponent();
             productNumLabel.Text = productNum;

@@ -134,11 +134,11 @@
     <Compile Include="D_SelectProductNum.Designer.cs">
       <DependentUpon>D_SelectProductNum.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductInfo.cs">
+    <Compile Include="AddProductDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductInfo.Designer.cs">
-      <DependentUpon>ProductInfo.cs</DependentUpon>
+    <Compile Include="AddProductDetail.Designer.cs">
+      <DependentUpon>AddProductDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="ReconditionedList.cs">
       <SubType>Form</SubType>
@@ -175,8 +175,8 @@
     <EmbeddedResource Include="D_Defective.resx">
       <DependentUpon>D_Defective.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductInfo.resx">
-      <DependentUpon>ProductInfo.cs</DependentUpon>
+    <EmbeddedResource Include="AddProductDetail.resx">
+      <DependentUpon>AddProductDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReconditionedList.resx">
       <DependentUpon>ReconditionedList.cs</DependentUpon>
