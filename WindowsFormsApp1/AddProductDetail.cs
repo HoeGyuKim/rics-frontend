@@ -10,7 +10,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
 {
-    public partial class AddProductDetail : Form
+    public partial class AddProductDetail : MetroFramework.Forms.MetroForm
     {
         private string department;
         private string workerName;
@@ -214,6 +214,9 @@ namespace WindowsFormsApp1
             }
         }
 
-
+        private void cancleButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

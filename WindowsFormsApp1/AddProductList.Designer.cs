@@ -41,7 +41,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(18, 90);
+            this.label1.Location = new System.Drawing.Point(53, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 18);
             this.label1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(18, 37);
+            this.label2.Location = new System.Drawing.Point(53, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 18);
             this.label2.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             // AcceptApp
             // 
-            this.AcceptApp.Location = new System.Drawing.Point(120, 125);
+            this.AcceptApp.Location = new System.Drawing.Point(155, 160);
             this.AcceptApp.Name = "AcceptApp";
             this.AcceptApp.Size = new System.Drawing.Size(118, 35);
             this.AcceptApp.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             // CancelAdd
             // 
-            this.CancelAdd.Location = new System.Drawing.Point(237, 125);
+            this.CancelAdd.Location = new System.Drawing.Point(272, 160);
             this.CancelAdd.Name = "CancelAdd";
             this.CancelAdd.Size = new System.Drawing.Size(118, 35);
             this.CancelAdd.TabIndex = 3;
@@ -80,7 +80,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 195);
+            this.label3.Location = new System.Drawing.Point(53, 210);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(373, 15);
             this.label3.TabIndex = 4;
@@ -88,14 +88,14 @@
             // 
             // addProductNumTextBox
             // 
-            this.addProductNumTextBox.Location = new System.Drawing.Point(120, 37);
+            this.addProductNumTextBox.Location = new System.Drawing.Point(155, 78);
             this.addProductNumTextBox.Name = "addProductNumTextBox";
             this.addProductNumTextBox.Size = new System.Drawing.Size(235, 25);
             this.addProductNumTextBox.TabIndex = 5;
             // 
             // addProductNameTextBox
             // 
-            this.addProductNameTextBox.Location = new System.Drawing.Point(120, 83);
+            this.addProductNameTextBox.Location = new System.Drawing.Point(155, 118);
             this.addProductNameTextBox.Name = "addProductNameTextBox";
             this.addProductNameTextBox.Size = new System.Drawing.Size(235, 25);
             this.addProductNameTextBox.TabIndex = 6;
@@ -104,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 233);
+            this.ClientSize = new System.Drawing.Size(479, 259);
             this.Controls.Add(this.addProductNameTextBox);
             this.Controls.Add(this.addProductNumTextBox);
             this.Controls.Add(this.label3);
@@ -113,7 +113,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddProductList";
-            this.Text = "RICS - 자재 항목 추가";
+            this.Text = "자재 항목 추가";
             this.ResumeLayout(false);
             this.PerformLayout();
 

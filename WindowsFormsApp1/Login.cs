@@ -8,8 +8,10 @@ using WindowsFormsApp1;
 
 namespace WindowsFormsApp
 {
-    public partial class Login : Form
+    public partial class Login : MetroFramework.Forms.MetroForm
     {
+
+        string userName;
         // HttpClient는 HTTP 요청을 보내기 위해 사용됩니다. 기본 주소를 설정합니다.
         private static readonly HttpClient client = new HttpClient
         {
@@ -26,11 +28,11 @@ namespace WindowsFormsApp
         private async void BtnLogin_Click(object sender, EventArgs e)
         {
             // 텍스트 박스에서 사용자 ID와 비밀번호를 가져옵니다.
-            var name = nametxt.Text;
+            userName = nametxt.Text;
             var password = passwordtxt.Text;
 
             // 비동기 로그인 메서드를 호출하여 결과를 가져옵니다.
-            var loginResult = await LoginAsync(name, password);
+            var loginResult = await LoginAsync(userName, password);
 
             // 로그인 결과를 메시지 박스로 표시합니다.
             MessageBox.Show(loginResult);
@@ -82,7 +84,7 @@ namespace WindowsFormsApp
         // 다음 폼을 열고 현재 폼을 숨깁니다.
         private void open_NextForm()
         {
-            SelectRD select = new SelectRD(); // 새로운 폼을 생성합니다.
+            SelectRD select = new SelectRD(userName); // 새로운 폼을 생성합니다.
             select.Show(); // 새로운 폼을 표시합니다.
             this.Hide(); // 현재 폼을 숨깁니다.
         }

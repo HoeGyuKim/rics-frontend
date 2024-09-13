@@ -57,7 +57,6 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.fileUpLoadButton = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.fileUpLoadButton2 = new System.Windows.Forms.Button();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
@@ -67,6 +66,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.cancleButton = new System.Windows.Forms.Button();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -79,7 +79,8 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             tableLayoutPanel1.AutoScrollMargin = new System.Drawing.Size(10, 10);
             tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -102,17 +103,17 @@
             tableLayoutPanel1.Controls.Add(this.serialNumTextBox, 3, 1);
             tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             tableLayoutPanel1.Controls.Add(this.label5, 2, 1);
-            tableLayoutPanel1.Controls.Add(this.button3, 3, 0);
             tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             tableLayoutPanel1.Controls.Add(this.label7, 0, 3);
             tableLayoutPanel1.Controls.Add(this.departmentLabel, 1, 2);
             tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 3);
             tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 3, 3);
             tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 4);
-            tableLayoutPanel1.Controls.Add(this.label6, 2, 0);
             tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 2, 4);
             tableLayoutPanel1.Controls.Add(this.textBox1, 3, 5);
             tableLayoutPanel1.Controls.Add(this.tableLayoutPanel7, 2, 5);
+            tableLayoutPanel1.Controls.Add(this.cancleButton, 2, 0);
+            tableLayoutPanel1.Controls.Add(this.button3, 3, 0);
             tableLayoutPanel1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             tableLayoutPanel1.Location = new System.Drawing.Point(9, 9);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -124,7 +125,6 @@
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.46858F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.8845F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.17933F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new System.Drawing.Size(690, 329);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -440,14 +440,6 @@
             this.comboBox1.Size = new System.Drawing.Size(122, 23);
             this.comboBox1.TabIndex = 9;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(348, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 15);
-            this.label6.TabIndex = 6;
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
@@ -534,19 +526,29 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(12, 347);
+            this.progressBar.Location = new System.Drawing.Point(9, 341);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(687, 23);
             this.progressBar.TabIndex = 38;
             // 
-            // AddProduct
+            // cancleButton
+            // 
+            this.cancleButton.Location = new System.Drawing.Point(348, 3);
+            this.cancleButton.Name = "cancleButton";
+            this.cancleButton.Size = new System.Drawing.Size(128, 32);
+            this.cancleButton.TabIndex = 42;
+            this.cancleButton.Text = "취소";
+            this.cancleButton.UseVisualStyleBackColor = true;
+            this.cancleButton.Click += new System.EventHandler(this.cancleButton_Click);
+            // 
+            // AddProductDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 378);
             this.Controls.Add(tableLayoutPanel1);
             this.Controls.Add(this.progressBar);
-            this.Name = "AddProduct";
+            this.Name = "AddProductDetail";
             this.Text = "RICS - 자재 생성";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
@@ -572,7 +574,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button fileUpLoadButton2;
         private System.Windows.Forms.Button fileUpLoadButton;
         private System.Windows.Forms.Label label4;
@@ -601,5 +602,6 @@
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button cancleButton;
     }
 }

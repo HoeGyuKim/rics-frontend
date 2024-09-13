@@ -6,12 +6,12 @@ using System;
 
 namespace WindowsFormsApp1
 {
-    public partial class R_SelectProductNum : Form
+    public partial class R_SelectProductNum : MetroFramework.Forms.MetroForm
     {
         private static readonly HttpClient client = new HttpClient(); // HTTP 클라이언트 인스턴스
         private int selectedProductNum;
         private string selectedProductName;
-
+        string userName;
         public R_SelectProductNum()
         {
             InitializeComponent();
@@ -126,9 +126,10 @@ namespace WindowsFormsApp1
                 // 선택된 자재번호를 추출합니다.
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
                 int productNum = Convert.ToInt32(selectedRow.Cells[0].Value); // 자재번호 열의 인덱스가 0이라 가정
-
+                string productName = Convert.ToString(selectedRow.Cells[1].Value); // 자재명 열의 인덱스가 1이라 가정
                 // 선택한 자재번호를 저장합니다.
                 selectedProductNum = productNum;
+                selectedProductName = productName;
                 // 새 폼을 열고 선택한 자재번호를 전달합니다.
                 ReconditionedList reconditioned = new ReconditionedList(selectedProductNum,selectedProductName);
                 reconditioned.Show();
@@ -149,6 +150,14 @@ namespace WindowsFormsApp1
             {
                 searchRProductNum_Click(sender, e);
             }
+        }
+
+        private void prevButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            SelectRD selectRd = new SelectRD(userName);
+            selectRd.ShowDialog();
+            
         }
     }
 }

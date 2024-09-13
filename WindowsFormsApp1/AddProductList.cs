@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace WindowsFormsApp1
 {
-    public partial class AddProductList : Form
+    public partial class AddProductList : MetroFramework.Forms.MetroForm
     {
         private static readonly HttpClient client = new HttpClient(); // HTTP 클라이언트 인스턴스
 

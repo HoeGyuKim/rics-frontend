@@ -28,58 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.selectReconditionedButton = new System.Windows.Forms.Button();
-            this.selectDefectiveButton = new System.Windows.Forms.Button();
+            this.selectReconditionedButton = new MetroFramework.Controls.MetroButton();
+            this.selectDefectiveButton = new MetroFramework.Controls.MetroButton();
+            this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
+            this.mySqlConnection1 = new MySql.Data.MySqlClient.MySqlConnection();
             this.SuspendLayout();
             // 
             // selectReconditionedButton
             // 
-            this.selectReconditionedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.selectReconditionedButton.BackColor = System.Drawing.SystemColors.Control;
-            this.selectReconditionedButton.Font = new System.Drawing.Font("굴림", 20F);
-            this.selectReconditionedButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.selectReconditionedButton.Location = new System.Drawing.Point(307, 73);
+            this.selectReconditionedButton.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.selectReconditionedButton.FontWeight = MetroFramework.MetroButtonWeight.Light;
+            this.selectReconditionedButton.Location = new System.Drawing.Point(329, 113);
             this.selectReconditionedButton.Name = "selectReconditionedButton";
-            this.selectReconditionedButton.Size = new System.Drawing.Size(238, 140);
-            this.selectReconditionedButton.TabIndex = 2;
-            this.selectReconditionedButton.Text = "(R)재생품\r\n자재 조회\r\n";
-            this.selectReconditionedButton.UseVisualStyleBackColor = false;
-            this.selectReconditionedButton.Click += new System.EventHandler(this.button2_Click);
+            this.selectReconditionedButton.Size = new System.Drawing.Size(211, 111);
+            this.selectReconditionedButton.TabIndex = 4;
+            this.selectReconditionedButton.Text = "재생품\r\n자재 조회";
+            this.selectReconditionedButton.UseSelectable = true;
+            this.selectReconditionedButton.Click += new System.EventHandler(this.selectReconditionedButton_Click);
             // 
             // selectDefectiveButton
             // 
-            this.selectDefectiveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.selectDefectiveButton.BackColor = System.Drawing.SystemColors.Control;
-            this.selectDefectiveButton.Font = new System.Drawing.Font("굴림", 20F);
-            this.selectDefectiveButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.selectDefectiveButton.Location = new System.Drawing.Point(29, 73);
+            this.selectDefectiveButton.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.selectDefectiveButton.FontWeight = MetroFramework.MetroButtonWeight.Light;
+            this.selectDefectiveButton.Location = new System.Drawing.Point(93, 113);
             this.selectDefectiveButton.Name = "selectDefectiveButton";
-            this.selectDefectiveButton.Size = new System.Drawing.Size(245, 140);
-            this.selectDefectiveButton.TabIndex = 3;
-            this.selectDefectiveButton.Text = "(D)정비필요품\r\n자재 조회";
-            this.selectDefectiveButton.UseVisualStyleBackColor = false;
-            this.selectDefectiveButton.Click += new System.EventHandler(this.selectDefectiveButton_Click);
+            this.selectDefectiveButton.Size = new System.Drawing.Size(211, 111);
+            this.selectDefectiveButton.TabIndex = 5;
+            this.selectDefectiveButton.Text = "정비 필요품\r\n자재 조회";
+            this.selectDefectiveButton.UseSelectable = true;
+            // 
+            // htmlLabel1
+            // 
+            this.htmlLabel1.AutoScroll = true;
+            this.htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(87, 27);
+            this.htmlLabel1.AutoSize = false;
+            this.htmlLabel1.BackColor = System.Drawing.SystemColors.Window;
+            this.htmlLabel1.Location = new System.Drawing.Point(25, 18);
+            this.htmlLabel1.Name = "htmlLabel1";
+            this.htmlLabel1.Size = new System.Drawing.Size(175, 38);
+            this.htmlLabel1.TabIndex = 6;
+            this.htmlLabel1.Text = "htmlLabel1";
             // 
             // SelectRD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(577, 259);
+            this.ClientSize = new System.Drawing.Size(648, 294);
+            this.Controls.Add(this.htmlLabel1);
             this.Controls.Add(this.selectDefectiveButton);
             this.Controls.Add(this.selectReconditionedButton);
+            this.Font = new System.Drawing.Font("굴림", 10F);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "SelectRD";
-            this.Text = "RICS - 품종 선택";
+            this.Padding = new System.Windows.Forms.Padding(22, 68, 22, 22);
+            this.Load += new System.EventHandler(this.SelectRD_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button selectReconditionedButton;
-        private System.Windows.Forms.Button selectDefectiveButton;
+
+        private MetroFramework.Controls.MetroButton selectReconditionedButton;
+        private MetroFramework.Controls.MetroButton selectDefectiveButton;
+        private MetroFramework.Drawing.Html.HtmlLabel htmlLabel1;
+        private MySql.Data.MySqlClient.MySqlConnection mySqlConnection1;
     }
 }

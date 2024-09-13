@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class SelectMember : Form
+    public partial class SelectMember : MetroFramework.Forms.MetroForm
     {
         private static readonly HttpClient client = new HttpClient(); // HTTP 클라이언트 인스턴스
         public int SelectedMemberId { get; set; }

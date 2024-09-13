@@ -2,8 +2,21 @@
 
 namespace WindowsFormsApp1
 {
+    public class ReconditionedDetails
+    {
+        public long Id { get; set; }
+        public DateTime Date { get; set; }
+        public long ProductNum { get; set; }
+        public string ProductName { get; set; }
+        public string SerialNum { get; set; }
+        public string Worker { get; set; }
+        public string Manager { get; set; }
+        public string DepartmentName { get; set; }
+    }
+
     public class ReconditionedListItem
     {
+        public long Id { get; set; }
         public DateTime Date { get; set; }
         public long ProductNum { get; set; }
         public string ProductName { get; set; }

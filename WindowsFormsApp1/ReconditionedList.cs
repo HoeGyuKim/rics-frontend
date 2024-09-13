@@ -9,10 +9,10 @@ using Newtonsoft.Json;
 
 namespace WindowsFormsApp1
 {
-    
-    public partial class ReconditionedList : Form
+
+    public partial class ReconditionedList : MetroFramework.Forms.MetroForm
     {
-        
+
         private int selectedReconditionedProductNum;
         private string selectedReconditionedProductName;
         private static readonly HttpClient client = new HttpClient
@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
             SetInitialDatePickers();
             await LoadDataAsync();
         }
-        private void SetInitialDatePickers()
+        private void SetInitialDatePickers() // 검색 도구 : 날짜 범위 선택
         {
             StartDateTimePicker.Value = DateTime.Now.AddMonths(-1); // 초기 시작 날짜 한 달 전으로 설정
             EndDateTimePicker.Value = DateTime.Now; // 초기 끝 날짜 현재로 설정
@@ -75,16 +75,13 @@ namespace WindowsFormsApp1
         {
             string url = $"api/reconditioned/details?productNum={selectedReconditionedProductNum}";
 
-            if (selectBox?.SelectedItem != null)
+            if (selectBox?.SelectedItem != null && searchTextBox.Text != null)
             {
                 string filterBy = selectBox.SelectedItem.ToString();
                 switch (filterBy)
                 {
                     case "시리얼번호":
                         url = $"api/reconditioned/detailsBySerialNum?productNum={selectedReconditionedProductNum}&serialNum={searchTextBox.Text}";
-                        break;
-                    case "완료일자":
-                        // 완료일자 필터가 있는 경우 URL을 추가로 변경하는 로직 필요
                         break;
                     case "작업자":
                         url += $"&worker={searchTextBox.Text}";
@@ -117,13 +114,13 @@ namespace WindowsFormsApp1
 
         // ReconditionedListItem 클래스는 별도의 파일에 정의하는 것이 좋습니다
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)// 새로운 R품 등록 버튼
         {
-            AddProductDetail productInfo = new AddProductDetail(selectedReconditionedProductNum.ToString(), selectedReconditionedProductName);
-            productInfo.ShowDialog();
+            AddProductDetail addProductDetail = new AddProductDetail(selectedReconditionedProductNum.ToString(), selectedReconditionedProductName); //자재번호와 자재명을 전달
+            addProductDetail.ShowDialog();
         }
 
-        private async void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e) // 삭제 버튼 *아직 구현 안됨* 결재 시스템 도입 후 구현
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -153,10 +150,18 @@ namespace WindowsFormsApp1
                 MessageBox.Show("삭제할 항목을 선택하세요.");
             }
         }
-        private void InitializeDataGridView()
+        private void InitializeDataGridView() //데이타그리드뷰 바인딩
         {
-            string[] headers = { "완료일자", "자재번호", "자재명", "시리얼 번호", "점검자", "관리자", "발생부서" };
-            string[] properties = { "Date", "ProductNum", "ProductName", "SerialNum", "Worker", "Manager", "DepartmentName" };
+            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
+            {
+                Name = "Select",
+                HeaderText = "선택",
+                Width = 50,
+                ReadOnly = false // 체크박스는 편집 가능하도록 설정
+            };
+            dataGridView1.Columns.Add(checkBoxColumn);
+            string[] headers = { "완료일자", "자재번호", "자재명", "시리얼 번호", "점검자", "관리자", "발생부서", "등록번호" };
+            string[] properties = { "Date", "ProductNum", "ProductName", "SerialNum", "Worker", "Manager", "DepartmentName", "id" };
 
             for (int i = 0; i < headers.Length; i++)
             {
@@ -164,9 +169,13 @@ namespace WindowsFormsApp1
                 {
                     DataPropertyName = properties[i],
                     HeaderText = headers[i],
-                    Name = properties[i]
+                    Name = properties[i],
+                    ReadOnly = true // 나머지 열은 읽기 전용으로 설정
                 });
             }
+
+            // 데이터그리드뷰의 EditMode를 EditOnEnter로 설정
+            dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
         }
 
         private void PrevButton_Click(object sender, EventArgs e)
@@ -182,5 +191,46 @@ namespace WindowsFormsApp1
         {
             await LoadDataAsync();
         }
+
+        private void ShowDetailButton_Click(object sender, EventArgs e)
+        {
+            if (GetCheckedRowCount() == 1)
+            {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells["Select"];
+                    if (Convert.ToBoolean(checkBoxCell.Value))
+                    {
+                        var item = (ReconditionedListItem)row.DataBoundItem;
+                        long id = item.Id;
+
+                        using (var reconditionedDetail = new ReconditionedDetail(id))
+                        {
+                            reconditionedDetail.ShowDialog();
+                        }
+                        return;
+                    }
+                }
+                MessageBox.Show("상세 정보를 볼 항목을 선택하세요.");
+            }
+            else
+            {
+               MessageBox.Show("하나의 행을 선택하세요.");
+            }
+        }
+        private int GetCheckedRowCount()
+        {
+            int checkedCount = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells["Select"];
+                if (Convert.ToBoolean(checkBoxCell.Value))
+                {
+                    checkedCount++;
+                }
+            }
+            return checkedCount;
+        }
     }
 }
+
