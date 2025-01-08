@@ -12,7 +12,7 @@ namespace WindowsFormsApp1
 
     public partial class ReconditionedList : MetroFramework.Forms.MetroForm
     {
-
+        private Member loggedInMember;
         private int selectedReconditionedProductNum;
         private string selectedReconditionedProductName;
         private static readonly HttpClient client = new HttpClient
@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
             BaseAddress = new Uri("http://localhost:8080/")
         };
 
-        public ReconditionedList(int selectedProductNum, string selectedProductName)
+        public ReconditionedList(Member user,int selectedProductNum, string selectedProductName)
         {
             InitializeComponent();
             this.selectedReconditionedProductNum = selectedProductNum;
@@ -28,6 +28,7 @@ namespace WindowsFormsApp1
             SelectedProductNumTextBox.Text = selectedProductNum.ToString();
             SelectedProductNameTextBox.Text = selectedProductName;
             this.Load += new EventHandler(this.Reconditioned_Load);
+            this.loggedInMember = user;
         }
 
         private async void Reconditioned_Load(object sender, EventArgs e)
@@ -36,11 +37,13 @@ namespace WindowsFormsApp1
             SetInitialDatePickers();
             await LoadDataAsync();
         }
+
         private void SetInitialDatePickers() // 검색 도구 : 날짜 범위 선택
         {
             StartDateTimePicker.Value = DateTime.Now.AddMonths(-1); // 초기 시작 날짜 한 달 전으로 설정
             EndDateTimePicker.Value = DateTime.Now; // 초기 끝 날짜 현재로 설정
         }
+
         private async Task LoadDataAsync()
         {
             try
@@ -71,6 +74,7 @@ namespace WindowsFormsApp1
                 HandleException("Error", ex);
             }
         }
+
         private string BuildUrl()
         {
             string url = $"api/reconditioned/details?productNum={selectedReconditionedProductNum}";
@@ -152,6 +156,9 @@ namespace WindowsFormsApp1
         }
         private void InitializeDataGridView() //데이타그리드뷰 바인딩
         {
+            // 데이터그리드뷰 자동 생성 비활성화
+            dataGridView1.AutoGenerateColumns = false;
+            // 체크박스 열 추가
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
             {
                 Name = "Select",
@@ -160,8 +167,8 @@ namespace WindowsFormsApp1
                 ReadOnly = false // 체크박스는 편집 가능하도록 설정
             };
             dataGridView1.Columns.Add(checkBoxColumn);
-            string[] headers = { "완료일자", "자재번호", "자재명", "시리얼 번호", "점검자", "관리자", "발생부서", "등록번호" };
-            string[] properties = { "Date", "ProductNum", "ProductName", "SerialNum", "Worker", "Manager", "DepartmentName", "id" };
+            string[] headers = { "등록번호", "완료일자", "자재번호", "자재명", "시리얼 번호", "점검자", "발생부서", "결재상태" };
+            string[] properties = { "Id", "date", "productNum", "productName", "serialNum", "workerName", "departmentName", "ApprovalStatusText" };
 
             for (int i = 0; i < headers.Length; i++)
             {
@@ -173,7 +180,6 @@ namespace WindowsFormsApp1
                     ReadOnly = true // 나머지 열은 읽기 전용으로 설정
                 });
             }
-
             // 데이터그리드뷰의 EditMode를 EditOnEnter로 설정
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
         }
@@ -181,13 +187,13 @@ namespace WindowsFormsApp1
         private void PrevButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            using (var r_SelectProductNum = new R_SelectProductNum())
+            using (var r_SelectProductNum = new SelectProductNum(loggedInMember))
             {
                 r_SelectProductNum.ShowDialog();
             }
         }
 
-        private async void searchButton_Click(object sender, EventArgs e)
+        private async void SearchButton_Click(object sender, EventArgs e)
         {
             await LoadDataAsync();
         }
@@ -202,9 +208,7 @@ namespace WindowsFormsApp1
                     if (Convert.ToBoolean(checkBoxCell.Value))
                     {
                         var item = (ReconditionedListItem)row.DataBoundItem;
-                        long id = item.Id;
-
-                        using (var reconditionedDetail = new ReconditionedDetail(id))
+                        using (var reconditionedDetail = new ReconditionedDetail((long)item.Id, (int)item.ApprovalStatus))
                         {
                             reconditionedDetail.ShowDialog();
                         }

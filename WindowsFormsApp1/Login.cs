@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Metrics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,7 @@ namespace WindowsFormsApp
 {
     public partial class Login : MetroFramework.Forms.MetroForm
     {
-
-        string userName;
+        private Member loggedInMember;
         // HttpClient는 HTTP 요청을 보내기 위해 사용됩니다. 기본 주소를 설정합니다.
         private static readonly HttpClient client = new HttpClient
         {
@@ -27,67 +27,72 @@ namespace WindowsFormsApp
         // 로그인 버튼 클릭 이벤트 핸들러입니다.
         private async void BtnLogin_Click(object sender, EventArgs e)
         {
-            // 텍스트 박스에서 사용자 ID와 비밀번호를 가져옵니다.
-            userName = nametxt.Text;
-            var password = passwordtxt.Text;
+            string userName = nametxt.Text;
+            string password = passwordtxt.Text;
+            loggedInMember = await LoginAsync(userName, password);
 
-            // 비동기 로그인 메서드를 호출하여 결과를 가져옵니다.
-            var loginResult = await LoginAsync(userName, password);
-
-            // 로그인 결과를 메시지 박스로 표시합니다.
-            MessageBox.Show(loginResult);
-
-            // 로그인 성공 시 다음 폼을 열고 현재 폼을 숨깁니다.
-            if (loginResult == "로그인 성공")
+            if (loggedInMember != null)
             {
-                open_NextForm();
+                MessageBox.Show($"로그인 성공" + Environment.NewLine + $"이름: {loggedInMember.Name}, 부서: {loggedInMember.Department?.DepartmentName}");
+
+                // 로그인 성공 후 다음 폼에 Member 객체 전달
+                open_NextForm(loggedInMember);
+            }
+            else
+            {
+                MessageBox.Show("로그인 실패. 아이디 또는 비밀번호를 확인해주세요.");
             }
         }
+
+
         // 비동기 로그인 메서드입니다. 서버에 로그인 요청을 보냅니다.
-        private async Task<string> LoginAsync(string name, string employeeNum)
+        private async Task<Member> LoginAsync(string name, string employeeNum)
         {
-            // 로그인 정보를 JSON 객체로 만듭니다. 필드 이름은 서버의 필드 이름과 일치해야 합니다.
-            var user = new { name = name, employeeNum = employeeNum }; // 필드를 `password`에서 `EmployeeNum`으로 변경
-            var json = JsonConvert.SerializeObject(user); // JSON 문자열로 직렬화합니다.
-            var content = new StringContent(json, Encoding.UTF8, "application/json"); // HTTP 요청의 본문을 생성합니다.
+            var user = new { name = name, employeeNum = employeeNum };
+            var json = JsonConvert.SerializeObject(user);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             try
             {
-                // POST 요청을 서버의 로그인 엔드포인트로 보냅니다.
                 var response = await client.PostAsync("api/users/login", content);
 
-                // 요청이 성공하면 응답 본문을 문자열로 반환합니다.
                 if (response.IsSuccessStatusCode)
                 {
-                    return await response.Content.ReadAsStringAsync();
+                    // 성공 시 Member 객체로 역직렬화
+                    var responseBody = await response.Content.ReadAsStringAsync();
+                    var member = JsonConvert.DeserializeObject<Member>(responseBody);
+                    return member;
                 }
                 else
                 {
-                    // 요청이 실패하면 상태 코드와 에러 내용을 포함한 메시지를 반환합니다.
-                    var errorContent = await response.Content.ReadAsStringAsync();
-                    return $"로그인 실패: {response.StatusCode} - {errorContent}";
+                    // 실패 시 예외 처리
+                    throw new Exception($"로그인 실패: {response.StatusCode}");
                 }
-            }
-            catch (HttpRequestException ex)
-            {
-                // HTTP 요청 중 예외가 발생하면 예외 메시지를 반환합니다.
-                return $"HTTP 요청 예외 발생: {ex.Message}";
             }
             catch (Exception ex)
             {
-                // 다른 예외가 발생하면 예외 메시지를 반환합니다.
-                return $"예외 발생: {ex.Message}";
+                MessageBox.Show($"오류 발생: {ex.Message}");
+                return null;
             }
         }
 
 
+
         // 다음 폼을 열고 현재 폼을 숨깁니다.
-        private void open_NextForm()
-        {
-            SelectRD select = new SelectRD(userName); // 새로운 폼을 생성합니다.
-            select.Show(); // 새로운 폼을 표시합니다.
-            this.Hide(); // 현재 폼을 숨깁니다.
+        private void open_NextForm(Member loggedInMember)
+        {   if( loggedInMember.IsManager == false) //작업자의 경우 작업자 선택 form 
+            {
+                WorkerFirstSelect workerFirstSelect = new WorkerFirstSelect(loggedInMember);
+                workerFirstSelect.Show();
+            }
+            else
+            {
+                ManagerFirstSelect managweFirstSelect = new ManagerFirstSelect(loggedInMember);
+                managweFirstSelect.Show();
+            }
+            this.Hide();
         }
+
 
         private void LoginTextBox_KeyUp(object sender, KeyEventArgs e)
         {

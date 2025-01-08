@@ -6,16 +6,17 @@ using System;
 
 namespace WindowsFormsApp1
 {
-    public partial class R_SelectProductNum : MetroFramework.Forms.MetroForm
+    public partial class SelectProductNum : MetroFramework.Forms.MetroForm
     {
+        private Member loggedInMember;
         private static readonly HttpClient client = new HttpClient(); // HTTP 클라이언트 인스턴스
         private int selectedProductNum;
         private string selectedProductName;
-        string userName;
-        public R_SelectProductNum()
+        private string userName;
+        public SelectProductNum(Member member)
         {
             InitializeComponent();
-            searchTextBox.KeyDown += new KeyEventHandler(SearchProductNum_KeyUp);
+            this.loggedInMember = member; // 전달받은 Member 객체 저장
         }
 
         private async void R_SelectProductNum_Load(object sender, EventArgs e)
@@ -46,7 +47,7 @@ namespace WindowsFormsApp1
                         foreach (var product in products)
                         {
                             // 디버깅 메시지 추가
-                            Console.WriteLine($"ProductNumber: {product.productNum}, ProductName: {product.productName}");
+                            Console.WriteLine($"ProductNumber: {product.productNum}, productName: {product.productName}");
                             dataGridView1.Rows.Add(product.productNum, product.productName);
                             this.selectedProductNum = product.productNum;
                             this.selectedProductName = product.productName;
@@ -98,7 +99,7 @@ namespace WindowsFormsApp1
                         foreach (var product in products)
                         {
                             // 디버깅 메시지 추가
-                            Console.WriteLine($"Filtered ProductNumber: {product.productNum}, ProductName: {product.productName}");
+                            Console.WriteLine($"Filtered ProductNumber: {product.productNum}, productName: {product.productName}");
                             dataGridView1.Rows.Add(product.productNum, product.productName);
                         }
                     }
@@ -131,7 +132,7 @@ namespace WindowsFormsApp1
                 selectedProductNum = productNum;
                 selectedProductName = productName;
                 // 새 폼을 열고 선택한 자재번호를 전달합니다.
-                ReconditionedList reconditioned = new ReconditionedList(selectedProductNum,selectedProductName);
+                ReconditionedList reconditioned = new ReconditionedList(loggedInMember, selectedProductNum,selectedProductName);
                 reconditioned.Show();
                 Hide();
             }
@@ -155,9 +156,18 @@ namespace WindowsFormsApp1
         private void prevButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            SelectRD selectRd = new SelectRD(userName);
-            selectRd.ShowDialog();
-            
+
+
+            if (loggedInMember.IsManager == false)
+            {
+                WorkerFirstSelect workerFirstSelect = new WorkerFirstSelect(loggedInMember);
+                workerFirstSelect.ShowDialog();
+            }
+            else
+            {
+                ManagerFirstSelect managerFirstSelect = new ManagerFirstSelect(loggedInMember);
+                managerFirstSelect.ShowDialog();
+            }
         }
     }
 }

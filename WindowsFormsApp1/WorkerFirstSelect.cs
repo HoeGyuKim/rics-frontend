@@ -10,16 +10,19 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class SelectRD : MetroFramework.Forms.MetroForm
+    public partial class WorkerFirstSelect : MetroFramework.Forms.MetroForm
     {
         public bool selectReconditioned = false;
+        Member loggedInMember;
         string userName;
-        public SelectRD(string name)
+        
+        public WorkerFirstSelect(Member member)
         {
             InitializeComponent();
-            this.userName = name;
+            this.loggedInMember = member;
+            this.userName = member.Name;
         }
-
+        
         private void SelectRD_Load(object sender, EventArgs e)
         {
             htmlLabel1.Text = $"{userName}님 환영합니다.";
@@ -28,8 +31,15 @@ namespace WindowsFormsApp1
         private void selectReconditionedButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            R_SelectProductNum r_SelectProductNum = new R_SelectProductNum();
-            r_SelectProductNum.Show();
+            SelectProductNum selectProductNum = new SelectProductNum(loggedInMember);
+            selectProductNum.Show();
+        }
+
+        private void selectMyListButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RecentCreatedList createdList = new RecentCreatedList(loggedInMember);
+            createdList.Show();
         }
     }
 }

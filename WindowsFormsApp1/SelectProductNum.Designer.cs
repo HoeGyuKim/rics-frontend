@@ -2,7 +2,7 @@
 
 namespace WindowsFormsApp1
 {
-    partial class R_SelectProductNum
+    partial class SelectProductNum
     {
         private System.ComponentModel.IContainer components = null;
 

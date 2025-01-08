@@ -14,9 +14,11 @@ namespace WindowsFormsApp1
     {
         private string department;
         private string workerName;
-        private string managerName;
+        private string middleManagerName;
+        private string lastManagerName;
         private int workerId;
-        private int managerId;
+        private int middleManagerId;
+        private int lastManagerId;
         private string selectedFilePath1 = string.Empty;
         private string selectedFilePath2 = string.Empty;
 
@@ -52,44 +54,20 @@ namespace WindowsFormsApp1
             }
         }
 
-        private async Task<string> UploadFileAsync(string endpoint, string filePath, string fileParamName)
-        {
-            using (var content = new MultipartFormDataContent())
-            using (var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
-            {
-                var fileName = Path.GetFileName(filePath);
-                var fileContent = new StreamContent(fileStream);
-                fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/pdf");
-                content.Add(fileContent, fileParamName, fileName);
-
-                Console.WriteLine($"Uploading file: {fileName} to {endpoint}");
-
-                HttpResponseMessage response = await httpClient.PostAsync(endpoint, content);
-                if (response.IsSuccessStatusCode)
-                {
-                    string result = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine($"Upload successful: {result}");
-                    return result; // 서버에서 반환된 파일 URL
-                }
-                else
-                {
-                    Console.WriteLine($"Upload failed: {response.ReasonPhrase}");
-                    throw new Exception($"파일 업로드 실패: {response.ReasonPhrase}");
-                }
-            }
-        }
-        private async Task SaveProductDetailAsync(string endpoint, string productNum, string serialNum, DateTime date, string filePath1, string filePath2, long workerId, long managerId)
+        private async Task SaveProductDetailAsync(string endpoint, string productNum, string serialNum, DateTime date, string filePath1, string filePath2, long workerId, long middleManagerId, long lastManagerId, string memo)
         {
             using (var content = new MultipartFormDataContent())
             {
                 var detailData = new
                 {
-                    rd = true, // 또는 false로 설정
-                    date = date.ToString("yyyy-MM-dd"),
                     serialNum = serialNum,
-                    productList = long.Parse(productNum),
+                    memo = memo,
+                    date = date.ToString("yyyy-MM-dd"),
+                    productNum = long.Parse(productNum),
                     workerNum = workerId,
-                    managerNum = managerId
+                    middleManagerNum = middleManagerId,
+                    lastManagerNum = lastManagerId,
+                    approvalStatus = 1 
                 };
 
                 // JSON 데이터를 추가
@@ -139,7 +117,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("점검자를 선택해주세요.");
                 return;
             }
-            if (managerName == null)
+            if (middleManagerName == null)
             {
                 MessageBox.Show("관리자를 선택해주세요.");
                 return;
@@ -165,7 +143,9 @@ namespace WindowsFormsApp1
                     selectedFilePath1,
                     selectedFilePath2,
                     workerId,
-                    managerId
+                    middleManagerId,
+                    lastManagerId,
+                    memoTextBox.Text
                 );
 
                 MessageBox.Show("모든 작업이 성공적으로 완료되었습니다.");
@@ -194,21 +174,37 @@ namespace WindowsFormsApp1
 
                     workerTextBox.Text = workerName;
                     departmentLabel.Text = department;
+
+                }
+            }
+        }
+        private void searchMiddleManagerButton_Click(object sender, EventArgs e)
+        {
+            using (var selectWorker = new SelectMember())
+            {
+                if (selectWorker.ShowDialog() == DialogResult.OK)
+                {
+                    middleManagerId = selectWorker.SelectedMemberId;
+                    middleManagerName = selectWorker.SelectedMemberName;
+                    department = selectWorker.DepartmentName;
+
+                    middleManagerTextBox.Text = middleManagerName;
+                    departmentLabel.Text = department;
                 }
             }
         }
 
-        private void searchManagerButton_Click(object sender, EventArgs e)
+        private void searchLastManagerButton_Click(object sender, EventArgs e)
         {
-            using (var selectManager = new SelectMember())
+            using (var selecrLastManager = new SelectMember())
             {
-                if (selectManager.ShowDialog() == DialogResult.OK)
+                if (selecrLastManager.ShowDialog() == DialogResult.OK)
                 {
-                    managerId = selectManager.SelectedMemberId;
-                    managerName = selectManager.SelectedMemberName;
-                    department = selectManager.DepartmentName;
+                    lastManagerId = selecrLastManager.SelectedMemberId;
+                    lastManagerName = selecrLastManager.SelectedMemberName;
+                    department = selecrLastManager.DepartmentName;
 
-                    managerTextBox.Text = managerName;
+                    lastManagerTextBox.Text = lastManagerName;
                     departmentLabel.Text = department;
                 }
             }
@@ -218,5 +214,7 @@ namespace WindowsFormsApp1
         {
             this.Close();
         }
+
+
     }
 }
