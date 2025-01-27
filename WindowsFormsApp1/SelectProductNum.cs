@@ -3,11 +3,14 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System;
+using System.Drawing;
+using System.Linq;
 
 namespace WindowsFormsApp1
 {
     public partial class SelectProductNum : MetroFramework.Forms.MetroForm
     {
+        
         private Member loggedInMember;
         private static readonly HttpClient client = new HttpClient(); // HTTP 클라이언트 인스턴스
         private int selectedProductNum;
@@ -17,6 +20,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.loggedInMember = member; // 전달받은 Member 객체 저장
+
         }
 
         private async void R_SelectProductNum_Load(object sender, EventArgs e)
@@ -44,7 +48,7 @@ namespace WindowsFormsApp1
                     dataGridView1.Rows.Clear();
                     if (products != null && products.Length > 0)
                     {
-                        foreach (var product in products)
+                        foreach (var product in products.Take(10))
                         {
                             // 디버깅 메시지 추가
                             Console.WriteLine($"ProductNumber: {product.productNum}, productName: {product.productName}");
@@ -119,7 +123,6 @@ namespace WindowsFormsApp1
                 // 예외를 파일에 기록하거나 로깅 서비스에 기록하는 것도 고려할 수 있습니다.
             }
         }
-
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 &&( e.ColumnIndex == 0 | e.ColumnIndex == 1)) // 첫 번째 열을 클릭했을 때 (자재번호 열)
@@ -137,8 +140,6 @@ namespace WindowsFormsApp1
                 Hide();
             }
         }
-
-
         private void AddRProductList_Click(object sender, EventArgs e)
         {
             AddProductList addProductList = new AddProductList();
@@ -155,19 +156,17 @@ namespace WindowsFormsApp1
 
         private void prevButton_Click(object sender, EventArgs e)
         {
-            this.Close();
-
-
             if (loggedInMember.IsManager == false)
             {
                 WorkerFirstSelect workerFirstSelect = new WorkerFirstSelect(loggedInMember);
-                workerFirstSelect.ShowDialog();
+                workerFirstSelect.Show();
             }
             else
             {
                 ManagerFirstSelect managerFirstSelect = new ManagerFirstSelect(loggedInMember);
-                managerFirstSelect.ShowDialog();
+                managerFirstSelect.Show();
             }
+            this.Close();
         }
     }
 }

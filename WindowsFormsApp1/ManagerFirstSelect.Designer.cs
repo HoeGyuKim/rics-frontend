@@ -30,35 +30,13 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            this.selectReconditionedButton = new MetroFramework.Controls.MetroButton();
-            this.selectDefectiveButton = new MetroFramework.Controls.MetroButton();
             this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.mySqlConnection1 = new MySql.Data.MySqlClient.MySqlConnection();
-            this.selectMyListButton = new MetroFramework.Controls.MetroButton();
+            this.selectReconditionedButton = new MetroFramework.Controls.MetroTile();
+            this.selectManagerApprovalButton = new MetroFramework.Controls.MetroTile();
+            this.selectMyListButton = new MetroFramework.Controls.MetroTile();
+            this.userInfoButton = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
-            // 
-            // selectReconditionedButton
-            // 
-            this.selectReconditionedButton.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.selectReconditionedButton.FontWeight = MetroFramework.MetroButtonWeight.Light;
-            this.selectReconditionedButton.Location = new System.Drawing.Point(333, 100);
-            this.selectReconditionedButton.Name = "selectReconditionedButton";
-            this.selectReconditionedButton.Size = new System.Drawing.Size(211, 114);
-            this.selectReconditionedButton.TabIndex = 4;
-            this.selectReconditionedButton.Text = "재생품\r\n자재 조회";
-            this.selectReconditionedButton.UseSelectable = true;
-            this.selectReconditionedButton.Click += new System.EventHandler(this.selectReconditionedButton_Click);
-            // 
-            // selectDefectiveButton
-            // 
-            this.selectDefectiveButton.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.selectDefectiveButton.FontWeight = MetroFramework.MetroButtonWeight.Light;
-            this.selectDefectiveButton.Location = new System.Drawing.Point(97, 100);
-            this.selectDefectiveButton.Name = "selectDefectiveButton";
-            this.selectDefectiveButton.Size = new System.Drawing.Size(211, 56);
-            this.selectDefectiveButton.TabIndex = 5;
-            this.selectDefectiveButton.UseSelectable = true;
-            this.selectDefectiveButton.Click += new System.EventHandler(this.selectDefectiveButton_Click);
             // 
             // htmlLabel1
             // 
@@ -72,29 +50,68 @@ namespace WindowsFormsApp1
             this.htmlLabel1.TabIndex = 6;
             this.htmlLabel1.Text = "htmlLabel1";
             // 
+            // selectReconditionedButton
+            // 
+            this.selectReconditionedButton.ActiveControl = null;
+            this.selectReconditionedButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.selectReconditionedButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.selectReconditionedButton.Location = new System.Drawing.Point(309, 106);
+            this.selectReconditionedButton.Name = "selectReconditionedButton";
+            this.selectReconditionedButton.Size = new System.Drawing.Size(220, 125);
+            this.selectReconditionedButton.TabIndex = 9;
+            this.selectReconditionedButton.Text = "재생품 자재 조회";
+            this.selectReconditionedButton.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.selectReconditionedButton.UseSelectable = true;
+            this.selectReconditionedButton.Click += new System.EventHandler(this.selectReconditionedButton_Click_1);
+            // 
+            // selectManagerApprovalButton
+            // 
+            this.selectManagerApprovalButton.ActiveControl = null;
+            this.selectManagerApprovalButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.selectManagerApprovalButton.Location = new System.Drawing.Point(90, 106);
+            this.selectManagerApprovalButton.Name = "selectManagerApprovalButton";
+            this.selectManagerApprovalButton.Size = new System.Drawing.Size(213, 59);
+            this.selectManagerApprovalButton.TabIndex = 10;
+            this.selectManagerApprovalButton.Text = "metroTile1";
+            this.selectManagerApprovalButton.UseSelectable = true;
+            this.selectManagerApprovalButton.Click += new System.EventHandler(this.selectManagerApprovalButton_Click);
+            // 
             // selectMyListButton
             // 
-            this.selectMyListButton.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.selectMyListButton.FontWeight = MetroFramework.MetroButtonWeight.Light;
-            this.selectMyListButton.Location = new System.Drawing.Point(97, 162);
+            this.selectMyListButton.ActiveControl = null;
+            this.selectMyListButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.selectMyListButton.Location = new System.Drawing.Point(90, 171);
             this.selectMyListButton.Name = "selectMyListButton";
-            this.selectMyListButton.Size = new System.Drawing.Size(211, 52);
-            this.selectMyListButton.TabIndex = 7;
-            this.selectMyListButton.Text = "생성 목록";
+            this.selectMyListButton.Size = new System.Drawing.Size(213, 60);
+            this.selectMyListButton.TabIndex = 11;
+            this.selectMyListButton.Text = "월/년 누계";
             this.selectMyListButton.UseSelectable = true;
             this.selectMyListButton.Click += new System.EventHandler(this.selectMyListButton_Click);
+            // 
+            // userInfoButton
+            // 
+            this.userInfoButton.ActiveControl = null;
+            this.userInfoButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userInfoButton.Location = new System.Drawing.Point(442, 58);
+            this.userInfoButton.Name = "userInfoButton";
+            this.userInfoButton.Size = new System.Drawing.Size(87, 42);
+            this.userInfoButton.TabIndex = 12;
+            this.userInfoButton.Text = "회원정보";
+            this.userInfoButton.UseSelectable = true;
+            this.userInfoButton.Click += new System.EventHandler(this.metroTile1_Click);
             // 
             // ManagerFirstSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 294);
+            this.ClientSize = new System.Drawing.Size(623, 287);
+            this.Controls.Add(this.userInfoButton);
             this.Controls.Add(this.selectMyListButton);
-            this.Controls.Add(this.htmlLabel1);
-            this.Controls.Add(this.selectDefectiveButton);
+            this.Controls.Add(this.selectManagerApprovalButton);
             this.Controls.Add(this.selectReconditionedButton);
+            this.Controls.Add(this.htmlLabel1);
             this.Font = new System.Drawing.Font("굴림", 10F);
-            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.Name = "ManagerFirstSelect";
             this.Padding = new System.Windows.Forms.Padding(22, 68, 22, 22);
             this.Load += new System.EventHandler(this.SelectRD_Load);
@@ -103,11 +120,11 @@ namespace WindowsFormsApp1
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroButton selectReconditionedButton;
-        private MetroFramework.Controls.MetroButton selectDefectiveButton;
         private MetroFramework.Drawing.Html.HtmlLabel htmlLabel1;
         private MySql.Data.MySqlClient.MySqlConnection mySqlConnection1;
-        private MetroFramework.Controls.MetroButton selectMyListButton;
+        private MetroFramework.Controls.MetroTile selectReconditionedButton;
+        private MetroFramework.Controls.MetroTile selectManagerApprovalButton;
+        private MetroFramework.Controls.MetroTile selectMyListButton;
+        private MetroFramework.Controls.MetroTile userInfoButton;
     }
 }

@@ -84,8 +84,8 @@ namespace WindowsFormsApp1
             myDataGridView.Columns.Add(checkBoxColumn);
 
             // 텍스트 열 추가
-            string[] headers = { "완료일자", "자재번호", "시리얼 번호", "결재상태" };
-            string[] properties = { "date", "productNum", "serialNum", "ApprovalStatusText" };
+            string[] headers = { "등록번호", "완료일자", "자재번호", "시리얼 번호", "결재상태" };
+            string[] properties = { "Id", "date", "productNum", "serialNum", "approvalStatusText" };
 
             for (int i = 0; i < headers.Length; i++)
             {
@@ -101,11 +101,6 @@ namespace WindowsFormsApp1
             // EditMode 설정
             myDataGridView.EditMode = DataGridViewEditMode.EditOnEnter;
 
-            // Dock 설정
-            myDataGridView.Dock = DockStyle.Fill;
-
-            // CellClick 이벤트 핸들러 등록
-            myDataGridView.CellClick += MyDataGridView_CellClick;
         }
 
         private void MyDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)

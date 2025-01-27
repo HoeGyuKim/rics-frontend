@@ -49,6 +49,7 @@ namespace WindowsFormsApp1
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -77,7 +78,8 @@ namespace WindowsFormsApp1
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView1.Location = new System.Drawing.Point(11, 101);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 81);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -92,7 +94,7 @@ namespace WindowsFormsApp1
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(702, 184);
+            this.dataGridView1.Size = new System.Drawing.Size(614, 147);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -119,9 +121,11 @@ namespace WindowsFormsApp1
             // 
             // selectMemberButton
             // 
-            this.selectMemberButton.Location = new System.Drawing.Point(610, 291);
+            this.selectMemberButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.selectMemberButton.Location = new System.Drawing.Point(534, 233);
+            this.selectMemberButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.selectMemberButton.Name = "selectMemberButton";
-            this.selectMemberButton.Size = new System.Drawing.Size(103, 25);
+            this.selectMemberButton.Size = new System.Drawing.Size(90, 20);
             this.selectMemberButton.TabIndex = 1;
             this.selectMemberButton.Text = "확인";
             this.selectMemberButton.UseVisualStyleBackColor = true;
@@ -129,9 +133,11 @@ namespace WindowsFormsApp1
             // 
             // prevButton
             // 
-            this.prevButton.Location = new System.Drawing.Point(338, 70);
+            this.prevButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.prevButton.Location = new System.Drawing.Point(296, 56);
+            this.prevButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.prevButton.Name = "prevButton";
-            this.prevButton.Size = new System.Drawing.Size(103, 25);
+            this.prevButton.Size = new System.Drawing.Size(90, 20);
             this.prevButton.TabIndex = 2;
             this.prevButton.Text = "이전";
             this.prevButton.UseVisualStyleBackColor = true;
@@ -139,16 +145,20 @@ namespace WindowsFormsApp1
             // 
             // searchForNameTextBox
             // 
-            this.searchForNameTextBox.Location = new System.Drawing.Point(15, 70);
+            this.searchForNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchForNameTextBox.Location = new System.Drawing.Point(13, 56);
+            this.searchForNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchForNameTextBox.Name = "searchForNameTextBox";
-            this.searchForNameTextBox.Size = new System.Drawing.Size(208, 25);
+            this.searchForNameTextBox.Size = new System.Drawing.Size(182, 21);
             this.searchForNameTextBox.TabIndex = 3;
             // 
             // searchForNameButton
             // 
-            this.searchForNameButton.Location = new System.Drawing.Point(229, 70);
+            this.searchForNameButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchForNameButton.Location = new System.Drawing.Point(200, 56);
+            this.searchForNameButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchForNameButton.Name = "searchForNameButton";
-            this.searchForNameButton.Size = new System.Drawing.Size(103, 25);
+            this.searchForNameButton.Size = new System.Drawing.Size(90, 20);
             this.searchForNameButton.TabIndex = 4;
             this.searchForNameButton.Text = "검색(성명)";
             this.searchForNameButton.UseVisualStyleBackColor = true;
@@ -156,14 +166,16 @@ namespace WindowsFormsApp1
             // 
             // SelectMember
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 339);
+            this.ClientSize = new System.Drawing.Size(635, 271);
             this.Controls.Add(this.searchForNameButton);
             this.Controls.Add(this.searchForNameTextBox);
             this.Controls.Add(this.prevButton);
             this.Controls.Add(this.selectMemberButton);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Padding = new System.Windows.Forms.Padding(18, 48, 18, 16);
             this.Text = "직원 검색";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

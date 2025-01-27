@@ -5,37 +5,31 @@ namespace WindowsFormsApp1
 {
     public class ReconditionedListItem
     {
-        [JsonProperty("id")]
-        public long? Id { get; set; }
-        [JsonProperty("date")]
-        public DateTime? Date { get; set; }
-        [JsonProperty("productNum")]
-        public long? ProductNum { get; set; }
-        public string ProductName { get; set; }
-        [JsonProperty("serialNum")]
-        public string SerialNum { get; set; }
-        [JsonProperty("workerName")]
-        public string WorkerName { get; set; }
-        public string ManagerName { get; set; }
-        public string DepartmentName { get; set; }
-        public int? ApprovalStatus { get; set; }
-        // 추가된 속성
-        [JsonProperty("approvalStatusText")]
-        public string ApprovalStatusText
+        public long id { get; set; }
+        public DateTime date { get; set; }
+        public long? productNum { get; set; }
+        public string productName { get; set; }
+        public string serialNum { get; set; }
+        public string workerName { get; set; }
+        public string middleManagerName { get; set; }
+        public string departmentName { get; set; }
+        public int approvalStatus { get; set; }
+
+        public string approvalStatusText
         {
             get
             {
-                if (ApprovalStatus == 1)
+                if (approvalStatus == 1)
                     return "상신";
-                else if (ApprovalStatus == 2)
+                else if (approvalStatus == 2)
                     return "1차 검토 완료";
-                else if (ApprovalStatus == 3)
+                else if (approvalStatus == 3)
                     return "승인";
-                else if (ApprovalStatus == 4)
+                else if (approvalStatus == 4)
                     return "반려";
-                else if (ApprovalStatus == 5)
+                else if (approvalStatus == 5)
                     return "삭제 신청";
-                else if (ApprovalStatus == 6)
+                else if (approvalStatus == 6)
                     return "삭제 1차 검토 완료";
                 else return "알 수 없음";
             }
@@ -76,6 +70,7 @@ namespace WindowsFormsApp1
         public string lastManagerName { get; set; }
         public string departmentName { get; set; }
         public string memo { get; set; }
+        public string contactNumber { get; set; }
         public int approvalStatus { get; set; }
         public string approvalStatusText
         {

@@ -122,11 +122,6 @@ namespace WindowsFormsApp1
                 MessageBox.Show("관리자를 선택해주세요.");
                 return;
             }
-            if (string.IsNullOrEmpty(selectedFilePath1) || string.IsNullOrEmpty(selectedFilePath2))
-            {
-                MessageBox.Show("두 개의 파일을 모두 첨부해주세요.");
-                return;
-            }
 
             try
             {

@@ -36,7 +36,6 @@ namespace WindowsFormsApp1
             this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.myDataGridView = new MetroFramework.Controls.MetroGrid();
             this.makeQRAll = new System.Windows.Forms.Button();
-            this.detail = new System.Windows.Forms.Button();
             this.prevButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -44,18 +43,24 @@ namespace WindowsFormsApp1
             // htmlLabel1
             // 
             this.htmlLabel1.AutoScroll = true;
-            this.htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(384, 25);
+            this.htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(399, 25);
             this.htmlLabel1.AutoSize = false;
             this.htmlLabel1.BackColor = System.Drawing.SystemColors.Window;
             this.htmlLabel1.Location = new System.Drawing.Point(23, 463);
             this.htmlLabel1.Name = "htmlLabel1";
             this.htmlLabel1.Size = new System.Drawing.Size(438, 29);
             this.htmlLabel1.TabIndex = 0;
-            this.htmlLabel1.Text = "* 1개월 지난 데이터는 자재조회에서 확인 가능합니다.";
+            this.htmlLabel1.Text = "* 1개월이 지난 데이터는 자재조회에서 확인 가능합니다.";
             // 
             // myDataGridView
             // 
+            this.myDataGridView.AllowUserToAddRows = false;
+            this.myDataGridView.AllowUserToDeleteRows = false;
+            this.myDataGridView.AllowUserToResizeColumns = false;
             this.myDataGridView.AllowUserToResizeRows = false;
+            this.myDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.myDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.myDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.myDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -96,26 +101,17 @@ namespace WindowsFormsApp1
             this.myDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.myDataGridView.RowTemplate.Height = 27;
             this.myDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.myDataGridView.Size = new System.Drawing.Size(760, 338);
+            this.myDataGridView.Size = new System.Drawing.Size(589, 338);
             this.myDataGridView.TabIndex = 1;
             // 
             // makeQRAll
             // 
-            this.makeQRAll.Location = new System.Drawing.Point(656, 63);
+            this.makeQRAll.Location = new System.Drawing.Point(485, 63);
             this.makeQRAll.Name = "makeQRAll";
             this.makeQRAll.Size = new System.Drawing.Size(127, 41);
             this.makeQRAll.TabIndex = 2;
             this.makeQRAll.Text = "QR 생성 (일괄)";
             this.makeQRAll.UseVisualStyleBackColor = true;
-            // 
-            // detail
-            // 
-            this.detail.Location = new System.Drawing.Point(523, 63);
-            this.detail.Name = "detail";
-            this.detail.Size = new System.Drawing.Size(127, 41);
-            this.detail.TabIndex = 3;
-            this.detail.Text = "상세 조회 (단일)";
-            this.detail.UseVisualStyleBackColor = true;
             // 
             // prevButton
             // 
@@ -131,14 +127,13 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 515);
+            this.ClientSize = new System.Drawing.Size(637, 515);
             this.Controls.Add(this.prevButton);
-            this.Controls.Add(this.detail);
             this.Controls.Add(this.makeQRAll);
             this.Controls.Add(this.myDataGridView);
             this.Controls.Add(this.htmlLabel1);
             this.Name = "RecentCreatedList";
-            this.Text = "CreatedList";
+            this.Text = "최근 생성 목록";
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -147,9 +142,8 @@ namespace WindowsFormsApp1
         #endregion
 
         private MetroFramework.Drawing.Html.HtmlLabel htmlLabel1;
-        private MetroGrid myDataGridView;
         private System.Windows.Forms.Button makeQRAll;
-        private System.Windows.Forms.Button detail;
         private System.Windows.Forms.Button prevButton;
+        private MetroGrid myDataGridView;
     }
 }

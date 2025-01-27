@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.Metrics;
+using System.Drawing;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,11 @@ namespace WindowsFormsApp
         // 폼의 생성자입니다. 폼이 로드될 때 호출됩니다.
         public Login()
         {
+
             InitializeComponent(); // Windows Forms 디자이너에서 생성된 초기화 메서드를 호출합니다.
             passwordtxt.KeyUp += new KeyEventHandler(LoginTextBox_KeyUp);
         }
+
         // 로그인 버튼 클릭 이벤트 핸들러입니다.
         private async void BtnLogin_Click(object sender, EventArgs e)
         {
@@ -33,7 +36,7 @@ namespace WindowsFormsApp
 
             if (loggedInMember != null)
             {
-                MessageBox.Show($"로그인 성공" + Environment.NewLine + $"이름: {loggedInMember.Name}, 부서: {loggedInMember.Department?.DepartmentName}");
+                MessageBox.Show($"로그인 성공" + Environment.NewLine + $"{loggedInMember.Name}님, 환영합니다.");
 
                 // 로그인 성공 후 다음 폼에 Member 객체 전달
                 open_NextForm(loggedInMember);
@@ -102,5 +105,7 @@ namespace WindowsFormsApp
                 BtnLogin_Click(sender, e); // 로그인 버튼 클릭 이벤트 호출
             }
         }
+
+
     }
 }

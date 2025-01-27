@@ -26,35 +26,35 @@ namespace WindowsFormsApp1
         private void SelectRD_Load(object sender, EventArgs e)
         {
             htmlLabel1.Text = $"{userName}님 환영합니다.";
-            if (loggedInMember.IsManager == true)
-            {
-                selectDefectiveButton.Text = "전자 결재\r\n(관리자)";
-            }
-            else if (loggedInMember.IsManager == false)
-            {
-                selectDefectiveButton.Text = "전자 결재\r\n(작업자)";
-            }
+            selectManagerApprovalButton.Text = "전자 결재\r\n(관리자)";
         }
 
-        private void selectReconditionedButton_Click(object sender, EventArgs e)
+        private void UserImfoButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void selectReconditionedButton_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             SelectProductNum selectProductNum = new SelectProductNum(loggedInMember);
             selectProductNum.Show();
         }
-
-        private void selectDefectiveButton_Click(object sender, EventArgs e)
+        private void selectManagerApprovalButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             ManagerApproval approvalManager = new ManagerApproval(loggedInMember);
             approvalManager.Show();
         }
-            private void selectMyListButton_Click(object sender, EventArgs e)
-            {
-                this.Hide();
-                RecentCreatedList createdList = new RecentCreatedList(loggedInMember);
-                createdList.Show();
-            }
-        
+        private void selectMyListButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            UserInfo userInfo = new UserInfo(loggedInMember);
+            userInfo.Show();
+        }
     }
 }

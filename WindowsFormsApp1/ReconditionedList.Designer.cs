@@ -30,37 +30,29 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.DeleteDetailButton = new System.Windows.Forms.Button();
             this.ShowDetailButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.selectBox = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new MetroFramework.Controls.MetroGrid();
             this.prevButton = new System.Windows.Forms.Button();
             this.StartDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.EndDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SelectedProductNumTextBox = new System.Windows.Forms.TextBox();
             this.SelectedProductNameTextBox = new System.Windows.Forms.TextBox();
             this.UpLoadDetailButton = new System.Windows.Forms.Button();
-            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // DeleteDetailButton
-            // 
-            this.DeleteDetailButton.Location = new System.Drawing.Point(886, 103);
-            this.DeleteDetailButton.Name = "DeleteDetailButton";
-            this.DeleteDetailButton.Size = new System.Drawing.Size(83, 30);
-            this.DeleteDetailButton.TabIndex = 2;
-            this.DeleteDetailButton.Text = "삭제";
-            this.DeleteDetailButton.UseVisualStyleBackColor = true;
             // 
             // ShowDetailButton
             // 
-            this.ShowDetailButton.Location = new System.Drawing.Point(975, 103);
+            this.ShowDetailButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ShowDetailButton.Location = new System.Drawing.Point(970, 118);
+            this.ShowDetailButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ShowDetailButton.Name = "ShowDetailButton";
             this.ShowDetailButton.Size = new System.Drawing.Size(83, 30);
             this.ShowDetailButton.TabIndex = 3;
@@ -70,15 +62,19 @@ namespace WindowsFormsApp1
             // 
             // searchTextBox
             // 
+            this.searchTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchTextBox.Font = new System.Drawing.Font("굴림", 9F);
-            this.searchTextBox.Location = new System.Drawing.Point(34, 108);
+            this.searchTextBox.Location = new System.Drawing.Point(24, 112);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(290, 25);
             this.searchTextBox.TabIndex = 11;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(448, 104);
+            this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchButton.Location = new System.Drawing.Point(441, 115);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(83, 30);
             this.searchButton.TabIndex = 6;
@@ -88,67 +84,23 @@ namespace WindowsFormsApp1
             // 
             // selectBox
             // 
+            this.selectBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.selectBox.Font = new System.Drawing.Font("굴림", 9F);
             this.selectBox.FormattingEnabled = true;
             this.selectBox.Items.AddRange(new object[] {
             "시리얼번호",
             "작업자"});
-            this.selectBox.Location = new System.Drawing.Point(330, 108);
+            this.selectBox.Location = new System.Drawing.Point(322, 115);
+            this.selectBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.selectBox.Name = "selectBox";
-            this.selectBox.Size = new System.Drawing.Size(112, 23);
+            this.selectBox.Size = new System.Drawing.Size(111, 23);
             this.selectBox.TabIndex = 8;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView1.Location = new System.Drawing.Point(35, 135);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersWidth = 80;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1023, 440);
-            this.dataGridView1.TabIndex = 9;
             // 
             // prevButton
             // 
-            this.prevButton.Location = new System.Drawing.Point(35, 72);
+            this.prevButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.prevButton.Location = new System.Drawing.Point(24, 78);
+            this.prevButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.prevButton.Name = "prevButton";
             this.prevButton.Size = new System.Drawing.Size(83, 30);
             this.prevButton.TabIndex = 10;
@@ -158,71 +110,132 @@ namespace WindowsFormsApp1
             // 
             // StartDateTimePicker
             // 
-            this.StartDateTimePicker.Location = new System.Drawing.Point(123, 73);
+            this.StartDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.StartDateTimePicker.Location = new System.Drawing.Point(114, 81);
+            this.StartDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.StartDateTimePicker.Name = "StartDateTimePicker";
             this.StartDateTimePicker.Size = new System.Drawing.Size(201, 25);
             this.StartDateTimePicker.TabIndex = 12;
             // 
             // EndDateTimePicker
             // 
-            this.EndDateTimePicker.Location = new System.Drawing.Point(330, 73);
+            this.EndDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EndDateTimePicker.Location = new System.Drawing.Point(322, 81);
+            this.EndDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EndDateTimePicker.Name = "EndDateTimePicker";
             this.EndDateTimePicker.Size = new System.Drawing.Size(201, 25);
             this.EndDateTimePicker.TabIndex = 13;
             // 
             // SelectedProductNumTextBox
             // 
-            this.SelectedProductNumTextBox.Location = new System.Drawing.Point(770, 72);
+            this.SelectedProductNumTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SelectedProductNumTextBox.Location = new System.Drawing.Point(632, 85);
+            this.SelectedProductNumTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SelectedProductNumTextBox.Name = "SelectedProductNumTextBox";
             this.SelectedProductNumTextBox.ReadOnly = true;
-            this.SelectedProductNumTextBox.Size = new System.Drawing.Size(82, 25);
+            this.SelectedProductNumTextBox.Size = new System.Drawing.Size(243, 25);
             this.SelectedProductNumTextBox.TabIndex = 14;
             // 
             // SelectedProductNameTextBox
             // 
-            this.SelectedProductNameTextBox.Location = new System.Drawing.Point(858, 72);
+            this.SelectedProductNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SelectedProductNameTextBox.Location = new System.Drawing.Point(632, 118);
+            this.SelectedProductNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SelectedProductNameTextBox.Name = "SelectedProductNameTextBox";
             this.SelectedProductNameTextBox.ReadOnly = true;
-            this.SelectedProductNameTextBox.Size = new System.Drawing.Size(200, 25);
+            this.SelectedProductNameTextBox.Size = new System.Drawing.Size(243, 25);
             this.SelectedProductNameTextBox.TabIndex = 15;
             // 
             // UpLoadDetailButton
             // 
-            this.UpLoadDetailButton.Location = new System.Drawing.Point(797, 103);
+            this.UpLoadDetailButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UpLoadDetailButton.Location = new System.Drawing.Point(970, 85);
+            this.UpLoadDetailButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UpLoadDetailButton.Name = "UpLoadDetailButton";
             this.UpLoadDetailButton.Size = new System.Drawing.Size(83, 30);
             this.UpLoadDetailButton.TabIndex = 1;
             this.UpLoadDetailButton.Text = "등록";
             this.UpLoadDetailButton.UseVisualStyleBackColor = true;
-            this.UpLoadDetailButton.Click += new System.EventHandler(this.button1_Click);
+            this.UpLoadDetailButton.Click += new System.EventHandler(this.UpLoadDetailButton_Click);
             // 
-            // mySqlCommand1
+            // dataGridView1
             // 
-            this.mySqlCommand1.CacheAge = 0;
-            this.mySqlCommand1.Connection = null;
-            this.mySqlCommand1.EnableCaching = false;
-            this.mySqlCommand1.Transaction = null;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(24, 156);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(1029, 462);
+            this.dataGridView1.TabIndex = 17;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(530, 81);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(100, 63);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 30);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "자재명";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "자재번호";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ReconditionedList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1099, 632);
+            this.ClientSize = new System.Drawing.Size(1077, 642);
             this.Controls.Add(this.SelectedProductNameTextBox);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.SelectedProductNumTextBox);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.EndDateTimePicker);
             this.Controls.Add(this.StartDateTimePicker);
             this.Controls.Add(this.prevButton);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.selectBox);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.ShowDetailButton);
-            this.Controls.Add(this.DeleteDetailButton);
             this.Controls.Add(this.UpLoadDetailButton);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ReconditionedList";
+            this.Padding = new System.Windows.Forms.Padding(21, 75, 21, 20);
             this.Text = "재생 품목 목록";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,7 +243,6 @@ namespace WindowsFormsApp1
 
 
         #endregion
-        private System.Windows.Forms.Button DeleteDetailButton;
         private System.Windows.Forms.Button ShowDetailButton;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button searchButton;
@@ -241,7 +253,9 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox SelectedProductNumTextBox;
         private System.Windows.Forms.TextBox SelectedProductNameTextBox;
         private System.Windows.Forms.Button UpLoadDetailButton;
-        private MetroGrid dataGridView1;
-        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

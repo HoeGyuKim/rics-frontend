@@ -67,7 +67,7 @@ namespace WindowsFormsApp1
 
             // 텍스트 열 추가
             string[] headers = { "Id", "작업자", "완료일자", "자재번호", "시리얼 번호", "결재상태" };
-            string[] properties = { "Id", "workerName", "date", "productNum", "serialNum", "ApprovalStatusText" };
+            string[] properties = { "Id", "workerName", "date", "productNum", "serialNum", "approvalStatusText" };
 
             for (int i = 0; i < headers.Length; i++)
             {
@@ -81,6 +81,9 @@ namespace WindowsFormsApp1
             }
 
             managerApprovalDataGridView.EditMode = DataGridViewEditMode.EditOnEnter;
+            managerApprovalDataGridView.Columns[1].Width = 50;
+            managerApprovalDataGridView.RowHeadersVisible = false;
+
         }
 
         private void BindDataToGrid(List<ReconditionedListItem> items)
@@ -139,7 +142,7 @@ namespace WindowsFormsApp1
                         employeeNum = loggedInMember.EmployeeNum,
                         approvals = selectedItems.Select(item => new
                         {
-                            id = item.Id
+                            id = item.id
                         }).ToList()
                     };
 
@@ -183,6 +186,44 @@ namespace WindowsFormsApp1
                 ManagerFirstSelect managerFirstSelect = new ManagerFirstSelect(loggedInMember);
                 managerFirstSelect.ShowDialog();
             }
+        }
+
+        private void ShowDetailButton_Click(object sender, EventArgs e)
+        {
+            if (GetCheckedRowCount() == 1)
+            {
+                foreach (DataGridViewRow row in managerApprovalDataGridView.Rows)
+                {
+                    DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells["Select"];
+                    if (Convert.ToBoolean(checkBoxCell.Value))
+                    {
+                        var item = (ReconditionedListItem)row.DataBoundItem;
+                        using (var reconditionedDetail = new ReconditionedDetail((long)item.id, (int)item.approvalStatus))
+                        {
+                            reconditionedDetail.ShowDialog();
+                        }
+                        return;
+                    }
+                }
+                MessageBox.Show("상세 정보를 볼 항목을 선택하세요.");
+            }
+            else
+            {
+                MessageBox.Show("하나의 행을 선택하세요.");
+            }
+        }
+        private int GetCheckedRowCount()
+        {
+            int checkedCount = 0;
+            foreach (DataGridViewRow row in managerApprovalDataGridView.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells["Select"];
+                if (Convert.ToBoolean(checkBoxCell.Value))
+                {
+                    checkedCount++;
+                }
+            }
+            return checkedCount;
         }
     }
 }

@@ -30,35 +30,12 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            this.selectReconditionedButton = new MetroFramework.Controls.MetroButton();
-            this.selectWorkerMyListButton = new MetroFramework.Controls.MetroButton();
             this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.mySqlConnection1 = new MySql.Data.MySqlClient.MySqlConnection();
+            this.selectMyRecnetListButton = new MetroFramework.Controls.MetroTile();
+            this.selectReconditionedButto = new MetroFramework.Controls.MetroTile();
+            this.userInfoButton = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
-            // 
-            // selectReconditionedButton
-            // 
-            this.selectReconditionedButton.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.selectReconditionedButton.FontWeight = MetroFramework.MetroButtonWeight.Light;
-            this.selectReconditionedButton.Location = new System.Drawing.Point(333, 100);
-            this.selectReconditionedButton.Name = "selectReconditionedButton";
-            this.selectReconditionedButton.Size = new System.Drawing.Size(211, 114);
-            this.selectReconditionedButton.TabIndex = 4;
-            this.selectReconditionedButton.Text = "재생품 자재 조회";
-            this.selectReconditionedButton.UseSelectable = true;
-            this.selectReconditionedButton.Click += new System.EventHandler(this.selectReconditionedButton_Click);
-            // 
-            // selectWorkerMyListButton
-            // 
-            this.selectWorkerMyListButton.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.selectWorkerMyListButton.FontWeight = MetroFramework.MetroButtonWeight.Light;
-            this.selectWorkerMyListButton.Location = new System.Drawing.Point(92, 100);
-            this.selectWorkerMyListButton.Name = "selectWorkerMyListButton";
-            this.selectWorkerMyListButton.Size = new System.Drawing.Size(211, 114);
-            this.selectWorkerMyListButton.TabIndex = 5;
-            this.selectWorkerMyListButton.Text = "최근 생성 목록";
-            this.selectWorkerMyListButton.UseSelectable = true;
-            this.selectWorkerMyListButton.Click += new System.EventHandler(this.selectMyListButton_Click);
             // 
             // htmlLabel1
             // 
@@ -72,14 +49,51 @@ namespace WindowsFormsApp1
             this.htmlLabel1.TabIndex = 6;
             this.htmlLabel1.Text = "htmlLabel1";
             // 
+            // selectMyRecnetListButton
+            // 
+            this.selectMyRecnetListButton.ActiveControl = null;
+            this.selectMyRecnetListButton.Location = new System.Drawing.Point(88, 108);
+            this.selectMyRecnetListButton.Name = "selectMyRecnetListButton";
+            this.selectMyRecnetListButton.Size = new System.Drawing.Size(222, 114);
+            this.selectMyRecnetListButton.TabIndex = 10;
+            this.selectMyRecnetListButton.Text = "최근 생성 목록";
+            this.selectMyRecnetListButton.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.selectMyRecnetListButton.UseSelectable = true;
+            this.selectMyRecnetListButton.Click += new System.EventHandler(this.selectMyRecnetListButton_Click);
+            // 
+            // selectReconditionedButto
+            // 
+            this.selectReconditionedButto.ActiveControl = null;
+            this.selectReconditionedButto.Location = new System.Drawing.Point(316, 108);
+            this.selectReconditionedButto.Name = "selectReconditionedButto";
+            this.selectReconditionedButto.Size = new System.Drawing.Size(214, 114);
+            this.selectReconditionedButto.TabIndex = 11;
+            this.selectReconditionedButto.Text = "재생품 자재 조회";
+            this.selectReconditionedButto.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.selectReconditionedButto.UseSelectable = true;
+            this.selectReconditionedButto.Click += new System.EventHandler(this.selectReconditionedButto_Click);
+            // 
+            // userInfoButton
+            // 
+            this.userInfoButton.ActiveControl = null;
+            this.userInfoButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userInfoButton.Location = new System.Drawing.Point(440, 60);
+            this.userInfoButton.Name = "userInfoButton";
+            this.userInfoButton.Size = new System.Drawing.Size(90, 42);
+            this.userInfoButton.TabIndex = 14;
+            this.userInfoButton.Text = "회원정보";
+            this.userInfoButton.UseSelectable = true;
+            this.userInfoButton.Click += new System.EventHandler(this.userInfoButton_Click);
+            // 
             // WorkerFirstSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 294);
+            this.ClientSize = new System.Drawing.Size(621, 277);
+            this.Controls.Add(this.userInfoButton);
+            this.Controls.Add(this.selectReconditionedButto);
+            this.Controls.Add(this.selectMyRecnetListButton);
             this.Controls.Add(this.htmlLabel1);
-            this.Controls.Add(this.selectWorkerMyListButton);
-            this.Controls.Add(this.selectReconditionedButton);
             this.Font = new System.Drawing.Font("굴림", 10F);
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "WorkerFirstSelect";
@@ -90,10 +104,10 @@ namespace WindowsFormsApp1
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroButton selectReconditionedButton;
-        private MetroFramework.Controls.MetroButton selectWorkerMyListButton;
         private MetroFramework.Drawing.Html.HtmlLabel htmlLabel1;
         private MySql.Data.MySqlClient.MySqlConnection mySqlConnection1;
+        private MetroFramework.Controls.MetroTile selectMyRecnetListButton;
+        private MetroFramework.Controls.MetroTile selectReconditionedButto;
+        private MetroFramework.Controls.MetroTile userInfoButton;
     }
 }

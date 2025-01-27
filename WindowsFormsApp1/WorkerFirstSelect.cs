@@ -28,18 +28,24 @@ namespace WindowsFormsApp1
             htmlLabel1.Text = $"{userName}님 환영합니다.";
         }
 
-        private void selectReconditionedButton_Click(object sender, EventArgs e)
+        private void selectReconditionedButto_Click(object sender, EventArgs e)
         {
             this.Hide();
             SelectProductNum selectProductNum = new SelectProductNum(loggedInMember);
             selectProductNum.Show();
         }
 
-        private void selectMyListButton_Click(object sender, EventArgs e)
+        private void selectMyRecnetListButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RecentCreatedList createdList = new RecentCreatedList(loggedInMember);
-            createdList.Show();
+            RecentCreatedList recentCreatedList = new RecentCreatedList(loggedInMember);
+            recentCreatedList.Show();
+        }
+
+        private void userInfoButton_Click(object sender, EventArgs e)
+        {
+            UserInfo userInfo = new UserInfo(loggedInMember);
+            userInfo.Show();
         }
     }
 }

@@ -6,42 +6,42 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
-
 namespace WindowsFormsApp1
 {
-
     public partial class ReconditionedList : MetroFramework.Forms.MetroForm
     {
-        private Member loggedInMember;
-        private int selectedReconditionedProductNum;
-        private string selectedReconditionedProductName;
+        private readonly Member loggedInMember;
+        private readonly int selectedProductNum;
+        private readonly string selectedReconditionedProductName;
         private static readonly HttpClient client = new HttpClient
         {
-            BaseAddress = new Uri("http://localhost:8080/")
+            BaseAddress = new Uri("http://localhost:8080/"),
+            Timeout = TimeSpan.FromSeconds(30) // 타임아웃 30초
         };
 
-        public ReconditionedList(Member user,int selectedProductNum, string selectedProductName)
+        public ReconditionedList(Member user, int selectedProductNum, string selectedProductName)
         {
             InitializeComponent();
-            this.selectedReconditionedProductNum = selectedProductNum;
+            this.selectedProductNum = selectedProductNum;
             this.selectedReconditionedProductName = selectedProductName;
+            this.loggedInMember = user;
+
             SelectedProductNumTextBox.Text = selectedProductNum.ToString();
             SelectedProductNameTextBox.Text = selectedProductName;
-            this.Load += new EventHandler(this.Reconditioned_Load);
-            this.loggedInMember = user;
+
+            this.Load += async (sender, e) => await InitializeAsync();
         }
 
-        private async void Reconditioned_Load(object sender, EventArgs e)
+        private async Task InitializeAsync()
         {
-            InitializeDataGridView();
             SetInitialDatePickers();
             await LoadDataAsync();
         }
 
-        private void SetInitialDatePickers() // 검색 도구 : 날짜 범위 선택
+        private void SetInitialDatePickers()
         {
-            StartDateTimePicker.Value = DateTime.Now.AddMonths(-1); // 초기 시작 날짜 한 달 전으로 설정
-            EndDateTimePicker.Value = DateTime.Now; // 초기 끝 날짜 현재로 설정
+            StartDateTimePicker.Value = DateTime.Now.AddMonths(-1);
+            EndDateTimePicker.Value = DateTime.Now;
         }
 
         private async Task LoadDataAsync()
@@ -53,61 +53,109 @@ namespace WindowsFormsApp1
                 response.EnsureSuccessStatusCode();
 
                 string responseBody = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("Server Response: " + responseBody);
-
                 if (responseBody.StartsWith("["))
                 {
                     var items = JsonConvert.DeserializeObject<List<ReconditionedListItem>>(responseBody);
-                    FilterAndDisplayItems(items);
+                    DisplayFilteredItems(items);
                 }
                 else
                 {
                     MessageBox.Show("서버 응답이 배열 형태가 아닙니다.");
                 }
             }
-            catch (HttpRequestException ex)
-            {
-                HandleException("Request error", ex);
-            }
             catch (Exception ex)
             {
-                HandleException("Error", ex);
+                HandleException("데이터 로드 중 오류 발생", ex);
             }
         }
 
         private string BuildUrl()
         {
-            string url = $"api/reconditioned/details?productNum={selectedReconditionedProductNum}";
+            string baseUrl = "/api/reconditioned/List"; // 공통된 URL 부분
 
-            if (selectBox?.SelectedItem != null && searchTextBox.Text != null)
+            // 기본적으로 날짜순 정렬 목록 조회로 설정
+            string fullUrl = $"{baseUrl}?productNum={selectedProductNum}";
+
+            if (selectBox?.SelectedItem != null && !string.IsNullOrWhiteSpace(searchTextBox.Text))
             {
                 string filterBy = selectBox.SelectedItem.ToString();
+
                 switch (filterBy)
                 {
                     case "시리얼번호":
-                        url = $"api/reconditioned/detailsBySerialNum?productNum={selectedReconditionedProductNum}&serialNum={searchTextBox.Text}";
+                        fullUrl = $"{baseUrl}BySerialNum?productNum={selectedProductNum}&serialNum={searchTextBox.Text}";
                         break;
                     case "작업자":
-                        url += $"&worker={searchTextBox.Text}";
+                        fullUrl = $"{baseUrl}ByWorker?productNum={selectedProductNum}&workerName={searchTextBox.Text}";
                         break;
                 }
             }
 
-            return url;
+            return fullUrl;
         }
 
-        private void FilterAndDisplayItems(List<ReconditionedListItem> items)
+        private void DisplayFilteredItems(List<ReconditionedListItem> items)
         {
-            if (StartDateTimePicker != null && EndDateTimePicker != null)
+            // 날짜 필터링
+            DateTime startDate = StartDateTimePicker.Value.Date;
+            DateTime endDate = EndDateTimePicker.Value.Date;
+
+            var filteredItems = items.Where(item => item.date >= startDate && item.date <= endDate).ToList();
+
+            // DataGridView의 컬럼이 이미 설정되어 있다면 중복 생성 방지
+            if (dataGridView1.Columns.Count == 0 || !dataGridView1.Columns.Contains("Select"))
             {
-                DateTime startDate = StartDateTimePicker.Value.Date;
-                DateTime endDate = EndDateTimePicker.Value.Date;
-                var filteredItems = items.Where(item => item.Date >= startDate && item.Date <= endDate).ToList();
-                dataGridView1.DataSource = filteredItems;
+                // 체크박스 컬럼 추가
+                DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
+                {
+                    Name = "Select",
+                    HeaderText = "선택",
+                    TrueValue = true,
+                    FalseValue = false,
+                    ThreeState = false,  // 세 상태 지원 안함 (체크, 체크 안함)
+                    CellTemplate = new DataGridViewCheckBoxCell()
+                };
+                dataGridView1.Columns.Insert(0, checkBoxColumn);  // 첫 번째 열에 추가
             }
-            else
+
+            // DataSource를 설정
+            dataGridView1.DataSource = filteredItems;
+
+            // 컬럼 이름 변경
+            dataGridView1.Columns["select"].HeaderText = "선택"; // 이미 체크박스 컬럼
+            dataGridView1.Columns["id"].HeaderText = "등록번호"; // 예시: 'Id' 컬럼을 '아이디'로 변경
+            dataGridView1.Columns["workerName"].HeaderText = "작업자"; // 예시: 'Worker' 컬럼을 '작업자'로 변경
+            dataGridView1.Columns["middleManagerName"].HeaderText = "관리자";
+            dataGridView1.Columns["date"].HeaderText = "완료일자"; // 예시: 'Date' 컬럼을 '날짜'로 변경
+            dataGridView1.Columns["approvalStatusText"].HeaderText = "결재상태"; // 예시: 'approvalStatus' 컬럼을 '승인 상태'로 변경
+            dataGridView1.Columns["ProductNum"].HeaderText = "자재번호";
+            dataGridView1.Columns["ProductName"].HeaderText = "자재명";
+            dataGridView1.Columns["SerialNum"].HeaderText = "시리얼번호";
+            dataGridView1.Columns["departmentName"].HeaderText = "발생부서";
+
+            
+            dataGridView1.Columns["approvalStatus"].Visible = false; // 'Worker' 컬럼 숨기기
+            
+            dataGridView1.Columns[0].Width = 50; // 첫 번째 열
+            dataGridView1.Columns[5].Width = 110;
+            dataGridView1.Columns["departmentName"].Width = 200;
+
+            // 체크박스 값 설정 (필요시 수정 가능)
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                dataGridView1.DataSource = items;
+                row.Cells["Select"].Value = false; // 기본값은 false로 설정
+            }
+
+            // 컬럼의 DataPropertyName을 미리 설정한 값과 맞추기
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                // Ensure proper column bindings, avoiding conflicts with the checkbox
+                if (column.Name != "Select")
+                {
+                    column.DataPropertyName = column.Name; // 컬럼의 이름을 데이터 소스 속성과 맞추기
+                    column.SortMode = DataGridViewColumnSortMode.Automatic; // 열 정렬 기능 
+                }
             }
         }
 
@@ -116,125 +164,66 @@ namespace WindowsFormsApp1
             MessageBox.Show($"{message}: {ex.Message}");
         }
 
-        // ReconditionedListItem 클래스는 별도의 파일에 정의하는 것이 좋습니다
-
-        private void button1_Click(object sender, EventArgs e)// 새로운 R품 등록 버튼
-        {
-            AddProductDetail addProductDetail = new AddProductDetail(selectedReconditionedProductNum.ToString(), selectedReconditionedProductName); //자재번호와 자재명을 전달
-            addProductDetail.ShowDialog();
-        }
-
-        private async void button2_Click(object sender, EventArgs e) // 삭제 버튼 *아직 구현 안됨* 결재 시스템 도입 후 구현
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                var selectedRow = dataGridView1.SelectedRows[0];
-                long id = Convert.ToInt64(selectedRow.Cells["id"].Value);
-
-                try
-                {
-                    string url = $"api/reconditioned/{id}";
-                    HttpResponseMessage response = await client.DeleteAsync(url);
-                    response.EnsureSuccessStatusCode();
-
-                    MessageBox.Show($"아이템 ID {id}가 삭제되었습니다.");
-                    await LoadDataAsync(); // 데이터 새로 고침
-                }
-                catch (HttpRequestException ex)
-                {
-                    HandleException("삭제 요청 중 오류 발생", ex);
-                }
-                catch (Exception ex)
-                {
-                    HandleException("오류 발생", ex);
-                }
-            }
-            else
-            {
-                MessageBox.Show("삭제할 항목을 선택하세요.");
-            }
-        }
-        private void InitializeDataGridView() //데이타그리드뷰 바인딩
-        {
-            // 데이터그리드뷰 자동 생성 비활성화
-            dataGridView1.AutoGenerateColumns = false;
-            // 체크박스 열 추가
-            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
-            {
-                Name = "Select",
-                HeaderText = "선택",
-                Width = 50,
-                ReadOnly = false // 체크박스는 편집 가능하도록 설정
-            };
-            dataGridView1.Columns.Add(checkBoxColumn);
-            string[] headers = { "등록번호", "완료일자", "자재번호", "자재명", "시리얼 번호", "점검자", "발생부서", "결재상태" };
-            string[] properties = { "Id", "date", "productNum", "productName", "serialNum", "workerName", "departmentName", "ApprovalStatusText" };
-
-            for (int i = 0; i < headers.Length; i++)
-            {
-                dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    DataPropertyName = properties[i],
-                    HeaderText = headers[i],
-                    Name = properties[i],
-                    ReadOnly = true // 나머지 열은 읽기 전용으로 설정
-                });
-            }
-            // 데이터그리드뷰의 EditMode를 EditOnEnter로 설정
-            dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
-        }
-
-        private void PrevButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            using (var r_SelectProductNum = new SelectProductNum(loggedInMember))
-            {
-                r_SelectProductNum.ShowDialog();
-            }
-        }
-
         private async void SearchButton_Click(object sender, EventArgs e)
         {
             await LoadDataAsync();
         }
 
-        private void ShowDetailButton_Click(object sender, EventArgs e)
+
+        private async void DeleteButton_Click(object sender, EventArgs e)
         {
-            if (GetCheckedRowCount() == 1)
+            if (dataGridView1.SelectedRows.Count == 0)
             {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells["Select"];
-                    if (Convert.ToBoolean(checkBoxCell.Value))
-                    {
-                        var item = (ReconditionedListItem)row.DataBoundItem;
-                        using (var reconditionedDetail = new ReconditionedDetail((long)item.Id, (int)item.ApprovalStatus))
-                        {
-                            reconditionedDetail.ShowDialog();
-                        }
-                        return;
-                    }
-                }
-                MessageBox.Show("상세 정보를 볼 항목을 선택하세요.");
+                MessageBox.Show("삭제할 항목을 선택하세요.");
+                return;
             }
-            else
+
+            var selectedRow = dataGridView1.SelectedRows[0];
+            long id = Convert.ToInt64(selectedRow.Cells["Id"].Value);
+
+            try
             {
-               MessageBox.Show("하나의 행을 선택하세요.");
+                string url = $"api/reconditioned/{id}";
+                HttpResponseMessage response = await client.DeleteAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                MessageBox.Show($"아이템 ID {id}가 삭제되었습니다.");
+                await LoadDataAsync();
+            }
+            catch (Exception ex)
+            {
+                HandleException("삭제 요청 중 오류 발생", ex);
             }
         }
-        private int GetCheckedRowCount()
+
+        private void ShowDetailButton_Click(object sender, EventArgs e)
         {
-            int checkedCount = 0;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            var checkedRows = dataGridView1.Rows.Cast<DataGridViewRow>()
+                .Where(row => Convert.ToBoolean(((DataGridViewCheckBoxCell)row.Cells["Select"]).Value))
+                .ToList();
+
+            if (checkedRows.Count != 1)
             {
-                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells["Select"];
-                if (Convert.ToBoolean(checkBoxCell.Value))
-                {
-                    checkedCount++;
-                }
+                MessageBox.Show("하나의 항목만 선택하세요.");
+                return;
             }
-            return checkedCount;
+
+            var item = (ReconditionedListItem)checkedRows[0].DataBoundItem;
+            var detailForm = new ReconditionedDetail(item.id, item.approvalStatus);
+            detailForm.ShowDialog();
+        }
+
+        private void PrevButton_Click(object sender, EventArgs e)
+        {
+            Close();
+            var selectProductNumForm = new SelectProductNum(loggedInMember);
+            selectProductNumForm.ShowDialog();
+        }
+
+        private void UpLoadDetailButton_Click(object sender, EventArgs e)
+        {
+            var addProductDetail = new AddProductDetail(selectedProductNum.ToString(), selectedReconditionedProductName);
+            addProductDetail.ShowDialog();
         }
     }
 }
-
