@@ -29,617 +29,576 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReconditionedDetail));
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.creatQRCodeButton = new System.Windows.Forms.Button();
-            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.departMentNameTextBox = new System.Windows.Forms.TextBox();
-            this.DateTextBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.serialNumTextBox = new System.Windows.Forms.TextBox();
-            this.productNameTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.productNumTextBox = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lastApprovalDateTextBox = new System.Windows.Forms.TextBox();
-            this.lastManagerNameTextBox = new System.Windows.Forms.TextBox();
-            this.firstApprovalDateTextBox = new System.Windows.Forms.TextBox();
-            this.submitDateTextBox = new System.Windows.Forms.TextBox();
-            this.workerNameTextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.middleManagerNameTextBox = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.text1 = new System.Windows.Forms.Label();
-            this.memoTextBox = new System.Windows.Forms.TextBox();
-            this.fixButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.QRCodePictureBox = new System.Windows.Forms.PictureBox();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.contactNumberTextBox = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.DownQRCodeButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.approvalStatusTextBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.PDFViewer1 = new AxAcroPDFLib.AxAcroPDF();
-            this.PDFViewer2 = new AxAcroPDFLib.AxAcroPDF();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QRCodePictureBox)).BeginInit();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PDFViewer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PDFViewer2)).BeginInit();
-            this.SuspendLayout();
+            pictureBox = new System.Windows.Forms.PictureBox();
+            creatQRCodeButton = new System.Windows.Forms.Button();
+            mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            departMentNameTextBox = new System.Windows.Forms.TextBox();
+            DateTextBox = new System.Windows.Forms.TextBox();
+            label9 = new System.Windows.Forms.Label();
+            serialNumTextBox = new System.Windows.Forms.TextBox();
+            productNameTextBox = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            productNumTextBox = new System.Windows.Forms.TextBox();
+            tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            lastApprovalDateTextBox = new System.Windows.Forms.TextBox();
+            lastManagerNameTextBox = new System.Windows.Forms.TextBox();
+            workerNameTextBox = new System.Windows.Forms.TextBox();
+            label7 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            middleManagerNameTextBox = new System.Windows.Forms.TextBox();
+            firstApprovalDateTextBox = new System.Windows.Forms.TextBox();
+            submitDateTextBox = new System.Windows.Forms.TextBox();
+            tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            text1 = new System.Windows.Forms.Label();
+            memoTextBox = new System.Windows.Forms.TextBox();
+            editButton = new System.Windows.Forms.Button();
+            panel1 = new System.Windows.Forms.Panel();
+            tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            label10 = new System.Windows.Forms.Label();
+            QRCodePictureBox = new System.Windows.Forms.PictureBox();
+            deleteButton = new System.Windows.Forms.Button();
+            tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            contactNumberTextBox = new System.Windows.Forms.TextBox();
+            label11 = new System.Windows.Forms.Label();
+            DownQRCodeButton = new System.Windows.Forms.Button();
+            tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            approvalStatusTextBox = new System.Windows.Forms.TextBox();
+            label8 = new System.Windows.Forms.Label();
+            tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            PDFViewer1 = new AxAcroPDFLib.AxAcroPDF();
+            PDFViewer2 = new AxAcroPDFLib.AxAcroPDF();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            panel1.SuspendLayout();
+            tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)QRCodePictureBox).BeginInit();
+            tableLayoutPanel6.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PDFViewer1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PDFViewer2).BeginInit();
+            SuspendLayout();
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(2113, 171);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(165, 144);
-            this.pictureBox.TabIndex = 5;
-            this.pictureBox.TabStop = false;
+            pictureBox.Location = new System.Drawing.Point(2377, 228);
+            pictureBox.Name = "pictureBox";
+            pictureBox.Size = new System.Drawing.Size(186, 192);
+            pictureBox.TabIndex = 5;
+            pictureBox.TabStop = false;
             // 
             // creatQRCodeButton
             // 
-            this.creatQRCodeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.creatQRCodeButton.Location = new System.Drawing.Point(1535, 62);
-            this.creatQRCodeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.creatQRCodeButton.Name = "creatQRCodeButton";
-            this.creatQRCodeButton.Size = new System.Drawing.Size(155, 38);
-            this.creatQRCodeButton.TabIndex = 8;
-            this.creatQRCodeButton.Text = "QR생성(불러오기)";
-            this.creatQRCodeButton.UseVisualStyleBackColor = true;
-            this.creatQRCodeButton.Click += new System.EventHandler(this.CreatQRCodeButton_Click);
+            creatQRCodeButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            creatQRCodeButton.Location = new System.Drawing.Point(1595, 68);
+            creatQRCodeButton.Name = "creatQRCodeButton";
+            creatQRCodeButton.Size = new System.Drawing.Size(142, 40);
+            creatQRCodeButton.TabIndex = 8;
+            creatQRCodeButton.Text = "QR생성(불러오기)";
+            creatQRCodeButton.UseVisualStyleBackColor = true;
+            creatQRCodeButton.Click += CreatQRCodeButton_Click;
             // 
             // mySqlCommand1
             // 
-            this.mySqlCommand1.CacheAge = 0;
-            this.mySqlCommand1.Connection = null;
-            this.mySqlCommand1.EnableCaching = false;
-            this.mySqlCommand1.Transaction = null;
+            mySqlCommand1.CacheAge = 0;
+            mySqlCommand1.Connection = null;
+            mySqlCommand1.EnableCaching = false;
+            mySqlCommand1.Transaction = null;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.42246F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.57754F));
-            this.tableLayoutPanel1.Controls.Add(this.departMentNameTextBox, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.DateTextBox, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.serialNumTextBox, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.productNameTextBox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.productNumTextBox, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 15);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(374, 181);
-            this.tableLayoutPanel1.TabIndex = 9;
+            tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.42246F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.57754F));
+            tableLayoutPanel1.Controls.Add(departMentNameTextBox, 1, 4);
+            tableLayoutPanel1.Controls.Add(DateTextBox, 1, 3);
+            tableLayoutPanel1.Controls.Add(label9, 0, 4);
+            tableLayoutPanel1.Controls.Add(serialNumTextBox, 1, 2);
+            tableLayoutPanel1.Controls.Add(productNameTextBox, 1, 1);
+            tableLayoutPanel1.Controls.Add(label4, 0, 3);
+            tableLayoutPanel1.Controls.Add(label2, 0, 1);
+            tableLayoutPanel1.Controls.Add(label3, 0, 2);
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(productNumTextBox, 1, 0);
+            tableLayoutPanel1.Location = new System.Drawing.Point(15, 20);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 5;
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(421, 175);
+            tableLayoutPanel1.TabIndex = 9;
             // 
             // departMentNameTextBox
             // 
-            this.departMentNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.departMentNameTextBox.Location = new System.Drawing.Point(139, 150);
-            this.departMentNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.departMentNameTextBox.Name = "departMentNameTextBox";
-            this.departMentNameTextBox.ReadOnly = true;
-            this.departMentNameTextBox.Size = new System.Drawing.Size(220, 25);
-            this.departMentNameTextBox.TabIndex = 6;
+            departMentNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            departMentNameTextBox.Location = new System.Drawing.Point(157, 142);
+            departMentNameTextBox.Name = "departMentNameTextBox";
+            departMentNameTextBox.ReadOnly = true;
+            departMentNameTextBox.Size = new System.Drawing.Size(247, 27);
+            departMentNameTextBox.TabIndex = 6;
             // 
             // DateTextBox
             // 
-            this.DateTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DateTextBox.Location = new System.Drawing.Point(139, 114);
-            this.DateTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.DateTextBox.Name = "DateTextBox";
-            this.DateTextBox.ReadOnly = true;
-            this.DateTextBox.Size = new System.Drawing.Size(220, 25);
-            this.DateTextBox.TabIndex = 8;
+            DateTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            DateTextBox.Location = new System.Drawing.Point(157, 106);
+            DateTextBox.Name = "DateTextBox";
+            DateTextBox.ReadOnly = true;
+            DateTextBox.Size = new System.Drawing.Size(247, 27);
+            DateTextBox.TabIndex = 8;
             // 
             // label9
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(29, 155);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 15);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "발생부서";
+            label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(36, 145);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(69, 20);
+            label9.TabIndex = 2;
+            label9.Text = "발생부서";
             // 
             // serialNumTextBox
             // 
-            this.serialNumTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.serialNumTextBox.Location = new System.Drawing.Point(139, 78);
-            this.serialNumTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.serialNumTextBox.Name = "serialNumTextBox";
-            this.serialNumTextBox.ReadOnly = true;
-            this.serialNumTextBox.Size = new System.Drawing.Size(220, 25);
-            this.serialNumTextBox.TabIndex = 7;
+            serialNumTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            serialNumTextBox.Location = new System.Drawing.Point(157, 72);
+            serialNumTextBox.Name = "serialNumTextBox";
+            serialNumTextBox.ReadOnly = true;
+            serialNumTextBox.Size = new System.Drawing.Size(247, 27);
+            serialNumTextBox.TabIndex = 7;
             // 
             // productNameTextBox
             // 
-            this.productNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.productNameTextBox.Location = new System.Drawing.Point(139, 42);
-            this.productNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.productNameTextBox.Name = "productNameTextBox";
-            this.productNameTextBox.ReadOnly = true;
-            this.productNameTextBox.Size = new System.Drawing.Size(220, 25);
-            this.productNameTextBox.TabIndex = 6;
+            productNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            productNameTextBox.Location = new System.Drawing.Point(157, 38);
+            productNameTextBox.Name = "productNameTextBox";
+            productNameTextBox.ReadOnly = true;
+            productNameTextBox.Size = new System.Drawing.Size(247, 27);
+            productNameTextBox.TabIndex = 6;
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 119);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 15);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "완료일자";
+            label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(36, 109);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(69, 20);
+            label4.TabIndex = 4;
+            label4.Text = "완료일자";
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "자재명";
+            label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(43, 41);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(54, 20);
+            label2.TabIndex = 2;
+            label2.Text = "자재명";
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "일련번호";
+            label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(36, 75);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(69, 20);
+            label3.TabIndex = 3;
+            label3.Text = "일련번호";
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "자재번호";
+            label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(36, 7);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(69, 20);
+            label1.TabIndex = 1;
+            label1.Text = "자재번호";
             // 
             // productNumTextBox
             // 
-            this.productNumTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.productNumTextBox.Location = new System.Drawing.Point(139, 6);
-            this.productNumTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.productNumTextBox.Name = "productNumTextBox";
-            this.productNumTextBox.ReadOnly = true;
-            this.productNumTextBox.Size = new System.Drawing.Size(220, 25);
-            this.productNumTextBox.TabIndex = 5;
+            productNumTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            productNumTextBox.Location = new System.Drawing.Point(157, 4);
+            productNumTextBox.Name = "productNumTextBox";
+            productNumTextBox.ReadOnly = true;
+            productNumTextBox.Size = new System.Drawing.Size(247, 27);
+            productNumTextBox.TabIndex = 5;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.70711F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.70711F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.58577F));
-            this.tableLayoutPanel2.Controls.Add(this.lastApprovalDateTextBox, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.lastManagerNameTextBox, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.workerNameTextBox, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label7, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.middleManagerNameTextBox, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.firstApprovalDateTextBox, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.submitDateTextBox, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(393, 51);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(479, 110);
-            this.tableLayoutPanel2.TabIndex = 10;
+            tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.7397766F));
+            tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.7397766F));
+            tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.5204468F));
+            tableLayoutPanel2.Controls.Add(lastApprovalDateTextBox, 2, 2);
+            tableLayoutPanel2.Controls.Add(lastManagerNameTextBox, 1, 2);
+            tableLayoutPanel2.Controls.Add(workerNameTextBox, 1, 0);
+            tableLayoutPanel2.Controls.Add(label7, 0, 2);
+            tableLayoutPanel2.Controls.Add(label5, 0, 0);
+            tableLayoutPanel2.Controls.Add(label6, 0, 1);
+            tableLayoutPanel2.Controls.Add(middleManagerNameTextBox, 1, 1);
+            tableLayoutPanel2.Controls.Add(firstApprovalDateTextBox, 2, 1);
+            tableLayoutPanel2.Controls.Add(submitDateTextBox, 2, 0);
+            tableLayoutPanel2.Location = new System.Drawing.Point(442, 53);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            tableLayoutPanel2.Size = new System.Drawing.Size(539, 103);
+            tableLayoutPanel2.TabIndex = 10;
             // 
             // lastApprovalDateTextBox
             // 
-            this.lastApprovalDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lastApprovalDateTextBox.Location = new System.Drawing.Point(288, 78);
-            this.lastApprovalDateTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lastApprovalDateTextBox.Name = "lastApprovalDateTextBox";
-            this.lastApprovalDateTextBox.ReadOnly = true;
-            this.lastApprovalDateTextBox.Size = new System.Drawing.Size(187, 25);
-            this.lastApprovalDateTextBox.TabIndex = 11;
+            lastApprovalDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            lastApprovalDateTextBox.Location = new System.Drawing.Point(324, 72);
+            lastApprovalDateTextBox.Name = "lastApprovalDateTextBox";
+            lastApprovalDateTextBox.ReadOnly = true;
+            lastApprovalDateTextBox.Size = new System.Drawing.Size(210, 27);
+            lastApprovalDateTextBox.TabIndex = 11;
             // 
             // lastManagerNameTextBox
             // 
-            this.lastManagerNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lastManagerNameTextBox.Location = new System.Drawing.Point(147, 78);
-            this.lastManagerNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lastManagerNameTextBox.Name = "lastManagerNameTextBox";
-            this.lastManagerNameTextBox.ReadOnly = true;
-            this.lastManagerNameTextBox.Size = new System.Drawing.Size(133, 25);
-            this.lastManagerNameTextBox.TabIndex = 10;
-            // 
-            // firstApprovalDateTextBox
-            // 
-            this.firstApprovalDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.firstApprovalDateTextBox.Location = new System.Drawing.Point(288, 42);
-            this.firstApprovalDateTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.firstApprovalDateTextBox.Name = "firstApprovalDateTextBox";
-            this.firstApprovalDateTextBox.ReadOnly = true;
-            this.firstApprovalDateTextBox.Size = new System.Drawing.Size(186, 25);
-            this.firstApprovalDateTextBox.TabIndex = 9;
-            // 
-            // submitDateTextBox
-            // 
-            this.submitDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.submitDateTextBox.Location = new System.Drawing.Point(288, 6);
-            this.submitDateTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.submitDateTextBox.Name = "submitDateTextBox";
-            this.submitDateTextBox.ReadOnly = true;
-            this.submitDateTextBox.Size = new System.Drawing.Size(187, 25);
-            this.submitDateTextBox.TabIndex = 8;
+            lastManagerNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            lastManagerNameTextBox.Location = new System.Drawing.Point(166, 72);
+            lastManagerNameTextBox.Name = "lastManagerNameTextBox";
+            lastManagerNameTextBox.ReadOnly = true;
+            lastManagerNameTextBox.Size = new System.Drawing.Size(149, 27);
+            lastManagerNameTextBox.TabIndex = 10;
             // 
             // workerNameTextBox
             // 
-            this.workerNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.workerNameTextBox.Location = new System.Drawing.Point(147, 6);
-            this.workerNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.workerNameTextBox.Name = "workerNameTextBox";
-            this.workerNameTextBox.ReadOnly = true;
-            this.workerNameTextBox.Size = new System.Drawing.Size(133, 25);
-            this.workerNameTextBox.TabIndex = 7;
+            workerNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            workerNameTextBox.Location = new System.Drawing.Point(166, 4);
+            workerNameTextBox.Name = "workerNameTextBox";
+            workerNameTextBox.ReadOnly = true;
+            workerNameTextBox.Size = new System.Drawing.Size(149, 27);
+            workerNameTextBox.TabIndex = 7;
             // 
             // label7
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 83);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 15);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "최종 검토";
+            label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(43, 75);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(74, 20);
+            label7.TabIndex = 4;
+            label7.Text = "최종 검토";
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(53, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 15);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "상신";
+            label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(61, 7);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(39, 20);
+            label5.TabIndex = 2;
+            label5.Text = "상신";
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(53, 47);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 15);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "검토";
+            label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(61, 41);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(39, 20);
+            label6.TabIndex = 3;
+            label6.Text = "검토";
             // 
             // middleManagerNameTextBox
             // 
-            this.middleManagerNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.middleManagerNameTextBox.Location = new System.Drawing.Point(147, 42);
-            this.middleManagerNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.middleManagerNameTextBox.Name = "middleManagerNameTextBox";
-            this.middleManagerNameTextBox.ReadOnly = true;
-            this.middleManagerNameTextBox.Size = new System.Drawing.Size(133, 25);
-            this.middleManagerNameTextBox.TabIndex = 6;
+            middleManagerNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            middleManagerNameTextBox.Location = new System.Drawing.Point(166, 38);
+            middleManagerNameTextBox.Name = "middleManagerNameTextBox";
+            middleManagerNameTextBox.ReadOnly = true;
+            middleManagerNameTextBox.Size = new System.Drawing.Size(149, 27);
+            middleManagerNameTextBox.TabIndex = 6;
+            // 
+            // firstApprovalDateTextBox
+            // 
+            firstApprovalDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            firstApprovalDateTextBox.Location = new System.Drawing.Point(325, 38);
+            firstApprovalDateTextBox.Name = "firstApprovalDateTextBox";
+            firstApprovalDateTextBox.ReadOnly = true;
+            firstApprovalDateTextBox.Size = new System.Drawing.Size(209, 27);
+            firstApprovalDateTextBox.TabIndex = 9;
+            // 
+            // submitDateTextBox
+            // 
+            submitDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            submitDateTextBox.Location = new System.Drawing.Point(324, 4);
+            submitDateTextBox.Name = "submitDateTextBox";
+            submitDateTextBox.ReadOnly = true;
+            submitDateTextBox.Size = new System.Drawing.Size(210, 27);
+            submitDateTextBox.TabIndex = 8;
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.57862F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.42139F));
-            this.tableLayoutPanel3.Controls.Add(this.text1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.memoTextBox, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(13, 196);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 89F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(665, 90);
-            this.tableLayoutPanel3.TabIndex = 10;
+            tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.57862F));
+            tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.42139F));
+            tableLayoutPanel3.Controls.Add(text1, 0, 0);
+            tableLayoutPanel3.Controls.Add(memoTextBox, 1, 0);
+            tableLayoutPanel3.Location = new System.Drawing.Point(15, 201);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 119F));
+            tableLayoutPanel3.Size = new System.Drawing.Size(748, 105);
+            tableLayoutPanel3.TabIndex = 10;
             // 
             // text1
             // 
-            this.text1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.text1.AutoSize = true;
-            this.text1.Location = new System.Drawing.Point(19, 37);
-            this.text1.Name = "text1";
-            this.text1.Size = new System.Drawing.Size(46, 15);
-            this.text1.TabIndex = 0;
-            this.text1.Text = "memo";
+            text1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            text1.AutoSize = true;
+            text1.Location = new System.Drawing.Point(21, 42);
+            text1.Name = "text1";
+            text1.Size = new System.Drawing.Size(52, 20);
+            text1.TabIndex = 0;
+            text1.Text = "memo";
             // 
             // memoTextBox
             // 
-            this.memoTextBox.Location = new System.Drawing.Point(88, 3);
-            this.memoTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.memoTextBox.Multiline = true;
-            this.memoTextBox.Name = "memoTextBox";
-            this.memoTextBox.ReadOnly = true;
-            this.memoTextBox.Size = new System.Drawing.Size(573, 82);
-            this.memoTextBox.TabIndex = 1;
+            memoTextBox.Location = new System.Drawing.Point(98, 4);
+            memoTextBox.Multiline = true;
+            memoTextBox.Name = "memoTextBox";
+            memoTextBox.ReadOnly = true;
+            memoTextBox.Size = new System.Drawing.Size(644, 97);
+            memoTextBox.TabIndex = 1;
             // 
-            // fixButton
+            // editButton
             // 
-            this.fixButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.fixButton.Location = new System.Drawing.Point(1696, 15);
-            this.fixButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.fixButton.Name = "fixButton";
-            this.fixButton.Size = new System.Drawing.Size(155, 39);
-            this.fixButton.TabIndex = 11;
-            this.fixButton.Text = "수정";
-            this.fixButton.UseVisualStyleBackColor = true;
+            editButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            editButton.Location = new System.Drawing.Point(1743, 20);
+            editButton.Name = "editButton";
+            editButton.Size = new System.Drawing.Size(142, 42);
+            editButton.TabIndex = 11;
+            editButton.Text = "수정";
+            editButton.UseVisualStyleBackColor = true;
+            editButton.Click += editButton_Click;
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.tableLayoutPanel7);
-            this.panel1.Controls.Add(this.deleteButton);
-            this.panel1.Controls.Add(this.tableLayoutPanel6);
-            this.panel1.Controls.Add(this.DownQRCodeButton);
-            this.panel1.Controls.Add(this.tableLayoutPanel5);
-            this.panel1.Controls.Add(this.tableLayoutPanel4);
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Controls.Add(this.tableLayoutPanel2);
-            this.panel1.Controls.Add(this.tableLayoutPanel3);
-            this.panel1.Controls.Add(this.fixButton);
-            this.panel1.Controls.Add(this.pictureBox);
-            this.panel1.Controls.Add(this.creatQRCodeButton);
-            this.panel1.Location = new System.Drawing.Point(21, 75);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1879, 985);
-            this.panel1.TabIndex = 15;
+            panel1.Controls.Add(tableLayoutPanel7);
+            panel1.Controls.Add(deleteButton);
+            panel1.Controls.Add(tableLayoutPanel6);
+            panel1.Controls.Add(DownQRCodeButton);
+            panel1.Controls.Add(tableLayoutPanel5);
+            panel1.Controls.Add(tableLayoutPanel4);
+            panel1.Controls.Add(tableLayoutPanel1);
+            panel1.Controls.Add(tableLayoutPanel2);
+            panel1.Controls.Add(tableLayoutPanel3);
+            panel1.Controls.Add(editButton);
+            panel1.Controls.Add(pictureBox);
+            panel1.Controls.Add(creatQRCodeButton);
+            panel1.Location = new System.Drawing.Point(24, 74);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(1891, 1339);
+            panel1.TabIndex = 15;
             // 
             // tableLayoutPanel7
             // 
-            this.tableLayoutPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel7.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
-            this.tableLayoutPanel7.Controls.Add(this.label10, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.QRCodePictureBox, 0, 0);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(1696, 106);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 2;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(155, 175);
-            this.tableLayoutPanel7.TabIndex = 22;
+            tableLayoutPanel7.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            tableLayoutPanel7.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanel7.ColumnCount = 1;
+            tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 179F));
+            tableLayoutPanel7.Controls.Add(label10, 0, 1);
+            tableLayoutPanel7.Controls.Add(QRCodePictureBox, 0, 0);
+            tableLayoutPanel7.Location = new System.Drawing.Point(1711, 115);
+            tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            tableLayoutPanel7.Name = "tableLayoutPanel7";
+            tableLayoutPanel7.RowCount = 2;
+            tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 163F));
+            tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel7.Size = new System.Drawing.Size(174, 196);
+            tableLayoutPanel7.TabIndex = 22;
             // 
             // label10
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(50, 155);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 15);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "QR코드";
+            label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(60, 170);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(60, 20);
+            label10.TabIndex = 22;
+            label10.Text = "QR코드";
             // 
             // QRCodePictureBox
             // 
-            this.QRCodePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.QRCodePictureBox.Location = new System.Drawing.Point(4, 5);
-            this.QRCodePictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.QRCodePictureBox.Name = "QRCodePictureBox";
-            this.QRCodePictureBox.Size = new System.Drawing.Size(151, 142);
-            this.QRCodePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.QRCodePictureBox.TabIndex = 21;
-            this.QRCodePictureBox.TabStop = false;
+            QRCodePictureBox.Location = new System.Drawing.Point(4, 6);
+            QRCodePictureBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            QRCodePictureBox.Name = "QRCodePictureBox";
+            QRCodePictureBox.Size = new System.Drawing.Size(158, 147);
+            QRCodePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            QRCodePictureBox.TabIndex = 21;
+            QRCodePictureBox.TabStop = false;
             // 
             // deleteButton
             // 
-            this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteButton.Location = new System.Drawing.Point(1535, 15);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(155, 39);
-            this.deleteButton.TabIndex = 20;
-            this.deleteButton.Text = "삭제 신청";
-            this.deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            deleteButton.Location = new System.Drawing.Point(1595, 20);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new System.Drawing.Size(142, 42);
+            deleteButton.TabIndex = 20;
+            deleteButton.Text = "삭제 신청";
+            deleteButton.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel6
             // 
-            this.tableLayoutPanel6.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.contactNumberTextBox, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(393, 160);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(285, 36);
-            this.tableLayoutPanel6.TabIndex = 19;
+            tableLayoutPanel6.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanel6.ColumnCount = 2;
+            tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel6.Controls.Add(contactNumberTextBox, 1, 0);
+            tableLayoutPanel6.Controls.Add(label11, 0, 0);
+            tableLayoutPanel6.Location = new System.Drawing.Point(442, 155);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 1;
+            tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel6.Size = new System.Drawing.Size(321, 40);
+            tableLayoutPanel6.TabIndex = 19;
             // 
             // contactNumberTextBox
             // 
-            this.contactNumberTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.contactNumberTextBox.Location = new System.Drawing.Point(147, 5);
-            this.contactNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.contactNumberTextBox.Name = "contactNumberTextBox";
-            this.contactNumberTextBox.ReadOnly = true;
-            this.contactNumberTextBox.Size = new System.Drawing.Size(133, 25);
-            this.contactNumberTextBox.TabIndex = 11;
+            contactNumberTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            contactNumberTextBox.Location = new System.Drawing.Point(166, 6);
+            contactNumberTextBox.Name = "contactNumberTextBox";
+            contactNumberTextBox.ReadOnly = true;
+            contactNumberTextBox.Size = new System.Drawing.Size(149, 27);
+            contactNumberTextBox.TabIndex = 11;
             // 
             // label11
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(20, 10);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(102, 15);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "작업자 연락처";
+            label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(28, 10);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(104, 20);
+            label11.TabIndex = 5;
+            label11.Text = "작업자 연락처";
             // 
             // DownQRCodeButton
             // 
-            this.DownQRCodeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DownQRCodeButton.Location = new System.Drawing.Point(1696, 62);
-            this.DownQRCodeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.DownQRCodeButton.Name = "DownQRCodeButton";
-            this.DownQRCodeButton.Size = new System.Drawing.Size(155, 38);
-            this.DownQRCodeButton.TabIndex = 17;
-            this.DownQRCodeButton.Text = "QR 다운로드";
-            this.DownQRCodeButton.UseVisualStyleBackColor = true;
-            this.DownQRCodeButton.Click += new System.EventHandler(this.DownQRCodeButton_Click);
+            DownQRCodeButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            DownQRCodeButton.Location = new System.Drawing.Point(1743, 67);
+            DownQRCodeButton.Name = "DownQRCodeButton";
+            DownQRCodeButton.Size = new System.Drawing.Size(142, 40);
+            DownQRCodeButton.TabIndex = 17;
+            DownQRCodeButton.Text = "QR 다운로드";
+            DownQRCodeButton.UseVisualStyleBackColor = true;
+            DownQRCodeButton.Click += DownQRCodeButton_Click;
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.approvalStatusTextBox, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label8, 0, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(393, 15);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(285, 36);
-            this.tableLayoutPanel5.TabIndex = 16;
+            tableLayoutPanel5.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanel5.ColumnCount = 2;
+            tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel5.Controls.Add(approvalStatusTextBox, 1, 0);
+            tableLayoutPanel5.Controls.Add(label8, 0, 0);
+            tableLayoutPanel5.Location = new System.Drawing.Point(442, 20);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 1;
+            tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel5.Size = new System.Drawing.Size(321, 34);
+            tableLayoutPanel5.TabIndex = 16;
             // 
             // approvalStatusTextBox
             // 
-            this.approvalStatusTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.approvalStatusTextBox.Location = new System.Drawing.Point(147, 5);
-            this.approvalStatusTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.approvalStatusTextBox.Name = "approvalStatusTextBox";
-            this.approvalStatusTextBox.ReadOnly = true;
-            this.approvalStatusTextBox.Size = new System.Drawing.Size(133, 25);
-            this.approvalStatusTextBox.TabIndex = 8;
+            approvalStatusTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            approvalStatusTextBox.Location = new System.Drawing.Point(166, 4);
+            approvalStatusTextBox.Name = "approvalStatusTextBox";
+            approvalStatusTextBox.ReadOnly = true;
+            approvalStatusTextBox.Size = new System.Drawing.Size(149, 27);
+            approvalStatusTextBox.TabIndex = 8;
             // 
             // label8
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(38, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 15);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "결재상태";
+            label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(46, 7);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(69, 20);
+            label8.TabIndex = 0;
+            label8.Text = "결재상태";
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.PDFViewer1, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.PDFViewer2, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(13, 288);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 688F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1839, 688);
-            this.tableLayoutPanel4.TabIndex = 15;
+            tableLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            tableLayoutPanel4.ColumnCount = 2;
+            tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel4.Controls.Add(PDFViewer1, 0, 0);
+            tableLayoutPanel4.Controls.Add(PDFViewer2, 1, 0);
+            tableLayoutPanel4.Location = new System.Drawing.Point(15, 312);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 917F));
+            tableLayoutPanel4.Size = new System.Drawing.Size(1870, 1015);
+            tableLayoutPanel4.TabIndex = 15;
             // 
             // PDFViewer1
             // 
-            this.PDFViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PDFViewer1.Enabled = true;
-            this.PDFViewer1.Location = new System.Drawing.Point(3, 2);
-            this.PDFViewer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PDFViewer1.Name = "PDFViewer1";
-            this.PDFViewer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("PDFViewer1.OcxState")));
-            this.PDFViewer1.Size = new System.Drawing.Size(913, 684);
-            this.PDFViewer1.TabIndex = 0;
+            PDFViewer1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            PDFViewer1.Enabled = true;
+            PDFViewer1.Location = new System.Drawing.Point(3, 3);
+            PDFViewer1.Name = "PDFViewer1";
+            PDFViewer1.OcxState = (System.Windows.Forms.AxHost.State)resources.GetObject("PDFViewer1.OcxState");
+            PDFViewer1.Size = new System.Drawing.Size(929, 1009);
+            PDFViewer1.TabIndex = 0;
             // 
             // PDFViewer2
             // 
-            this.PDFViewer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PDFViewer2.Enabled = true;
-            this.PDFViewer2.Location = new System.Drawing.Point(922, 2);
-            this.PDFViewer2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PDFViewer2.Name = "PDFViewer2";
-            this.PDFViewer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("PDFViewer2.OcxState")));
-            this.PDFViewer2.Size = new System.Drawing.Size(914, 684);
-            this.PDFViewer2.TabIndex = 1;
+            PDFViewer2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            PDFViewer2.Enabled = true;
+            PDFViewer2.Location = new System.Drawing.Point(938, 3);
+            PDFViewer2.Name = "PDFViewer2";
+            PDFViewer2.OcxState = (System.Windows.Forms.AxHost.State)resources.GetObject("PDFViewer2.OcxState");
+            PDFViewer2.Size = new System.Drawing.Size(929, 1009);
+            PDFViewer2.TabIndex = 1;
             // 
             // ReconditionedDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "ReconditionedDetail";
-            this.Padding = new System.Windows.Forms.Padding(21, 75, 21, 20);
-            this.Text = "상세정보";
-            this.Load += new System.EventHandler(this.ReconditionedDetail_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QRCodePictureBox)).EndInit();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PDFViewer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PDFViewer2)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1942, 988);
+            Controls.Add(panel1);
+            Name = "ReconditionedDetail";
+            Padding = new System.Windows.Forms.Padding(24, 100, 24, 27);
+            Text = "상세정보";
+            Load += ReconditionedDetail_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
+            panel1.ResumeLayout(false);
+            tableLayoutPanel7.ResumeLayout(false);
+            tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)QRCodePictureBox).EndInit();
+            tableLayoutPanel6.ResumeLayout(false);
+            tableLayoutPanel6.PerformLayout();
+            tableLayoutPanel5.ResumeLayout(false);
+            tableLayoutPanel5.PerformLayout();
+            tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)PDFViewer1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PDFViewer2).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -650,7 +609,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button fixButton;
+        private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private AxAcroPDFLib.AxAcroPDF PDFViewer1;

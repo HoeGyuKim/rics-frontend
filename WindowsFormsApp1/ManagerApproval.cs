@@ -28,12 +28,12 @@ namespace WindowsFormsApp1
                 using (HttpClient client = new HttpClient())
                 {
                     client.BaseAddress = new Uri("http://localhost:8080/api/reconditioned/");
-                    var response = await client.GetAsync($"detailsByManager?employeeNum={loggedInMember.EmployeeNum}");
+                    var response = await client.GetAsync($"ListByManagerApproval?employeeNum={loggedInMember.EmployeeNum}");
 
                     if (response.IsSuccessStatusCode)
                     {
                         var jsonString = await response.Content.ReadAsStringAsync();
-                        var items = JsonConvert.DeserializeObject<List<ReconditionedListItem>>(jsonString);
+                        var items = JsonConvert.DeserializeObject<List<approvalListItem>>(jsonString);
                         BindDataToGrid(items);
                     }
                     else
@@ -66,8 +66,8 @@ namespace WindowsFormsApp1
             managerApprovalDataGridView.Columns.Add(checkBoxColumn);
 
             // 텍스트 열 추가
-            string[] headers = { "Id", "작업자", "완료일자", "자재번호", "시리얼 번호", "결재상태" };
-            string[] properties = { "Id", "workerName", "date", "productNum", "serialNum", "approvalStatusText" };
+            string[] headers = { "등록번호", "자재번호", "자재명", "시리얼 번호", "상신", "", "1차검토", "", "최종검토", "" };
+            string[] properties = { "Id", "productNum","productName", "serialNum", "workerName", "submitTime", "middleManagerName", "firstApprovalTime", "lastManagerName", "lastApprovalTime" };   
 
             for (int i = 0; i < headers.Length; i++)
             {
@@ -86,7 +86,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void BindDataToGrid(List<ReconditionedListItem> items)
+        private void BindDataToGrid(List<approvalListItem> items)
         {
             var bindingSource = new BindingSource { DataSource = items };
             managerApprovalDataGridView.DataSource = bindingSource;
@@ -101,21 +101,19 @@ namespace WindowsFormsApp1
         {
             await ProcessApprovalAsync(true); // 전체 항목 처리
         }
+        // ProcessApprovalAsync 메서드 수정
         private async Task ProcessApprovalAsync(bool approveAll)
         {
-            var selectedItems = new List<ReconditionedListItem>();
+            var selectedItems = new List<approvalListItem>();
 
-            // DataGridView의 모든 행을 순회하면서 선택된 항목을 찾음
             foreach (DataGridViewRow row in managerApprovalDataGridView.Rows)
             {
-                // 체크박스 값이 null일 수 있으므로 안전하게 처리
                 bool isChecked = row.Cells["Select"].Value as bool? ?? false;
 
-
-                // approveAll이 true이면 전체 항목을 처리, 아니면 체크된 항목만 처리
-                if (isChecked)
+                // 체크된 항목 또는 전체 항목 처리
+                if (isChecked || approveAll)
                 {
-                    var item = row.DataBoundItem as ReconditionedListItem;
+                    var item = row.DataBoundItem as approvalListItem; // approvalListItem 사용
                     if (item != null)
                     {
                         selectedItems.Add(item);
@@ -123,7 +121,6 @@ namespace WindowsFormsApp1
                 }
             }
 
-            // 선택된 항목이 없으면 경고 메시지 표시
             if (selectedItems.Count == 0)
             {
                 MessageBox.Show("결재할 항목을 선택하세요.");
@@ -136,28 +133,21 @@ namespace WindowsFormsApp1
                 {
                     client.BaseAddress = new Uri("http://localhost:8080/api/approval/");
 
-                    // 승인 요청 객체 생성
                     var approvalRequests = new
                     {
                         employeeNum = loggedInMember.EmployeeNum,
-                        approvals = selectedItems.Select(item => new
-                        {
-                            id = item.id
-                        }).ToList()
+                        approvals = selectedItems.Select(item => new { id = item.id }).ToList()
                     };
 
-                    // JSON 직렬화
                     var json = JsonConvert.SerializeObject(approvalRequests);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                    // PUT 요청 보내기
                     var response = await client.PutAsync("approve", content);
 
-                    // 응답 상태에 따른 처리
                     if (response.IsSuccessStatusCode)
                     {
                         MessageBox.Show("결재 성공!");
-                        LoadDataAsync();  // 데이터 새로고침
+                        LoadDataAsync();
                     }
                     else
                     {
@@ -170,6 +160,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
+
 
         private void prevButton_Click(object sender, EventArgs e)
         {
@@ -197,8 +188,8 @@ namespace WindowsFormsApp1
                     DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells["Select"];
                     if (Convert.ToBoolean(checkBoxCell.Value))
                     {
-                        var item = (ReconditionedListItem)row.DataBoundItem;
-                        using (var reconditionedDetail = new ReconditionedDetail((long)item.id, (int)item.approvalStatus))
+                        var item = (approvalListItem)row.DataBoundItem;
+                        using (var reconditionedDetail = new ReconditionedDetail((long)item.id))
                         {
                             reconditionedDetail.ShowDialog();
                         }

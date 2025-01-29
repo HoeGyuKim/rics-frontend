@@ -28,92 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.approvalAll = new System.Windows.Forms.Button();
-            this.ShowDetailButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.managerApprovalDataGridView = new System.Windows.Forms.DataGridView();
-            this.prevButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.managerApprovalDataGridView)).BeginInit();
-            this.SuspendLayout();
+            approvalAll = new System.Windows.Forms.Button();
+            ShowDetailButton = new System.Windows.Forms.Button();
+            button3 = new System.Windows.Forms.Button();
+            managerApprovalDataGridView = new System.Windows.Forms.DataGridView();
+            prevButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)managerApprovalDataGridView).BeginInit();
+            SuspendLayout();
             // 
             // approvalAll
             // 
-            this.approvalAll.Location = new System.Drawing.Point(503, 56);
-            this.approvalAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.approvalAll.Name = "approvalAll";
-            this.approvalAll.Size = new System.Drawing.Size(119, 27);
-            this.approvalAll.TabIndex = 2;
-            this.approvalAll.Text = "승인(일괄)";
-            this.approvalAll.UseVisualStyleBackColor = true;
-            this.approvalAll.Click += new System.EventHandler(this.approvalAll_Click);
+            approvalAll.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            approvalAll.Location = new System.Drawing.Point(1162, 68);
+            approvalAll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            approvalAll.Name = "approvalAll";
+            approvalAll.Size = new System.Drawing.Size(95, 32);
+            approvalAll.TabIndex = 2;
+            approvalAll.Text = "승인(일괄)";
+            approvalAll.UseVisualStyleBackColor = true;
+            approvalAll.Click += approvalAll_Click;
             // 
             // ShowDetailButton
             // 
-            this.ShowDetailButton.Location = new System.Drawing.Point(253, 56);
-            this.ShowDetailButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ShowDetailButton.Name = "ShowDetailButton";
-            this.ShowDetailButton.Size = new System.Drawing.Size(119, 27);
-            this.ShowDetailButton.TabIndex = 3;
-            this.ShowDetailButton.Text = "상세";
-            this.ShowDetailButton.UseVisualStyleBackColor = true;
-            this.ShowDetailButton.Click += new System.EventHandler(this.ShowDetailButton_Click);
+            ShowDetailButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            ShowDetailButton.Location = new System.Drawing.Point(956, 68);
+            ShowDetailButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            ShowDetailButton.Name = "ShowDetailButton";
+            ShowDetailButton.Size = new System.Drawing.Size(95, 32);
+            ShowDetailButton.TabIndex = 3;
+            ShowDetailButton.Text = "상세";
+            ShowDetailButton.UseVisualStyleBackColor = true;
+            ShowDetailButton.Click += ShowDetailButton_Click;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(378, 57);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(119, 27);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "반려(일괄)";
-            this.button3.UseVisualStyleBackColor = true;
+            button3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            button3.Location = new System.Drawing.Point(1059, 68);
+            button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(95, 32);
+            button3.TabIndex = 4;
+            button3.Text = "반려(일괄)";
+            button3.UseVisualStyleBackColor = true;
             // 
             // managerApprovalDataGridView
             // 
-            this.managerApprovalDataGridView.AllowUserToAddRows = false;
-            this.managerApprovalDataGridView.AllowUserToDeleteRows = false;
-            this.managerApprovalDataGridView.AllowUserToResizeRows = false;
-            this.managerApprovalDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.managerApprovalDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.managerApprovalDataGridView.Location = new System.Drawing.Point(20, 88);
-            this.managerApprovalDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.managerApprovalDataGridView.Name = "managerApprovalDataGridView";
-            this.managerApprovalDataGridView.ReadOnly = true;
-            this.managerApprovalDataGridView.RowHeadersWidth = 51;
-            this.managerApprovalDataGridView.RowTemplate.Height = 27;
-            this.managerApprovalDataGridView.ShowEditingIcon = false;
-            this.managerApprovalDataGridView.ShowRowErrors = false;
-            this.managerApprovalDataGridView.Size = new System.Drawing.Size(602, 335);
-            this.managerApprovalDataGridView.TabIndex = 5;
+            managerApprovalDataGridView.AllowUserToAddRows = false;
+            managerApprovalDataGridView.AllowUserToDeleteRows = false;
+            managerApprovalDataGridView.AllowUserToResizeRows = false;
+            managerApprovalDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            managerApprovalDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            managerApprovalDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            managerApprovalDataGridView.Location = new System.Drawing.Point(27, 103);
+            managerApprovalDataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            managerApprovalDataGridView.Name = "managerApprovalDataGridView";
+            managerApprovalDataGridView.ReadOnly = true;
+            managerApprovalDataGridView.RowHeadersWidth = 51;
+            managerApprovalDataGridView.RowTemplate.Height = 27;
+            managerApprovalDataGridView.ShowEditingIcon = false;
+            managerApprovalDataGridView.ShowRowErrors = false;
+            managerApprovalDataGridView.Size = new System.Drawing.Size(1230, 441);
+            managerApprovalDataGridView.TabIndex = 5;
             // 
             // prevButton
             // 
-            this.prevButton.Location = new System.Drawing.Point(20, 56);
-            this.prevButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.prevButton.Name = "prevButton";
-            this.prevButton.Size = new System.Drawing.Size(119, 27);
-            this.prevButton.TabIndex = 6;
-            this.prevButton.Text = "이전";
-            this.prevButton.UseVisualStyleBackColor = true;
-            this.prevButton.Click += new System.EventHandler(this.prevButton_Click);
+            prevButton.Location = new System.Drawing.Point(27, 68);
+            prevButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            prevButton.Name = "prevButton";
+            prevButton.Size = new System.Drawing.Size(95, 32);
+            prevButton.TabIndex = 6;
+            prevButton.Text = "이전";
+            prevButton.UseVisualStyleBackColor = true;
+            prevButton.Click += prevButton_Click;
             // 
             // ManagerApproval
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 442);
-            this.Controls.Add(this.prevButton);
-            this.Controls.Add(this.managerApprovalDataGridView);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.ShowDetailButton);
-            this.Controls.Add(this.approvalAll);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "ManagerApproval";
-            this.Padding = new System.Windows.Forms.Padding(18, 60, 18, 16);
-            this.Text = "전자결재(관리자)";
-            ((System.ComponentModel.ISupportInitialize)(this.managerApprovalDataGridView)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1282, 574);
+            Controls.Add(prevButton);
+            Controls.Add(managerApprovalDataGridView);
+            Controls.Add(button3);
+            Controls.Add(ShowDetailButton);
+            Controls.Add(approvalAll);
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "ManagerApproval";
+            Padding = new System.Windows.Forms.Padding(23, 100, 23, 27);
+            Text = "전자결재(관리자)";
+            ((System.ComponentModel.ISupportInitialize)managerApprovalDataGridView).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

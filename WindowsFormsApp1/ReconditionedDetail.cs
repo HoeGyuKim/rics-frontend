@@ -14,14 +14,13 @@ namespace WindowsFormsApp1
         private long selectedId;
         private int selectedApprovalStatus;
 
-        public ReconditionedDetail(long id, int approvalStatus)
+        public ReconditionedDetail(long id)
         {
             this.WindowState = FormWindowState.Maximized; // 전체화면 설정
             this.Bounds = Screen.PrimaryScreen.Bounds;    // 화면 크기에 맞춤
 
             InitializeComponent();
             this.selectedId = id;
-            this.selectedApprovalStatus = approvalStatus;
         }
 
         private async Task LoadDetails()
@@ -239,5 +238,36 @@ namespace WindowsFormsApp1
                 MessageBox.Show("QR 코드 다운로드 중 오류가 발생했습니다: " + ex.Message);
             }
         }
+
+        private async void editButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync($"http://localhost:8080/api/approval/{selectedId}/editable");
+                string jsonResponse = await response.Content.ReadAsStringAsync();
+                var responseData = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonResponse);
+
+                if (responseData != null && responseData.ContainsKey("message"))
+                {
+                    string message = responseData["message"];
+                    MessageBox.Show(message, "수정 여부 확인", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (response.IsSuccessStatusCode && message == "수정 가능")
+                    {
+                        var addProductDetail = new AddProductDetail(productNumTextBox.Text, productNameTextBox.Text, serialNumTextBox.Text, memoTextBox.Text, selectedId);
+                        addProductDetail.ShowDialog();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("서버 응답이 올바르지 않습니다.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"수정 가능 여부 체크 중 오류 발생: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

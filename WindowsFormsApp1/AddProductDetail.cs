@@ -22,11 +22,15 @@ namespace WindowsFormsApp1
         private string selectedFilePath1 = string.Empty;
         private string selectedFilePath2 = string.Empty;
 
+        private bool isEditing = false;   // 수정 시 필요
+        private long selectedId = 0;
+
         private static readonly HttpClient httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:8080/") };
 
-        public AddProductDetail(string productNum, string productName)
+        public AddProductDetail(string productNum, string productName) // 선택된 자재번호와 자재명으로 받으면 생성 
         {
             InitializeComponent();
+            this.isEditing = false;
             productNumLabel.Text = productNum;
             productNameLabel.Text = productName;
 
@@ -35,6 +39,23 @@ namespace WindowsFormsApp1
 
             progressBar.Visible = false; // ProgressBar 초기 상태 설정
         }
+        public AddProductDetail(string productNum, string productName, string serialNum, string memo, long id) // id로 받으면 수정 캬 ~
+        {
+            InitializeComponent();
+            this.isEditing = true;
+            productNumLabel.Text = productNum;
+            productNameLabel.Text = productName;
+            serialNumTextBox.Text = serialNum;
+            serialNumTextBox.ReadOnly = true;
+            memoTextBox.Text = memo;
+            this.selectedId = id;
+
+            openFileDialog1.Filter = "PDF Files|*.pdf";
+            openFileDialog1.Title = "Select a PDF File";
+
+            progressBar.Visible = false; // ProgressBar 초기 상태 설정
+        }
+
 
         private void fileUpLoadButton_Click(object sender, EventArgs e)
         {
@@ -104,6 +125,34 @@ namespace WindowsFormsApp1
                 }
             }
         }
+        private async Task DeleteProductDetailAsync(long detailId)
+        {
+            try
+            {
+                using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Delete, $"api/approval/delete/{detailId}"))
+                {
+                    request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json")); // JSON 형식 요청
+
+                    HttpResponseMessage response = await httpClient.SendAsync(request);
+
+                    string responseContent = await response.Content.ReadAsStringAsync(); // 🔥 응답 확인
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new Exception($"기존 데이터 삭제 실패: {response.ReasonPhrase} | 응답 내용: {responseContent}");
+                    }
+
+                    MessageBox.Show("기존 데이터 삭제 성공: " + responseContent);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"데이터 삭제 중 오류 발생: {ex.Message}");
+                throw;
+            }
+        }
+
+
 
         private async void button3_Click(object sender, EventArgs e)
         {
@@ -114,12 +163,12 @@ namespace WindowsFormsApp1
             }
             if (workerName == null)
             {
-                MessageBox.Show("점검자를 선택해주세요.");
+                MessageBox.Show("1차 검토자를 선택해주세요.");
                 return;
             }
             if (middleManagerName == null)
             {
-                MessageBox.Show("관리자를 선택해주세요.");
+                MessageBox.Show("최종 검토자를 선택해주세요.");
                 return;
             }
 
@@ -128,6 +177,12 @@ namespace WindowsFormsApp1
                 this.Enabled = false;
                 progressBar.Visible = true;
                 progressBar.Style = ProgressBarStyle.Marquee;
+
+                // isEditing이 true라면 기존 데이터 삭제 후 진행
+                if (isEditing)
+                {
+                    await DeleteProductDetailAsync(selectedId);
+                }
 
                 string detailEndpoint = "api/reconditioned/upload";
                 await SaveProductDetailAsync(

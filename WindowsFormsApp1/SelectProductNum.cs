@@ -15,7 +15,6 @@ namespace WindowsFormsApp1
         private static readonly HttpClient client = new HttpClient(); // HTTP 클라이언트 인스턴스
         private int selectedProductNum;
         private string selectedProductName;
-        private string userName;
         public SelectProductNum(Member member)
         {
             InitializeComponent();

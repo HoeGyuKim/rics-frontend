@@ -123,17 +123,17 @@ namespace WindowsFormsApp1
 
             // 컬럼 이름 변경
             dataGridView1.Columns["select"].HeaderText = "선택"; // 이미 체크박스 컬럼
-            dataGridView1.Columns["id"].HeaderText = "등록번호"; // 예시: 'Id' 컬럼을 '아이디'로 변경
+            dataGridView1.Columns["formattedId"].HeaderText = "등록번호"; // 예시: 'Id' 컬럼을 '아이디'로 변경
             dataGridView1.Columns["workerName"].HeaderText = "작업자"; // 예시: 'Worker' 컬럼을 '작업자'로 변경
             dataGridView1.Columns["middleManagerName"].HeaderText = "관리자";
             dataGridView1.Columns["date"].HeaderText = "완료일자"; // 예시: 'Date' 컬럼을 '날짜'로 변경
             dataGridView1.Columns["approvalStatusText"].HeaderText = "결재상태"; // 예시: 'approvalStatus' 컬럼을 '승인 상태'로 변경
-            dataGridView1.Columns["ProductNum"].HeaderText = "자재번호";
-            dataGridView1.Columns["ProductName"].HeaderText = "자재명";
-            dataGridView1.Columns["SerialNum"].HeaderText = "시리얼번호";
+            dataGridView1.Columns["productNum"].HeaderText = "자재번호";
+            dataGridView1.Columns["productName"].HeaderText = "자재명";
+            dataGridView1.Columns["serialNum"].HeaderText = "시리얼번호";
             dataGridView1.Columns["departmentName"].HeaderText = "발생부서";
 
-            
+            dataGridView1.Columns["id"].Visible = false; // 'Worker' 컬럼 숨기기
             dataGridView1.Columns["approvalStatus"].Visible = false; // 'Worker' 컬럼 숨기기
             
             dataGridView1.Columns[0].Width = 50; // 첫 번째 열
@@ -209,7 +209,7 @@ namespace WindowsFormsApp1
             }
 
             var item = (ReconditionedListItem)checkedRows[0].DataBoundItem;
-            var detailForm = new ReconditionedDetail(item.id, item.approvalStatus);
+            var detailForm = new ReconditionedDetail(item.id);
             detailForm.ShowDialog();
         }
 

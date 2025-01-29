@@ -38,7 +38,7 @@ namespace WindowsFormsApp1
         private void selectMyRecnetListButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RecentCreatedList recentCreatedList = new RecentCreatedList(loggedInMember);
+            WorkerRecentCreatedList recentCreatedList = new WorkerRecentCreatedList(loggedInMember);
             recentCreatedList.Show();
         }
 
