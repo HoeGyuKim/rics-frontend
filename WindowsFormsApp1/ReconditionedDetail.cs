@@ -2,25 +2,31 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace WindowsFormsApp1
 {
-    public partial class ReconditionedDetail : MetroFramework.Forms.MetroForm
+    public partial class ReconditionedDetail : BaseForm
     {
         private static readonly HttpClient client = new HttpClient();
         private long selectedId;
         private int selectedApprovalStatus;
+        private Member loggedInMember;
 
-        public ReconditionedDetail(long id)
+        private static readonly HttpClient httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:8080/") };
+        public ReconditionedDetail(long id, Member loggedInMember)
         {
             this.WindowState = FormWindowState.Maximized; // 전체화면 설정
             this.Bounds = Screen.PrimaryScreen.Bounds;    // 화면 크기에 맞춤
 
             InitializeComponent();
             this.selectedId = id;
+            this.loggedInMember = loggedInMember;
         }
 
         private async Task LoadDetails()
@@ -51,6 +57,7 @@ namespace WindowsFormsApp1
 
         private void BindDetailsToUI(DetailDTO detail)
         {
+            this.selectedApprovalStatus = detail.approvalStatus;
             productNumTextBox.Text = detail.productNum.ToString();
             productNameTextBox.Text = detail.productName;
             DateTextBox.Text = detail.date ?? "N/A"; // Date가 null이면 "N/A" 출력
@@ -66,7 +73,6 @@ namespace WindowsFormsApp1
             lastApprovalDateTextBox.Text = detail.lastApprovalTime?.ToString("yyyy-MM-dd HH:mm:ss") ?? "N/A";
             submitDateTextBox.Text = detail.submitTime?.ToString("yyyy-MM-dd HH:mm:ss") ?? "N/A";
         }
-
         private async void ReconditionedDetail_Load(object sender, EventArgs e)
         {
             await LoadDetails();
@@ -149,7 +155,32 @@ namespace WindowsFormsApp1
                 throw new Exception($"파일 다운로드 중 오류 발생: {ex.Message}");
             }
         }
+        private async Task DeleteProductDetailAsync(long detailId)
+        {
+            try
+            {
+                using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Delete, $"api/approval/delete/{detailId}"))
+                {
+                    request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json")); // JSON 형식 요청
 
+                    HttpResponseMessage response = await httpClient.SendAsync(request);
+
+                    string responseContent = await response.Content.ReadAsStringAsync(); // 🔥 응답 확인
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new Exception($"기존 데이터 삭제 실패: {response.ReasonPhrase} | 응답 내용: {responseContent}");
+                    }
+
+                    MessageBox.Show("기존 데이터 삭제 성공: " + responseContent);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"데이터 삭제 중 오류 발생: {ex.Message}");
+                throw;
+            }
+        }
         private async Task LoadQRCodeToPictureBox()
         {
             try
@@ -269,5 +300,43 @@ namespace WindowsFormsApp1
             }
         }
 
+        private async void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (loggedInMember.Name == workerNameTextBox.Text || loggedInMember.Name == middleManagerNameTextBox.Text || loggedInMember.Name == lastManagerNameTextBox.Text)
+            {
+                if (selectedApprovalStatus == 1)
+                {
+                    if (MessageBox.Show("결재 대기 중이므로 즉시 삭제 가능합니다. \n 삭제하시겠습니까?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        await DeleteProductDetailAsync(selectedId);
+                        this.Close();
+                    }
+                }
+                else if (selectedApprovalStatus == 4)
+                {
+                    if (MessageBox.Show("반려된 건이므로 즉시 삭제 가능합니다.\n삭제하시겠습니까?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        await DeleteProductDetailAsync(selectedId);
+                        this.Close();
+                    }
+                }
+                else if (selectedApprovalStatus == 3)
+                {
+                    if (MessageBox.Show($"승인 된 건입니다.\n삭제신청 하시겠습니까?\n결재 라인 : {workerNameTextBox.Text} -> {middleManagerNameTextBox.Text} -> {lastManagerNameTextBox.Text}", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        await DeleteProductDetailAsync(selectedId);
+                        this.Close();
+                    }
+                }
+                else if (selectedApprovalStatus == 2)
+                {
+                    MessageBox.Show("결재 진행중이므로 삭제할 수 없습니다.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("권한이 없습니다.");
+            }
+        }
     }
 }

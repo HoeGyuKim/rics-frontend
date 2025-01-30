@@ -7,10 +7,11 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
 using Newtonsoft.Json.Converters;
+using WindowsFormsApp;
 
 namespace WindowsFormsApp1
 {
-    public partial class WorkerRecentCreatedList : MetroFramework.Forms.MetroForm
+    public partial class WorkerRecentCreatedList : BaseForm
     {
         private const string ApiUrl = "http://localhost:8080/api/reconditioned/WorkerList";
         private Member loggedInMember;

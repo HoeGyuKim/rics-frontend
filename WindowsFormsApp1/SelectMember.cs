@@ -3,10 +3,11 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp;
 
 namespace WindowsFormsApp1
 {
-    public partial class SelectMember : MetroFramework.Forms.MetroForm
+    public partial class SelectMember : BaseForm
     {
         private static readonly HttpClient client = new HttpClient(); // HTTP 클라이언트 인스턴스
         public int SelectedMemberId { get; set; }

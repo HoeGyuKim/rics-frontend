@@ -5,10 +5,11 @@ using System.Windows.Forms;
 using System;
 using System.Drawing;
 using System.Linq;
+using WindowsFormsApp;
 
 namespace WindowsFormsApp1
 {
-    public partial class SelectProductNum : MetroFramework.Forms.MetroForm
+    public partial class SelectProductNum : BaseForm
     {
         
         private Member loggedInMember;

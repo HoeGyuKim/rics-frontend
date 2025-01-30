@@ -4,10 +4,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using WindowsFormsApp;
 
 namespace WindowsFormsApp1
 {
-    public partial class AddProductList : MetroFramework.Forms.MetroForm
+    public partial class AddProductList : BaseForm
     {
         private static readonly HttpClient client = new HttpClient(); // HTTP 클라이언트 인스턴스
 

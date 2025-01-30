@@ -6,10 +6,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp;
 
 namespace WindowsFormsApp1
 {
-    public partial class ManagerApproval : MetroFramework.Forms.MetroForm
+    public partial class ManagerApproval : BaseForm
     {
         private readonly Member loggedInMember;
 
@@ -53,32 +54,6 @@ namespace WindowsFormsApp1
             managerApprovalDataGridView.ReadOnly = false;
             managerApprovalDataGridView.AutoGenerateColumns = false;
 
-            // 체크박스 열 추가
-            var checkBoxColumn = new DataGridViewCheckBoxColumn
-            {
-                Name = "Select",
-                HeaderText = "선택",
-                Width = 50,
-                ReadOnly = false,
-                FalseValue = false,
-                TrueValue = true
-            };
-            managerApprovalDataGridView.Columns.Add(checkBoxColumn);
-
-            // 텍스트 열 추가
-            string[] headers = { "등록번호", "자재번호", "자재명", "시리얼 번호", "상신", "", "1차검토", "", "최종검토", "" };
-            string[] properties = { "Id", "productNum","productName", "serialNum", "workerName", "submitTime", "middleManagerName", "firstApprovalTime", "lastManagerName", "lastApprovalTime" };   
-
-            for (int i = 0; i < headers.Length; i++)
-            {
-                managerApprovalDataGridView.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    DataPropertyName = properties[i],
-                    HeaderText = headers[i],
-                    Name = properties[i],
-                    ReadOnly = true
-                });
-            }
 
             managerApprovalDataGridView.EditMode = DataGridViewEditMode.EditOnEnter;
             managerApprovalDataGridView.Columns[1].Width = 50;
@@ -161,7 +136,6 @@ namespace WindowsFormsApp1
             }
         }
 
-
         private void prevButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -189,7 +163,8 @@ namespace WindowsFormsApp1
                     if (Convert.ToBoolean(checkBoxCell.Value))
                     {
                         var item = (approvalListItem)row.DataBoundItem;
-                        using (var reconditionedDetail = new ReconditionedDetail((long)item.id))
+                        using (var reconditionedDetail = new ReconditionedDetail((long)item.id, loggedInMember))
+
                         {
                             reconditionedDetail.ShowDialog();
                         }
@@ -215,6 +190,11 @@ namespace WindowsFormsApp1
                 }
             }
             return checkedCount;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

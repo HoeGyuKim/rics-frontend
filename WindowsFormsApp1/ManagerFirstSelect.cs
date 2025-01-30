@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp;
 
 namespace WindowsFormsApp1
 {
-    public partial class ManagerFirstSelect : MetroFramework.Forms.MetroForm
+    public partial class ManagerFirstSelect : BaseForm
     {
         public bool selectReconditioned = false;
         Member loggedInMember;

@@ -5,10 +5,11 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using WindowsFormsApp;
 
 namespace WindowsFormsApp1
 {
-    public partial class ReconditionedList : MetroFramework.Forms.MetroForm
+    public partial class ReconditionedList : BaseForm
     {
         private readonly Member loggedInMember;
         private readonly int selectedProductNum;
@@ -209,7 +210,7 @@ namespace WindowsFormsApp1
             }
 
             var item = (ReconditionedListItem)checkedRows[0].DataBoundItem;
-            var detailForm = new ReconditionedDetail(item.id);
+            var detailForm = new ReconditionedDetail(item.id, loggedInMember);
             detailForm.ShowDialog();
         }
 

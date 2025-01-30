@@ -7,10 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using WindowsFormsApp;
 
 namespace WindowsFormsApp1
 {
-    public partial class AddProductDetail : MetroFramework.Forms.MetroForm
+    public partial class AddProductDetail : BaseForm
     {
         private string department;
         private string workerName;

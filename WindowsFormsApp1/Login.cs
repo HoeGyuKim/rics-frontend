@@ -10,7 +10,7 @@ using WindowsFormsApp1;
 
 namespace WindowsFormsApp
 {
-    public partial class Login : MetroFramework.Forms.MetroForm
+    public partial class Login : BaseForm
     {
         private Member loggedInMember;
         // HttpClient는 HTTP 요청을 보내기 위해 사용됩니다. 기본 주소를 설정합니다.

@@ -55,14 +55,14 @@ namespace WindowsFormsApp1
             htmlLabel1.Location = new System.Drawing.Point(25, 562);
             htmlLabel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             htmlLabel1.Name = "htmlLabel1";
-            htmlLabel1.Size = new System.Drawing.Size(424, 29);
+            htmlLabel1.Size = new System.Drawing.Size(407, 31);
             htmlLabel1.TabIndex = 0;
             htmlLabel1.Text = "* 1개월이 지난 데이터는 자재조회에서 확인 가능합니다.";
             // 
             // createQRAll
             // 
             createQRAll.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            createQRAll.Location = new System.Drawing.Point(615, 74);
+            createQRAll.Location = new System.Drawing.Point(545, 74);
             createQRAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             createQRAll.Name = "createQRAll";
             createQRAll.Size = new System.Drawing.Size(123, 33);
@@ -94,13 +94,13 @@ namespace WindowsFormsApp1
             myDataGridView.ReadOnly = true;
             myDataGridView.RowHeadersVisible = false;
             myDataGridView.RowHeadersWidth = 51;
-            myDataGridView.Size = new System.Drawing.Size(876, 441);
+            myDataGridView.Size = new System.Drawing.Size(800, 441);
             myDataGridView.TabIndex = 5;
             // 
             // downloadQRAll
             // 
             downloadQRAll.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            downloadQRAll.Location = new System.Drawing.Point(744, 74);
+            downloadQRAll.Location = new System.Drawing.Point(674, 74);
             downloadQRAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             downloadQRAll.Name = "downloadQRAll";
             downloadQRAll.Size = new System.Drawing.Size(161, 33);
@@ -112,16 +112,16 @@ namespace WindowsFormsApp1
             // select
             // 
             select.HeaderText = "선택";
-            select.MinimumWidth = 6;
+            select.MinimumWidth = 50;
             select.Name = "select";
             select.ReadOnly = true;
-            select.Width = 125;
+            select.Width = 50;
             // 
             // formattedId
             // 
             formattedId.DataPropertyName = "formattedId";
             formattedId.HeaderText = "등록번호";
-            formattedId.MinimumWidth = 6;
+            formattedId.MinimumWidth = 125;
             formattedId.Name = "formattedId";
             formattedId.ReadOnly = true;
             formattedId.Width = 125;
@@ -130,7 +130,7 @@ namespace WindowsFormsApp1
             // 
             date.DataPropertyName = "date";
             date.HeaderText = "완료일자";
-            date.MinimumWidth = 6;
+            date.MinimumWidth = 125;
             date.Name = "date";
             date.ReadOnly = true;
             date.Width = 125;
@@ -139,7 +139,7 @@ namespace WindowsFormsApp1
             // 
             productNum.DataPropertyName = "productNum";
             productNum.HeaderText = "자재번호";
-            productNum.MinimumWidth = 6;
+            productNum.MinimumWidth = 125;
             productNum.Name = "productNum";
             productNum.ReadOnly = true;
             productNum.Width = 125;
@@ -148,7 +148,7 @@ namespace WindowsFormsApp1
             // 
             productName.DataPropertyName = "productName";
             productName.HeaderText = "자재명";
-            productName.MinimumWidth = 6;
+            productName.MinimumWidth = 125;
             productName.Name = "productName";
             productName.ReadOnly = true;
             productName.Width = 125;
@@ -157,7 +157,7 @@ namespace WindowsFormsApp1
             // 
             serialNum.DataPropertyName = "serialNum";
             serialNum.HeaderText = "시리얼번호";
-            serialNum.MinimumWidth = 6;
+            serialNum.MinimumWidth = 125;
             serialNum.Name = "serialNum";
             serialNum.ReadOnly = true;
             serialNum.Width = 125;
@@ -166,7 +166,7 @@ namespace WindowsFormsApp1
             // 
             approvalStatusText.DataPropertyName = "approvalStatusText";
             approvalStatusText.HeaderText = "결재상태";
-            approvalStatusText.MinimumWidth = 6;
+            approvalStatusText.MinimumWidth = 125;
             approvalStatusText.Name = "approvalStatusText";
             approvalStatusText.ReadOnly = true;
             approvalStatusText.Width = 125;
@@ -175,7 +175,7 @@ namespace WindowsFormsApp1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(930, 638);
+            ClientSize = new System.Drawing.Size(867, 638);
             Controls.Add(downloadQRAll);
             Controls.Add(myDataGridView);
             Controls.Add(prevButton);
@@ -197,13 +197,13 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridView myDataGridView;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private System.Windows.Forms.Button downloadQRAll;
-        private System.Windows.Forms.DataGridViewTextBoxColumn select;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn select;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formattedId;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn productName;
         private System.Windows.Forms.DataGridViewTextBoxColumn serialNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn approvalStatusText;
-        private System.Windows.Forms.DataGridViewTextBoxColumn formattedId;
     }
 }

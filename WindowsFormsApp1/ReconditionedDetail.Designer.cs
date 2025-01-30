@@ -454,6 +454,7 @@
             deleteButton.TabIndex = 20;
             deleteButton.Text = "삭제 신청";
             deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
             // tableLayoutPanel6
             // 
