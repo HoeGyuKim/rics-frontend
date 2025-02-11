@@ -34,7 +34,6 @@ namespace WindowsFormsApp1
             createQRAll = new System.Windows.Forms.Button();
             prevButton = new System.Windows.Forms.Button();
             myDataGridView = new System.Windows.Forms.DataGridView();
-            downloadQRAll = new System.Windows.Forms.Button();
             select = new System.Windows.Forms.DataGridViewTextBoxColumn();
             formattedId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +41,7 @@ namespace WindowsFormsApp1
             productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             serialNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             approvalStatusText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            downloadQRAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)myDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -52,18 +52,20 @@ namespace WindowsFormsApp1
             htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(401, 30);
             htmlLabel1.AutoSize = false;
             htmlLabel1.BackColor = System.Drawing.SystemColors.Window;
-            htmlLabel1.Location = new System.Drawing.Point(25, 562);
+            htmlLabel1.Location = new System.Drawing.Point(25, 513);
             htmlLabel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             htmlLabel1.Name = "htmlLabel1";
-            htmlLabel1.Size = new System.Drawing.Size(407, 31);
+            htmlLabel1.Size = new System.Drawing.Size(405, 34);
             htmlLabel1.TabIndex = 0;
             htmlLabel1.Text = "* 1개월이 지난 데이터는 자재조회에서 확인 가능합니다.";
             // 
             // createQRAll
             // 
             createQRAll.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            createQRAll.Location = new System.Drawing.Point(545, 74);
+            createQRAll.Location = new System.Drawing.Point(535, 66);
             createQRAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            createQRAll.MaximumSize = new System.Drawing.Size(123, 33);
+            createQRAll.MinimumSize = new System.Drawing.Size(123, 33);
             createQRAll.Name = "createQRAll";
             createQRAll.Size = new System.Drawing.Size(123, 33);
             createQRAll.TabIndex = 2;
@@ -73,8 +75,10 @@ namespace WindowsFormsApp1
             // 
             // prevButton
             // 
-            prevButton.Location = new System.Drawing.Point(25, 74);
+            prevButton.Location = new System.Drawing.Point(25, 66);
             prevButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            prevButton.MaximumSize = new System.Drawing.Size(117, 33);
+            prevButton.MinimumSize = new System.Drawing.Size(117, 33);
             prevButton.Name = "prevButton";
             prevButton.Size = new System.Drawing.Size(117, 33);
             prevButton.TabIndex = 4;
@@ -87,27 +91,18 @@ namespace WindowsFormsApp1
             myDataGridView.AllowUserToAddRows = false;
             myDataGridView.AllowUserToDeleteRows = false;
             myDataGridView.AllowUserToResizeRows = false;
-            myDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            myDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            myDataGridView.ColumnHeadersHeight = 29;
             myDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { select, formattedId, date, productNum, productName, serialNum, approvalStatusText });
-            myDataGridView.Location = new System.Drawing.Point(29, 114);
+            myDataGridView.Location = new System.Drawing.Point(25, 106);
+            myDataGridView.MaximumSize = new System.Drawing.Size(800, 400);
+            myDataGridView.MinimumSize = new System.Drawing.Size(800, 400);
             myDataGridView.Name = "myDataGridView";
             myDataGridView.ReadOnly = true;
             myDataGridView.RowHeadersVisible = false;
             myDataGridView.RowHeadersWidth = 51;
-            myDataGridView.Size = new System.Drawing.Size(800, 441);
+            myDataGridView.Size = new System.Drawing.Size(800, 400);
             myDataGridView.TabIndex = 5;
-            // 
-            // downloadQRAll
-            // 
-            downloadQRAll.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            downloadQRAll.Location = new System.Drawing.Point(674, 74);
-            downloadQRAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            downloadQRAll.Name = "downloadQRAll";
-            downloadQRAll.Size = new System.Drawing.Size(161, 33);
-            downloadQRAll.TabIndex = 6;
-            downloadQRAll.Text = "QR 다운로드 (일괄)";
-            downloadQRAll.UseVisualStyleBackColor = true;
-            downloadQRAll.Click += downloadQRAll_Click;
             // 
             // select
             // 
@@ -171,17 +166,33 @@ namespace WindowsFormsApp1
             approvalStatusText.ReadOnly = true;
             approvalStatusText.Width = 125;
             // 
+            // downloadQRAll
+            // 
+            downloadQRAll.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            downloadQRAll.Location = new System.Drawing.Point(664, 66);
+            downloadQRAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            downloadQRAll.MaximumSize = new System.Drawing.Size(161, 33);
+            downloadQRAll.MinimumSize = new System.Drawing.Size(161, 33);
+            downloadQRAll.Name = "downloadQRAll";
+            downloadQRAll.Size = new System.Drawing.Size(161, 33);
+            downloadQRAll.TabIndex = 6;
+            downloadQRAll.Text = "QR 다운로드 (일괄)";
+            downloadQRAll.UseVisualStyleBackColor = true;
+            downloadQRAll.Click += downloadQRAll_Click;
+            // 
             // WorkerRecentCreatedList
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(867, 638);
+            ClientSize = new System.Drawing.Size(850, 550);
             Controls.Add(downloadQRAll);
             Controls.Add(myDataGridView);
             Controls.Add(prevButton);
             Controls.Add(createQRAll);
             Controls.Add(htmlLabel1);
             Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            MaximumSize = new System.Drawing.Size(850, 550);
+            MinimumSize = new System.Drawing.Size(850, 550);
             Name = "WorkerRecentCreatedList";
             Padding = new System.Windows.Forms.Padding(22, 80, 22, 27);
             Text = "최근 생성 목록";

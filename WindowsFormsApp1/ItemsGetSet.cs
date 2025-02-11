@@ -20,18 +20,19 @@ namespace WindowsFormsApp1
         {
             get
             {
-                return approvalStatus switch
+                switch (approvalStatus)
                 {
-                    1 => "결재 대기",
-                    2 => "1차 검토 완료",
-                    3 => "승인",
-                    4 => "반려",
-                    5 => "삭제 신청",
-                    6 => "삭제 1차 검토 완료",
-                    _ => "알 수 없음",
-                };
+                    case 1: return "결재 대기";
+                    case 2: return "1차 검토 완료";
+                    case 3: return "승인";
+                    case 4: return "반려";
+                    case 5: return "삭제 신청";
+                    case 6: return "삭제 1차 검토 완료";
+                    default: return "알 수 없음";
+                }
             }
         }
+
     }
 
 

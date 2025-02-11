@@ -155,7 +155,7 @@ namespace WindowsFormsApp1
                 throw new Exception($"파일 다운로드 중 오류 발생: {ex.Message}");
             }
         }
-        private async Task DeleteProductDetailAsync(long detailId)
+        private async Task DeleteProductDetailAsync(long detailId) 
         {
             try
             {
@@ -275,7 +275,7 @@ namespace WindowsFormsApp1
             try
             {
                 HttpResponseMessage response = await client.GetAsync($"http://localhost:8080/api/approval/{selectedId}/editable");
-                string jsonResponse = await response.Content.ReadAsStringAsync();
+                string　 jsonResponse = await response.Content.ReadAsStringAsync();
                 var responseData = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonResponse);
 
                 if (responseData != null && responseData.ContainsKey("message"))

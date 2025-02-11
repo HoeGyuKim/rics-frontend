@@ -25,6 +25,7 @@ namespace WindowsFormsApp
 
             InitializeComponent(); // Windows Forms 디자이너에서 생성된 초기화 메서드를 호출합니다.
             passwordtxt.KeyUp += new KeyEventHandler(LoginTextBox_KeyUp);
+            this.AutoScaleMode = AutoScaleMode.None;
         }
 
         // 로그인 버튼 클릭 이벤트 핸들러입니다.

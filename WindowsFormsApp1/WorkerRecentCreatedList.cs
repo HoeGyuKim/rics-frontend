@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.IO;
 using Newtonsoft.Json.Converters;
 using WindowsFormsApp;
+using System.Drawing;
 
 namespace WindowsFormsApp1
 {
@@ -20,9 +21,10 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.loggedInMember = loggedInMember;
-
             InitializeDataGridView();
             this.Load += RecentCreatedList_Load;
+            this.Size = new Size(850, 500);  // 원하는 크기로 설정
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private async void RecentCreatedList_Load(object sender, EventArgs e)
         {
@@ -109,6 +111,7 @@ namespace WindowsFormsApp1
 
             // AutoGenerateColumns 사용 설정
             myDataGridView.AutoGenerateColumns = false;
+
         }
 
         private void BindDataToGrid(List<ReconditionedListItem> items)

@@ -31,8 +31,7 @@ namespace WindowsFormsApp
 
         [STAThread]
         static void Main()
-        {
-            Application.EnableVisualStyles();
+        {   Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login()); // 모든 폼이 자동으로 아이콘 적용됨
         }

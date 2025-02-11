@@ -136,9 +136,9 @@ namespace WindowsFormsApp1
             label1.AutoSize = true;
             label1.Location = new Point(34, 469);
             label1.Name = "label1";
-            label1.Size = new Size(430, 20);
+            label1.Size = new Size(356, 20);
             label1.TabIndex = 6;
-            label1.Text = "* 품목을 추가를 원하시는 경우 043-810-8415로 연락 바랍니다.";
+            label1.Text = "* 품목을 추가를 원하시는 경우 ---로 연락 바랍니다.";
             // 
             // prevButton
             // 

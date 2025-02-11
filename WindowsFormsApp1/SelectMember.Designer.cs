@@ -30,9 +30,9 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             dataGridView1 = new MetroGrid();
             Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             EmployeeNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,50 +48,57 @@ namespace WindowsFormsApp1
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(255, 255, 255);
             dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Name, EmployeeNum, Department });
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridView1.GridColor = System.Drawing.Color.FromArgb(255, 255, 255);
             dataGridView1.Location = new System.Drawing.Point(27, 103);
             dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridView1.RowTemplate.Height = 27;
             dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new System.Drawing.Size(703, 245);
+            dataGridView1.ShowCellErrors = false;
+            dataGridView1.ShowCellToolTips = false;
+            dataGridView1.ShowEditingIcon = false;
+            dataGridView1.ShowRowErrors = false;
+            dataGridView1.Size = new System.Drawing.Size(655, 245);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -100,6 +107,7 @@ namespace WindowsFormsApp1
             Name.HeaderText = "이름";
             Name.MinimumWidth = 6;
             Name.Name = "Name";
+            Name.ReadOnly = true;
             Name.Width = 125;
             // 
             // EmployeeNum
@@ -107,6 +115,7 @@ namespace WindowsFormsApp1
             EmployeeNum.HeaderText = "사번";
             EmployeeNum.MinimumWidth = 6;
             EmployeeNum.Name = "EmployeeNum";
+            EmployeeNum.ReadOnly = true;
             EmployeeNum.Width = 125;
             // 
             // Department
@@ -114,12 +123,13 @@ namespace WindowsFormsApp1
             Department.HeaderText = "부서";
             Department.MinimumWidth = 6;
             Department.Name = "Department";
+            Department.ReadOnly = true;
             Department.Width = 400;
             // 
             // selectMemberButton
             // 
             selectMemberButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            selectMemberButton.Location = new System.Drawing.Point(614, 354);
+            selectMemberButton.Location = new System.Drawing.Point(566, 354);
             selectMemberButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             selectMemberButton.Name = "selectMemberButton";
             selectMemberButton.Size = new System.Drawing.Size(116, 33);
@@ -131,7 +141,7 @@ namespace WindowsFormsApp1
             // prevButton
             // 
             prevButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            prevButton.Location = new System.Drawing.Point(395, 61);
+            prevButton.Location = new System.Drawing.Point(392, 61);
             prevButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             prevButton.Name = "prevButton";
             prevButton.Size = new System.Drawing.Size(116, 33);
@@ -143,7 +153,7 @@ namespace WindowsFormsApp1
             // searchForNameTextBox
             // 
             searchForNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            searchForNameTextBox.Location = new System.Drawing.Point(31, 61);
+            searchForNameTextBox.Location = new System.Drawing.Point(27, 61);
             searchForNameTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             searchForNameTextBox.Name = "searchForNameTextBox";
             searchForNameTextBox.Size = new System.Drawing.Size(233, 27);
@@ -152,7 +162,7 @@ namespace WindowsFormsApp1
             // searchForNameButton
             // 
             searchForNameButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            searchForNameButton.Location = new System.Drawing.Point(271, 61);
+            searchForNameButton.Location = new System.Drawing.Point(268, 61);
             searchForNameButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             searchForNameButton.Name = "searchForNameButton";
             searchForNameButton.Size = new System.Drawing.Size(116, 33);
@@ -165,7 +175,7 @@ namespace WindowsFormsApp1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(761, 423);
+            ClientSize = new System.Drawing.Size(709, 423);
             Controls.Add(searchForNameButton);
             Controls.Add(searchForNameTextBox);
             Controls.Add(prevButton);
